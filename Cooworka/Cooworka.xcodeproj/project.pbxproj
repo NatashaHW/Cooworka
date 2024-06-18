@@ -14,6 +14,14 @@
 		408B53F42C1A94D7003DE834 /* CooworkaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53F32C1A94D7003DE834 /* CooworkaTests.swift */; };
 		408B53FE2C1A94D7003DE834 /* CooworkaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53FD2C1A94D7003DE834 /* CooworkaUITests.swift */; };
 		408B54002C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */; };
+		63D333C42C21E17800036379 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C32C21E17800036379 /* Cafe.swift */; };
+		63D333C62C21E38D00036379 /* Check In.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C52C21E38D00036379 /* Check In.swift */; };
+		63D333C82C21E39600036379 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C72C21E39600036379 /* User.swift */; };
+		63D333CA2C21E3A200036379 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C92C21E3A200036379 /* Review.swift */; };
+		63D333CC2C21E3AD00036379 /* Quick Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333CB2C21E3AD00036379 /* Quick Survey.swift */; };
+		63D333CE2C21E3B300036379 /* User Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333CD2C21E3B300036379 /* User Level.swift */; };
+		63D333D02C21E3B900036379 /* Foto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333CF2C21E3B900036379 /* Foto.swift */; };
+		63D333D22C21E3BE00036379 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333D12C21E3BE00036379 /* Level.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		408B53F92C1A94D7003DE834 /* CooworkaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CooworkaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		408B53FD2C1A94D7003DE834 /* CooworkaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooworkaUITests.swift; sourceTree = "<group>"; };
 		408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooworkaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		63D333C32C21E17800036379 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
+		63D333C52C21E38D00036379 /* Check In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Check In.swift"; sourceTree = "<group>"; };
+		63D333C72C21E39600036379 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		63D333C92C21E3A200036379 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		63D333CB2C21E3AD00036379 /* Quick Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quick Survey.swift"; sourceTree = "<group>"; };
+		63D333CD2C21E3B300036379 /* User Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Level.swift"; sourceTree = "<group>"; };
+		63D333CF2C21E3B900036379 /* Foto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foto.swift; sourceTree = "<group>"; };
+		63D333D12C21E3BE00036379 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +112,7 @@
 			children = (
 				408B53E22C1A94D5003DE834 /* CooworkaApp.swift */,
 				408B53E42C1A94D5003DE834 /* ContentView.swift */,
+				63D333C22C21E11000036379 /* ModelData */,
 				408B53E62C1A94D7003DE834 /* Assets.xcassets */,
 				408B53E82C1A94D7003DE834 /* Preview Content */,
 			);
@@ -125,6 +142,21 @@
 				408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */,
 			);
 			path = CooworkaUITests;
+			sourceTree = "<group>";
+		};
+		63D333C22C21E11000036379 /* ModelData */ = {
+			isa = PBXGroup;
+			children = (
+				63D333C32C21E17800036379 /* Cafe.swift */,
+				63D333C52C21E38D00036379 /* Check In.swift */,
+				63D333C72C21E39600036379 /* User.swift */,
+				63D333C92C21E3A200036379 /* Review.swift */,
+				63D333CB2C21E3AD00036379 /* Quick Survey.swift */,
+				63D333CD2C21E3B300036379 /* User Level.swift */,
+				63D333CF2C21E3B900036379 /* Foto.swift */,
+				63D333D12C21E3BE00036379 /* Level.swift */,
+			);
+			path = ModelData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +291,14 @@
 			files = (
 				408B53E52C1A94D5003DE834 /* ContentView.swift in Sources */,
 				408B53E32C1A94D5003DE834 /* CooworkaApp.swift in Sources */,
+				63D333CE2C21E3B300036379 /* User Level.swift in Sources */,
+				63D333C62C21E38D00036379 /* Check In.swift in Sources */,
+				63D333C82C21E39600036379 /* User.swift in Sources */,
+				63D333D02C21E3B900036379 /* Foto.swift in Sources */,
+				63D333C42C21E17800036379 /* Cafe.swift in Sources */,
+				63D333CA2C21E3A200036379 /* Review.swift in Sources */,
+				63D333D22C21E3BE00036379 /* Level.swift in Sources */,
+				63D333CC2C21E3AD00036379 /* Quick Survey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
