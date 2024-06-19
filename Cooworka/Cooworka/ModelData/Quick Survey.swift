@@ -24,8 +24,9 @@ struct QuickSurvey: CloudKitRecord{
     var cafeReference: CKRecord.Reference
     var checkInReference: CKRecord.Reference
     
-    init(quickSurveyID: CKRecord.ID? = nil, quickSurveyDate: Date, isMainDish: Bool, isMeetingRoom: Bool, isPrayerRoom: Bool, isSmokingArea: Bool, isCarParking: Bool, isMotorParking: Bool, isCash: Bool, isCashless: Bool, userReference: CKRecord.Reference, cafeReference: CKRecord.Reference, checkInReference: CKRecord.Reference) {
+    init(quickSurveyID: CKRecord.ID? = nil, quickSurveyDate: Date, isMainDish: Bool, isMeetingRoom: Bool, isPrayerRoom: Bool, isSmokingArea: Bool, isCarParking: Bool, isMotorParking: Bool, isCash: Bool, isCashless: Bool, userReference: CKRecord.ID, cafeReference: CKRecord.ID, checkInReference: CKRecord.ID) {
         self.quickSurveyID = quickSurveyID ?? CKRecord.ID(recordName: UUID().uuidString)
+        self.recordID = quickSurveyID
         self.quickSurveyDate = quickSurveyDate
         self.isMainDish = isMainDish
         self.isMeetingRoom = isMeetingRoom
@@ -35,9 +36,9 @@ struct QuickSurvey: CloudKitRecord{
         self.isMotorParking = isMotorParking
         self.isCash = isCash
         self.isCashless = isCashless
-        self.userReference = userReference
-        self.cafeReference = cafeReference
-        self.checkInReference = checkInReference
+        self.userReference = CKRecord.Reference(recordID: userReference, action: .deleteSelf)
+        self.cafeReference = CKRecord.Reference(recordID: cafeReference, action: .deleteSelf)
+        self.checkInReference = CKRecord.Reference(recordID: checkInReference, action: .deleteSelf)
     }
     
     init(record: CKRecord) {

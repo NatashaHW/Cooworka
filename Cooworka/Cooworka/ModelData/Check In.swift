@@ -16,12 +16,12 @@ struct CheckIn: CloudKitRecord{
     var cafeReference: CKRecord.Reference
     var userReference: CKRecord.Reference
     
-    init(recordID: CKRecord.ID? = nil, checkInID: CKRecord.ID, checkInDate: Date, cafeReference: CKRecord.Reference, userReference: CKRecord.Reference) {
+    init(recordID: CKRecord.ID? = nil, checkInID: CKRecord.ID, checkInDate: Date, cafeReference: CKRecord.ID, userReference: CKRecord.ID) {
         self.recordID = recordID
         self.checkInID = checkInID
         self.checkInDate = checkInDate
-        self.cafeReference = cafeReference
-        self.userReference = userReference
+        self.cafeReference = CKRecord.Reference(recordID: cafeReference, action: .deleteSelf)
+        self.userReference = CKRecord.Reference(recordID: userReference, action: .deleteSelf)
     }
     
     init(record: CKRecord) {
@@ -33,7 +33,16 @@ struct CheckIn: CloudKitRecord{
         
     }
     
+    func toDictionary() -> [String: Any] {
+            return [
+                "checkInID": checkInID.recordName,
+                "checkInDate": checkInDate,
+                "cafeReference": cafeReference,
+                "userReference": userReference
+            ]
+        }
     
+
     
     func toCKRecord(recordType: String) -> CKRecord {
         let record = CKRecord(recordType: recordType, recordID: checkInID)

@@ -19,6 +19,9 @@
 		408B53F42C1A94D7003DE834 /* CooworkaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53F32C1A94D7003DE834 /* CooworkaTests.swift */; };
 		408B53FE2C1A94D7003DE834 /* CooworkaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53FD2C1A94D7003DE834 /* CooworkaUITests.swift */; };
 		408B54002C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */; };
+		63B96D862C23249300078480 /* ReviewPageInitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D852C23249300078480 /* ReviewPageInitial.swift */; };
+		63B96D882C232E3300078480 /* ReviewPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D872C232E3300078480 /* ReviewPage1.swift */; };
+		63B96D8B2C2338A900078480 /* LineProgressReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D8A2C2338A900078480 /* LineProgressReview.swift */; };
 		63D333C42C21E17800036379 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C32C21E17800036379 /* Cafe.swift */; };
 		63D333C62C21E38D00036379 /* Check In.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C52C21E38D00036379 /* Check In.swift */; };
 		63D333C82C21E39600036379 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C72C21E39600036379 /* User.swift */; };
@@ -67,6 +70,9 @@
 		408B53F92C1A94D7003DE834 /* CooworkaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CooworkaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		408B53FD2C1A94D7003DE834 /* CooworkaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooworkaUITests.swift; sourceTree = "<group>"; };
 		408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooworkaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		63B96D852C23249300078480 /* ReviewPageInitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageInitial.swift; sourceTree = "<group>"; };
+		63B96D872C232E3300078480 /* ReviewPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPage1.swift; sourceTree = "<group>"; };
+		63B96D8A2C2338A900078480 /* LineProgressReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineProgressReview.swift; sourceTree = "<group>"; };
 		63D333C32C21E17800036379 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 		63D333C52C21E38D00036379 /* Check In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Check In.swift"; sourceTree = "<group>"; };
 		63D333C72C21E39600036379 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 			children = (
 				406D8A4C2C22978600A4B724 /* Info.plist */,
 				408B53E22C1A94D5003DE834 /* CooworkaApp.swift */,
+				63B96D892C23387200078480 /* Component */,
 				A8B07B462C226D74005F662E /* Repositories */,
 				A8B07B412C226C77005F662E /* Managers */,
 				A8B07B402C226BE2005F662E /* ViewModels */,
@@ -177,6 +184,14 @@
 			path = CooworkaUITests;
 			sourceTree = "<group>";
 		};
+		63B96D892C23387200078480 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				63B96D8A2C2338A900078480 /* LineProgressReview.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		63D333C22C21E11000036379 /* ModelData */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +214,8 @@
 				408B53E42C1A94D5003DE834 /* ContentView.swift */,
 				406D8A3F2C22953A00A4B724 /* PageReview.swift */,
 				406D8A432C22957200A4B724 /* SignInApple.swift */,
+				63B96D852C23249300078480 /* ReviewPageInitial.swift */,
+				63B96D872C232E3300078480 /* ReviewPage1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,12 +379,15 @@
 			files = (
 				408B53E52C1A94D5003DE834 /* ContentView.swift in Sources */,
 				408B53E32C1A94D5003DE834 /* CooworkaApp.swift in Sources */,
+				63B96D882C232E3300078480 /* ReviewPage1.swift in Sources */,
+				63B96D862C23249300078480 /* ReviewPageInitial.swift in Sources */,
 				A8B07B452C226CFC005F662E /* CloudKitManager.swift in Sources */,
 				63D333CE2C21E3B300036379 /* User Level.swift in Sources */,
 				406D8A422C22955A00A4B724 /* SearchNearby.swift in Sources */,
 				63D333C62C21E38D00036379 /* Check In.swift in Sources */,
 				A8B07B432C226C9F005F662E /* CloudKitRecord.swift in Sources */,
 				63D333C82C21E39600036379 /* User.swift in Sources */,
+				63B96D8B2C2338A900078480 /* LineProgressReview.swift in Sources */,
 				406D8A442C22957200A4B724 /* SignInApple.swift in Sources */,
 				63D333D02C21E3B900036379 /* Foto.swift in Sources */,
 				63D333C42C21E17800036379 /* Cafe.swift in Sources */,

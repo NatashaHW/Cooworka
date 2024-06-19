@@ -45,7 +45,7 @@ struct Cafe: CloudKitRecord{
     
     func toDictionary() -> [String: Any] {
             return [
-                "cafeID": cafeID,
+                "cafeID": cafeID.recordName,
                 "alamatCafe": alamatCafe,
                 "namaCafe": namaCafe,
                 "jamBuka": jamBuka,

@@ -26,8 +26,9 @@ struct Review: CloudKitRecord{
     var cafeReference: CKRecord.Reference
     var checkInReference: CKRecord.Reference
     
-    init(reviewID: CKRecord.ID? = nil, reviewDate: Date, tasteScale: Float, ambienceScale: Float, spendingRange: String, wifiCondition: Float, socketQty: Float, chairTableScale: Float, cleanScale: Float, safetyScale: Float, custServiceScale: Float, description: String, userReference: CKRecord.Reference, cafeReference: CKRecord.Reference, checkInReference: CKRecord.Reference) {
+    init(reviewID: CKRecord.ID? = nil, reviewDate: Date, tasteScale: Float, ambienceScale: Float, spendingRange: String, wifiCondition: Float, socketQty: Float, chairTableScale: Float, cleanScale: Float, safetyScale: Float, custServiceScale: Float, description: String, userReference: CKRecord.ID, cafeReference: CKRecord.ID, checkInReference: CKRecord.ID) {
         self.reviewID = reviewID ?? CKRecord.ID(recordName: UUID().uuidString)
+        self.recordID = reviewID
         self.reviewDate = reviewDate
         self.tasteScale = tasteScale
         self.ambienceScale = ambienceScale
@@ -39,9 +40,9 @@ struct Review: CloudKitRecord{
         self.safetyScale = safetyScale
         self.custServiceScale = custServiceScale
         self.description = description
-        self.userReference = userReference
-        self.cafeReference = cafeReference
-        self.checkInReference = checkInReference
+        self.userReference = CKRecord.Reference(recordID: userReference, action: .deleteSelf)
+        self.cafeReference = CKRecord.Reference(recordID: cafeReference, action: .deleteSelf)
+        self.checkInReference = CKRecord.Reference(recordID: checkInReference, action: .deleteSelf)
         
     }
     

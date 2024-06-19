@@ -17,6 +17,7 @@ struct User: CloudKitRecord{
     
     init(userID: CKRecord.ID? = nil, username: String, xp: Int, emailUser: String) {
         self.userID = userID ?? CKRecord.ID(recordName: UUID().uuidString)
+        self.recordID = userID
         self.username = username
         self.xp = xp
         self.emailUser = emailUser
@@ -33,7 +34,7 @@ struct User: CloudKitRecord{
     
     func toDictionary() -> [String: Any] {
             return [
-                "userID": userID,
+                "userID": userID.recordName,
                 "username": username,
                 "xp": xp,
                 "emailUser": emailUser

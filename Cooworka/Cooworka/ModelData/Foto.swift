@@ -8,21 +8,41 @@
 import Foundation
 import CloudKit
 
-struct Foto{
-    
+struct Foto: CloudKitRecord{
+    var recordID: CKRecord.ID?
     let fotoID: CKRecord.ID
     let foto: CKAsset
+    var reviewReference: CKRecord.Reference
     
-    init(fotoID: CKRecord.ID? = nil, foto: CKAsset) {
+    init(fotoID: CKRecord.ID? = nil, foto: CKAsset, reviewReference: CKRecord.ID) {
         self.fotoID = fotoID ?? CKRecord.ID(recordName: UUID().uuidString)
+        self.recordID = fotoID
         self.foto = foto
+        self.reviewReference = CKRecord.Reference(recordID: reviewReference, action: .deleteSelf)
     }
+    
+    
+    init(record: CKRecord) {
+        self.recordID = record.recordID
+        self.fotoID = record.recordID
+        self.foto = record["foto"] as! CKAsset
+        self.reviewReference = record["reviewReference"] as! CKRecord.Reference
+    }
+    
     
     func toDictionary() -> [String: Any] {
         return [
-            "fotoID": fotoID,
-            "foto": foto
+            "fotoID": fotoID.recordName,
+            "foto": foto,
+            "reviewReference": reviewReference
         ]
+    }
+    
+    func toCKRecord(recordType: String) -> CKRecord {
+        let record = CKRecord(recordType: recordType, recordID: fotoID)
+        record["foto"] = foto
+        record["reviewReference"] = reviewReference
+        return record
     }
     
 }
