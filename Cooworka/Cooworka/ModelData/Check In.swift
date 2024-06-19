@@ -7,3 +7,22 @@
 
 import Foundation
 import CloudKit
+
+struct CheckIn{
+    
+    var checkInID: CKRecord.ID
+    let checkInDate: Date
+    
+    init(checkInID: CKRecord.ID? = nil, checkInDate: Date) {
+        self.checkInID = checkInID ?? CKRecord.ID(recordName: UUID().uuidString)
+        self.checkInDate = checkInDate
+    }
+    
+    func toDictionary() -> [String: Any] {
+            return [
+                "checkInID" : checkInID,
+                "checkInDate": checkInDate
+            ]
+        }
+    
+}
