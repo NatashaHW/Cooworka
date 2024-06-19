@@ -19,17 +19,17 @@ struct Cafe: CloudKitRecord{
     var serviceRating: Float
     var ambienceRating: Float
     
-//    init(cafeID: CKRecord.ID? = nil, alamatCafe: String, namaCafe: String, jamBuka: String, jamTutup: String, tasteRating: Float, serviceRating: Float, ambienceRating: Float) {
-//        self.cafeID = cafeID ?? CKRecord.ID(recordName: UUID().uuidString)
-//        self.recordID = cafeID
-//        self.alamatCafe = alamatCafe
-//        self.namaCafe = namaCafe
-//        self.jamBuka = jamBuka
-//        self.jamTutup = jamTutup
-//        self.tasteRating = tasteRating
-//        self.serviceRating = serviceRating
-//        self.ambienceRating = ambienceRating
-//    }
+    init(cafeID: CKRecord.ID? = nil, alamatCafe: String, namaCafe: String, jamBuka: String, jamTutup: String, tasteRating: Float, serviceRating: Float, ambienceRating: Float) {
+        self.cafeID = cafeID ?? CKRecord.ID(recordName: UUID().uuidString)
+        self.recordID = cafeID
+        self.alamatCafe = alamatCafe
+        self.namaCafe = namaCafe
+        self.jamBuka = jamBuka
+        self.jamTutup = jamTutup
+        self.tasteRating = tasteRating
+        self.serviceRating = serviceRating
+        self.ambienceRating = ambienceRating
+    }
     
     init(record: CKRecord) {
         self.recordID = record.recordID
@@ -43,18 +43,18 @@ struct Cafe: CloudKitRecord{
         self.ambienceRating = record["ambienceRating"] as? Float ?? 0.0
     }
     
-//    func toDictionary() -> [String: Any] {
-//            return [
-//                "cafeID": cafeID,
-//                "alamatCafe": alamatCafe,
-//                "namaCafe": namaCafe,
-//                "jamBuka": jamBuka,
-//                "jamTutup": jamTutup,
-//                "tasteRating": tasteRating,
-//                "serviceRating": serviceRating,
-//                "ambienceRating": ambienceRating
-//            ]
-//        }
+    func toDictionary() -> [String: Any] {
+            return [
+                "cafeID": cafeID,
+                "alamatCafe": alamatCafe,
+                "namaCafe": namaCafe,
+                "jamBuka": jamBuka,
+                "jamTutup": jamTutup,
+                "tasteRating": tasteRating,
+                "serviceRating": serviceRating,
+                "ambienceRating": ambienceRating
+            ]
+        }
     
     func toCKRecord(recordType: String) -> CKRecord {
         let record = CKRecord(recordType: recordType)

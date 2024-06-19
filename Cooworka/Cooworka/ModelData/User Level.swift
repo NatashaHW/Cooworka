@@ -16,8 +16,9 @@ struct UserLevel{
     
     init(userLevelID: CKRecord.ID? = nil, userID: CKRecord.ID, levelID: CKRecord.ID) {
             self.userLevelID = userLevelID ?? CKRecord.ID(recordName: UUID().uuidString)
-            self.userID = CKRecord.Reference(recordID: userID, action: .none)
-            self.levelID = CKRecord.Reference(recordID: levelID, action: .none)
+        self.userID = CKRecord.Reference(recordID: userID, action: .deleteSelf)
+        self.levelID = CKRecord.Reference(recordID: levelID, action: .deleteSelf)
+        
         }
         
         func toDictionary() -> [String: Any] {
