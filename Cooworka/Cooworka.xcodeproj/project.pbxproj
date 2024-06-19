@@ -110,8 +110,9 @@
 		408B53E12C1A94D5003DE834 /* Cooworka */ = {
 			isa = PBXGroup;
 			children = (
+				A8B07B402C226BE2005F662E /* ViewModels */,
+				A8B07B3F2C226BD3005F662E /* Views */,
 				408B53E22C1A94D5003DE834 /* CooworkaApp.swift */,
-				408B53E42C1A94D5003DE834 /* ContentView.swift */,
 				63D333C22C21E11000036379 /* ModelData */,
 				408B53E62C1A94D7003DE834 /* Assets.xcassets */,
 				408B53E82C1A94D7003DE834 /* Preview Content */,
@@ -157,6 +158,21 @@
 				63D333D12C21E3BE00036379 /* Level.swift */,
 			);
 			path = ModelData;
+			sourceTree = "<group>";
+		};
+		A8B07B3F2C226BD3005F662E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				408B53E42C1A94D5003DE834 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A8B07B402C226BE2005F662E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
