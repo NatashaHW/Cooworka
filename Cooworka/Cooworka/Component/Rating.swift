@@ -11,13 +11,15 @@ struct Rating: View {
     @Binding var rating: Int
     var text: String
     var labels: [String]
+    let onRatingChange: () -> Void
+    
     
     var body: some View {
         VStack{
             HStack{
                 Text(text)
                     .font(.subheadline)
-                    .fontWeight(.medium)
+                    .fontWeight(.regular)
                     .padding(.bottom, 5)
                     
 
@@ -28,7 +30,11 @@ struct Rating: View {
                 ForEach(1..<6) { index in
                     StarRatingComponent(filled: index <= rating, label: labels[index-1])
                         .onTapGesture {
+                            if rating == 0{
+                                onRatingChange()
+                            }
                             rating = index
+
                         }
                 }
             }
@@ -40,5 +46,7 @@ struct Rating: View {
 }
 
 #Preview {
-    Rating(rating: .constant(3), text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"])
+    Rating(rating: .constant(3), text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"]){
+        
+    }
 }

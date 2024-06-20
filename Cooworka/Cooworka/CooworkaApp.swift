@@ -11,7 +11,9 @@ import SwiftUI
 struct CooworkaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            ReviewPage1()
+//            EmoticonComponent()
         }
     }
 }

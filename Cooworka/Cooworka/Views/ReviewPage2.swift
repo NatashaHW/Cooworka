@@ -1,21 +1,19 @@
 //
-//  ReviewPage1.swift
+//  ReviewPage2.swift
 //  Cooworka
 //
-//  Created by Lucinda Artahni on 19/06/24.
+//  Created by Lucinda Artahni on 20/06/24.
 //
 
 import SwiftUI
 
-struct ReviewPage1: View {
+struct ReviewPage2: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var ratingSuasana: Int = 0
-    @State private var ratingPelayanan: Int = 0
-    @State private var ratingRasa: Int = 0
     
-    @State private var adaMakananBerat: Bool = false
+    @State var selectedSocketQty: Int = -1
+    @State  var kenyamananKursiDanMeja: String?
     
-    @State private var totalPoint = 0
+    @Binding var totalPoint: Int
     
     var body: some View {
         NavigationView{
@@ -58,42 +56,55 @@ struct ReviewPage1: View {
                             Text("Kamu akan mendapatkan...")
                                 .fontWeight(.semibold)
                             
+                            
                             Spacer()
                             
                             Text("+\(totalPoint) Xp")
                                 .fontWeight(.bold)
                                 .foregroundStyle(Color("PrimaryBase"))
+                            
                         }
                         .padding(.horizontal, 27)
+                        
                     }
                 }
                 
                 HStack{
-                    LineProgressReview(color: "GreyProgressBarSelected")
                     LineProgressReview()
+                    LineProgressReview(color: "GreyProgressBarSelected")
                     LineProgressReview()
                 }
                 .padding(.horizontal, 24)
                 
                 VStack{
-                    Rating(rating: $ratingSuasana, text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"]){
+                    HStack{
+                        Text("WFC Suporter")
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                    }
+                    
+                    Rectangle()
+                        .frame(width: .infinity, height: 85)
+                    
+                    
+                    SocketQty() { selectedIndex in
+                        selectedSocketQty = selectedIndex
+                        
+                    } onFirstTap: {
                         updateTotalPoints()
                     }
                     
-                    Rating(rating: $ratingPelayanan, text: "Pelayanan", labels: ["Perbaiki ya..", "Kureng", "So-so lah", "Top Abis", "Berasa Raja"]){
-                        updateTotalPoints()
-                    }
+                    EmoticonComponent(selectedLabel: $kenyamananKursiDanMeja)
+
                     
-                    Rating(rating: $ratingRasa, text: "Rasa", labels: ["Not taste", "Hmm..", "So-so lah", "Boleh Juga", "Enak Bingit"]){
-                        updateTotalPoints()
-                    }
                     
-                    PreviewYesNoButton(ada: $adaMakananBerat, gakAda: false, title: "Makanan berat"){
-                        updateTotalPoints()
-                    }
-                        .padding(.top, 8)
-                        .padding(.bottom, -20)
+                    
+                    
                 }
+                .padding(.horizontal, 24)
                 
                 Spacer()
                 
@@ -110,21 +121,28 @@ struct ReviewPage1: View {
                             .foregroundColor(.white)
                             .background(Color("PrimaryBase"))
                             .cornerRadius(15)
+                        
                     }
                     .padding(.top, 20)
                     .padding(.bottom, 30)
+                    
+                    
                 }
+                
             }
             .edgesIgnoringSafeArea(.bottom)
+            
+            
+            
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     private func updateTotalPoints() {
         totalPoint += 10
         }
-
 }
 
 #Preview {
-    ReviewPage1()
+    ReviewPage2(totalPoint: .constant(15))
 }
