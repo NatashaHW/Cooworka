@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ReviewPage1: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var ratingSuasana: Int = 0
+    @State private var ratingPelayanan: Int = 0
+    @State private var ratingRasa: Int = 0
     
     var body: some View {
         NavigationView{
@@ -17,8 +20,8 @@ struct ReviewPage1: View {
                     Rectangle()
                         .foregroundColor(.white)
                         .ignoresSafeArea()
-                        .shadow(radius: 10)
-                        .frame(width: .infinity, height: 270)
+                        .shadow(radius: 8)
+                        .frame(width: .infinity, height: 235)
                     
                     
                     VStack{
@@ -43,7 +46,7 @@ struct ReviewPage1: View {
                         .padding(.leading, 10)
                         
                         Rectangle()
-                            .frame(width: .infinity, height: 130)
+                            .frame(width: .infinity, height: 110)
                             .padding()
                             .padding(.top, -10)
                             .padding(.horizontal, 10)
@@ -58,26 +61,35 @@ struct ReviewPage1: View {
                                 .fontWeight(.bold)
                                 .foregroundStyle(Color("Primary"))
                             
-                            
                         }
                         .padding(.horizontal, 27)
-                        
-                        
-                        
                         
                     }
                     
                     
                 }
                 
-                VStack{
-                    Text("Hello")
-                    
-                    Text("Hello")
+                HStack{
+                    LineProgressReview(color: "GreyProgressBarSelected")
+                    LineProgressReview()
+                    LineProgressReview()
                 }
+                .padding(.horizontal, 24)
+                
+                
+                
+                VStack{
+                    Rating(rating: $ratingSuasana, text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"])
+                    
+                    Rating(rating: $ratingPelayanan, text: "Pelayanan", labels: ["Perbaiki ya..", "Kureng", "So-so lah", "Top Abis", "Berasa Raja"])
+                    
+                    Rating(rating: $ratingRasa, text: "Rasa", labels: ["Not taste", "Hmm..", "So-so lah", "Boleh Juga", "Enak Bingit"])
+                    
+                    
+                    
+                }
+                
                 Spacer()
-                
-                
                 
                 ZStack{
                     Rectangle()
@@ -99,7 +111,7 @@ struct ReviewPage1: View {
                     
                     
                 }
-                
+
             }
             .edgesIgnoringSafeArea(.bottom)
             

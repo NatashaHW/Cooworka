@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct LineProgressReview: View {
+    var color: String = "GreyProgressBar"
+    
     var body: some View {
         HStack{
-            
             Rectangle()
                 .frame(width: 101, height: 4)
                 .cornerRadius(6)
-                .foregroundColor(Color("GreyProgressBar"))
+                .foregroundColor(Color(color))
                 .opacity(0.70)
+                .padding(7)
         }
     }
 }
