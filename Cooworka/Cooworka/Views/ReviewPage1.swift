@@ -13,6 +13,8 @@ struct ReviewPage1: View {
     @State private var ratingPelayanan: Int = 0
     @State private var ratingRasa: Int = 0
     
+
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -111,7 +113,7 @@ struct ReviewPage1: View {
                     
                     
                 }
-
+                
             }
             .edgesIgnoringSafeArea(.bottom)
             

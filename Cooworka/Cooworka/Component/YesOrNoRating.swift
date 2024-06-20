@@ -8,27 +8,34 @@
 import SwiftUI
 
 struct YesOrNoRating: View {
+    var label: String
+    @Binding var isSelected: Bool
+    
     var body: some View {
-        ZStack{
-//           Rectangle()
-//                .frame(width: 96, height: 41)
-//                .cornerRadius(7)
-//
-//                .cornerRadius(7)
-//                .foregroundColor(.clear)
-//                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Rectangle()
+                .foregroundColor(isSelected ? Color.selected : Color.clear)
+                .frame(width: 96, height: 41)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 7)
+                        .stroke(isSelected ? Color.primaryBase : Color.unselected, lineWidth: 2)
+                )
+                .cornerRadius(7)
             
-//            Button(action: {
-//                
-//            }, label: {
-//                })
-                
             
-            Text("Hahahaha")
+            Text(label)
+                .font(.caption)
+                .foregroundColor(.black)
+                .background(Color.clear)
         }
+        .onTapGesture {
+            isSelected.toggle()
+        }
+        .padding(.vertical, 8)
+        .padding(.horizontal, 12)
     }
 }
 
 #Preview {
-    YesOrNoRating()
+    YesOrNoRating(label: "Hahaha", isSelected: .constant(true))
 }

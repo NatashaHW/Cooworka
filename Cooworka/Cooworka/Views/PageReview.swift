@@ -117,7 +117,7 @@ struct CafeCardView: View {
                     .foregroundColor(.white)
                     .frame(width: 294, height: 32)
                     .padding(2.5)
-                    .background(Color("Primary"))
+                    .background(Color("PrimaryBase"))
                     .cornerRadius(32)
             }
         }
