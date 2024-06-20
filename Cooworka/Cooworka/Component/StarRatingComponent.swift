@@ -17,7 +17,7 @@ struct StarRatingComponent: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 32, height: 32)
-                .foregroundColor(filled ? Color("Primary") : Color("Primary"))
+                .foregroundColor(filled ? Color("PrimaryBase") : Color("PrimaryBase"))
                 .padding(.horizontal, 15)
             
             Text(label)
