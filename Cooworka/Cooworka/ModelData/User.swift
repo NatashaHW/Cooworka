@@ -10,14 +10,14 @@ import CloudKit
 
 struct User: CloudKitRecord{
     var recordID: CKRecord.ID?
-    var userID: CKRecord.ID
+    var userID: String
     var username: String
     var xp: Int
     var emailUser: String
     
-    init(userID: CKRecord.ID? = nil, username: String, xp: Int, emailUser: String) {
-        self.userID = userID ?? CKRecord.ID(recordName: UUID().uuidString)
-        self.recordID = userID
+    init(userID: String, username: String, xp: Int, emailUser: String) {
+        self.userID = userID
+        self.recordID = CKRecord.ID(recordName: userID)
         self.username = username
         self.xp = xp
         self.emailUser = emailUser
@@ -25,7 +25,7 @@ struct User: CloudKitRecord{
     
     init(record: CKRecord) {
         self.recordID = record.recordID
-        self.userID = record.recordID
+        self.userID = record["userID"] as? String ?? ""
         self.username = record["username"] as? String ?? ""
         self.xp = record["xp"] as? Int ?? 0
         self.emailUser = record["emailUser"] as? String ?? ""
@@ -34,7 +34,7 @@ struct User: CloudKitRecord{
     
     func toDictionary() -> [String: Any] {
             return [
-                "userID": userID.recordName,
+                "userID": userID,
                 "username": username,
                 "xp": xp,
                 "emailUser": emailUser
@@ -43,7 +43,7 @@ struct User: CloudKitRecord{
     
 
     func toCKRecord(recordType: String) -> CKRecord {
-            let record = CKRecord(recordType: recordType, recordID: userID)
+            let record = CKRecord(recordType: recordType, recordID: recordID!)
             record["username"] = username as CKRecordValue
             record["xp"] = xp as CKRecordValue
             record["emailUser"] = emailUser as CKRecordValue

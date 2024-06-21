@@ -14,8 +14,8 @@ struct Foto: CloudKitRecord{
     let foto: CKAsset
     var reviewReference: CKRecord.Reference
     
-    init(fotoID: CKRecord.ID? = nil, foto: CKAsset, reviewReference: CKRecord.ID) {
-        self.fotoID = fotoID ?? CKRecord.ID(recordName: UUID().uuidString)
+    init(foto: CKAsset, reviewReference: CKRecord.ID) {
+        self.fotoID = CKRecord.ID(recordName: UUID().uuidString)
         self.recordID = fotoID
         self.foto = foto
         self.reviewReference = CKRecord.Reference(recordID: reviewReference, action: .deleteSelf)
