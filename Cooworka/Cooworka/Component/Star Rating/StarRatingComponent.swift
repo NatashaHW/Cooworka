@@ -21,7 +21,7 @@ struct StarRatingComponent: View {
                 .padding(.horizontal, 15)
             
             Text(label)
-                .font(.caption2)
+                .font(.system(size: 10))
                 .foregroundColor(.black)
                 .padding(.top, 3)
             

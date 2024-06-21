@@ -16,7 +16,7 @@ struct EmotNText: View {
         ZStack {
             Rectangle()
                 .foregroundColor(isSelected ? Color.selected : Color.clear)
-                .frame(width: 70, height: 80)
+                .frame(width: 68, height: 80)
                 .overlay(
                     RoundedRectangle(cornerRadius: 7)
                         .stroke(isSelected ? Color.primaryBase : Color.clear, lineWidth: 2)
@@ -31,12 +31,13 @@ struct EmotNText: View {
                 
                 
                 Text(label)
-                    .font(.caption2)
+                    .font(.system(size: 10))
                     .foregroundColor(.black)
                     .background(Color.clear)
             }
         }
         .onTapGesture {
+            
             action()
         }
     }

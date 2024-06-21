@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Rating: View {
+struct StarRating: View {
     @Binding var rating: Int
     var text: String
     var labels: [String]
@@ -39,14 +39,14 @@ struct Rating: View {
                 }
             }
         }
-        .padding(.horizontal, 24)
+
         .padding(.bottom, 16)
        
     }
 }
 
 #Preview {
-    Rating(rating: .constant(3), text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"]){
+    StarRating(rating: .constant(3), text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"]){
         
     }
 }

@@ -34,7 +34,7 @@ struct YesOrNoRating: View {
                 isSelected.toggle()
             }
         }
-        .padding(.horizontal, 5)
+        .padding(.horizontal, 2)
     }
 }
 

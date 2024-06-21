@@ -76,24 +76,25 @@ struct ReviewPage1: View {
                 .padding(.horizontal, 24)
                 
                 VStack{
-                    Rating(rating: $ratingSuasana, text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"]){
+                    StarRating(rating: $ratingSuasana, text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"]){
                         updateTotalPoints()
                     }
                     
-                    Rating(rating: $ratingPelayanan, text: "Pelayanan", labels: ["Perbaiki ya..", "Kureng", "So-so lah", "Top Abis", "Berasa Raja"]){
+                    StarRating(rating: $ratingPelayanan, text: "Pelayanan", labels: ["Perbaiki ya..", "Kureng", "So-so lah", "Top Abis", "Berasa Raja"]){
                         updateTotalPoints()
                     }
                     
-                    Rating(rating: $ratingRasa, text: "Rasa", labels: ["Not taste", "Hmm..", "So-so lah", "Boleh Juga", "Enak Bingit"]){
+                    StarRating(rating: $ratingRasa, text: "Rasa", labels: ["Not taste", "Hmm..", "So-so lah", "Boleh Juga", "Enak Bingit"]){
                         updateTotalPoints()
                     }
                     
-                    PreviewYesNoButton(ada: $adaMakananBerat, gakAda: false, title: "Makanan berat"){
+                    PreviewYesNoButton(ada: $adaMakananBerat, title: "Makanan berat"){
                         updateTotalPoints()
                     }
                         .padding(.top, 8)
                         .padding(.bottom, -20)
                 }
+                .padding(.horizontal, 24)
                 
                 Spacer()
                 

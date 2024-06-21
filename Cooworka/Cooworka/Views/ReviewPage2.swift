@@ -12,6 +12,9 @@ struct ReviewPage2: View {
     
     @State var selectedSocketQty: Int = -1
     @State  var kenyamananKursiDanMeja: String?
+    @State private var adaRuangMeeting: Bool = false
+    @State private var adaRuangBerdoa: Bool = false
+    @State private var adaAreaMerokok: Bool = false
     
     @Binding var totalPoint: Int
     
@@ -76,32 +79,58 @@ struct ReviewPage2: View {
                 }
                 .padding(.horizontal, 24)
                 
-                VStack{
-                    HStack{
-                        Text("WFC Suporter")
-                            .font(.subheadline)
-                            .fontWeight(.bold)
+                ScrollView{
+                    VStack{
+                        HStack{
+                            Text("WFC Suporter")
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            
+                        }
                         
-                        Spacer()
+                        Rectangle()
+                            .frame(width: .infinity, height: 73)
+                        
+                        
+                        SocketQty() { selectedIndex in
+                            selectedSocketQty = selectedIndex
+                            
+                        } onFirstTap: {
+                            updateTotalPoints()
+                        }
+                        
+                        EmoticonComponent(selectedLabel: $kenyamananKursiDanMeja){
+                            updateTotalPoints()
+                        }
+                        
+                        HStack{
+                            Text("Kelengkapan")
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                        .padding(.top, 1)
+                        .padding(.bottom, -2)
+                        
+                        PreviewYesNoButton(ada: $adaRuangMeeting, title: "Ruang Meeting"){
+                            updateTotalPoints()
+                        }
+                        
+                        PreviewYesNoButton(ada: $adaRuangBerdoa, title: "Ruangan Berdoa"){
+                            updateTotalPoints()
+                        }
+                        
+                        PreviewYesNoButton(ada: $adaAreaMerokok, title: "Area Merokok"){
+                            updateTotalPoints()
+                        }
+                        
+                        
+                        
+                        
                         
                     }
-                    
-                    Rectangle()
-                        .frame(width: .infinity, height: 85)
-                    
-                    
-                    SocketQty() { selectedIndex in
-                        selectedSocketQty = selectedIndex
-                        
-                    } onFirstTap: {
-                        updateTotalPoints()
-                    }
-                    
-                    EmoticonComponent(selectedLabel: $kenyamananKursiDanMeja)
-
-                    
-                    
-                    
                     
                 }
                 .padding(.horizontal, 24)
@@ -140,7 +169,7 @@ struct ReviewPage2: View {
     
     private func updateTotalPoints() {
         totalPoint += 10
-        }
+    }
 }
 
 #Preview {
