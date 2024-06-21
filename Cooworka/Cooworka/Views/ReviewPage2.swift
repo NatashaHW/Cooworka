@@ -15,6 +15,8 @@ struct ReviewPage2: View {
     @State private var adaRuangMeeting: Bool = false
     @State private var adaRuangBerdoa: Bool = false
     @State private var adaAreaMerokok: Bool = false
+    @State private var adaParkirMotor: Bool = false
+    @State private var adaParkirMobil: Bool = false
     
     @Binding var totalPoint: Int
     
@@ -126,9 +128,11 @@ struct ReviewPage2: View {
                             updateTotalPoints()
                         }
                         
+                        KetersediaanParkir(isMotorParking: $adaParkirMotor, isMobilParking: $adaParkirMobil, title: "Area Parkir"){
+                            updateTotalPoints()
+                        }
                         
-                        
-                        
+
                         
                     }
                     
@@ -143,7 +147,7 @@ struct ReviewPage2: View {
                         .foregroundColor(.white)
                         .shadow(radius:10)
                     
-                    NavigationLink(destination: ReviewPage2( totalPoint: $totalPoint)) {
+                    NavigationLink(destination: ReviewPage3(totalPoint: $totalPoint)) {
                         Text("Go to Detail View")
                             .padding(.horizontal, 100)
                             .padding(.vertical, 18)
