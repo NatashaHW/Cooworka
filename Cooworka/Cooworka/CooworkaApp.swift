@@ -14,6 +14,7 @@ struct CooworkaApp: App {
 //            ContentView()
             ReviewPage1()
 //            EmoticonComponent()
+            
         }
     }
 }
