@@ -314,6 +314,16 @@
 			path = ModelData;
 			sourceTree = "<group>";
 		};
+		63F876462C26A82100DFB001 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				63B96D872C232E3300078480 /* ReviewPage1.swift */,
+				63819FBD2C244A2500826F04 /* ReviewPage2.swift */,
+				63B5C7542C2520300056341A /* ReviewPage3.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		A8B07B3F2C226BD3005F662E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,9 +331,7 @@
 				406D8A3F2C22953A00A4B724 /* PageReview.swift */,
 				406D8A432C22957200A4B724 /* SignInApple.swift */,
 				63B96D852C23249300078480 /* ReviewPageInitial.swift */,
-				63B96D872C232E3300078480 /* ReviewPage1.swift */,
-				63819FBD2C244A2500826F04 /* ReviewPage2.swift */,
-				63B5C7542C2520300056341A /* ReviewPage3.swift */,
+				63F876462C26A82100DFB001 /* Review */,
 			);
 			path = Views;
 			sourceTree = "<group>";
