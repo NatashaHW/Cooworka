@@ -10,8 +10,12 @@ import SwiftUI
 struct ReviewPage3: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @State private var selectedImages: [UIImage] = []
     @State private var reviewExtra: String = ""
+    
+    
     @State var value: CGFloat = 0
+    @State private var isPickerPresented: Bool = false
     
     @Binding var totalPoint: Int
     
@@ -79,7 +83,15 @@ struct ReviewPage3: View {
                 
                 ScrollView{
                     VStack(spacing: 28){
-                        FotoElement()
+                        FotoElement(openGallery: {
+                            isPickerPresented.toggle()
+                        })
+                        .sheet(isPresented: $isPickerPresented) {
+                            PhotoPicker(selectedImages: $selectedImages)
+                                .edgesIgnoringSafeArea(.bottom)
+                        }
+                        
+                        //TODO: tampilin foto yg di add
                         
                         
                         ReviewExtra(reviewText: $reviewExtra){
