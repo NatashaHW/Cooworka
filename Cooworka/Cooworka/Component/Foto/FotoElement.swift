@@ -10,6 +10,7 @@ import SwiftUI
 struct FotoElement: View {
     @State private var isShowingPhotoPicker = false
     @State private var selectedImages: [UIImage] = []
+    let openGallery: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
@@ -23,7 +24,7 @@ struct FotoElement: View {
                 .foregroundColor(.description)
             
             Button(action: {
-                //TODO: masukin photo picker buat akses gallery
+                openGallery()
             }, label: {
                 HStack {
                     Image("Add photo")
@@ -56,5 +57,5 @@ struct FotoElement: View {
 }
 
 #Preview {
-    FotoElement()
+    FotoElement(openGallery: {})
 }

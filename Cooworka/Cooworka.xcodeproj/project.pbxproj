@@ -19,6 +19,7 @@
 		408B53F42C1A94D7003DE834 /* CooworkaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53F32C1A94D7003DE834 /* CooworkaTests.swift */; };
 		408B53FE2C1A94D7003DE834 /* CooworkaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53FD2C1A94D7003DE834 /* CooworkaUITests.swift */; };
 		408B54002C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */; };
+		630758FE2C29470A00AD7241 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630758FD2C29470A00AD7241 /* PhotoPicker.swift */; };
 		630C1EB42C23DFDE007A5CA7 /* YesOrNoRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C1EB32C23DFDE007A5CA7 /* YesOrNoRating.swift */; };
 		630C1EB62C23F20F007A5CA7 /* PreviewYesNoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C1EB52C23F20F007A5CA7 /* PreviewYesNoButton.swift */; };
 		633C48F42C25C9C600BC6B8D /* FotoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C48F32C25C9C600BC6B8D /* FotoElement.swift */; };
@@ -88,6 +89,7 @@
 		408B53F92C1A94D7003DE834 /* CooworkaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CooworkaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		408B53FD2C1A94D7003DE834 /* CooworkaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooworkaUITests.swift; sourceTree = "<group>"; };
 		408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooworkaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		630758FD2C29470A00AD7241 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		630C1EB32C23DFDE007A5CA7 /* YesOrNoRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesOrNoRating.swift; sourceTree = "<group>"; };
 		630C1EB52C23F20F007A5CA7 /* PreviewYesNoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewYesNoButton.swift; sourceTree = "<group>"; };
 		633C48F32C25C9C600BC6B8D /* FotoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoElement.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				63B96D872C232E3300078480 /* ReviewPage1.swift */,
 				63819FBD2C244A2500826F04 /* ReviewPage2.swift */,
 				63B5C7542C2520300056341A /* ReviewPage3.swift */,
+				630758FD2C29470A00AD7241 /* PhotoPicker.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				630C1EB42C23DFDE007A5CA7 /* YesOrNoRating.swift in Sources */,
 				63819FC42C247EED00826F04 /* EmoticonComponent.swift in Sources */,
 				63D333D02C21E3B900036379 /* Foto.swift in Sources */,
+				630758FE2C29470A00AD7241 /* PhotoPicker.swift in Sources */,
 				63807E922C290E1B0066FCDB /* WiFiElement.swift in Sources */,
 				63807E992C2921C80066FCDB /* HargaElement.swift in Sources */,
 				63819FC02C2469A300826F04 /* SocketQty.swift in Sources */,
@@ -728,6 +732,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cooworka need your location to find nearby cafes.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -760,6 +765,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cooworka need your location to find nearby cafes.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
