@@ -11,6 +11,9 @@ struct FotoElement: View {
     @State private var isShowingPhotoPicker = false
     @State private var selectedImages: [UIImage] = []
     let openGallery: () -> Void
+//    let updatePoint: () -> Void
+//    let deductPoint: () -> Void
+    @State private var hasChanged = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
@@ -25,6 +28,9 @@ struct FotoElement: View {
             
             Button(action: {
                 openGallery()
+                
+                
+                
             }, label: {
                 HStack {
                     Image("Add photo")
