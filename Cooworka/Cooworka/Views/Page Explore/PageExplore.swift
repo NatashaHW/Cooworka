@@ -67,7 +67,7 @@ struct PageExplore: View {
                     VStack(alignment: .leading, spacing: 40) {
                         VStack(spacing: 25) {
                             // SearchBar
-                            NavigationLink(destination: SearchCafeView()) {
+                            NavigationLink(destination: SearchCafeView(reviews: reviews)) {
                                 ZStack {
                                     Rectangle()
                                         .fill(Color.white)
