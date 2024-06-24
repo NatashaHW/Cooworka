@@ -36,7 +36,7 @@ struct ReviewPage2: View {
                             Button(action: {
                                 self.presentationMode.wrappedValue.dismiss()
                             }, label: {
-                                Image(systemName: "chevron.backward")
+                                Image(systemName: "arrow.backward")
                                     .foregroundColor(.black)
                                     .fontWeight(.bold)
                             })

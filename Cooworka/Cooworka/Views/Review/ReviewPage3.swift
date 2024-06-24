@@ -34,7 +34,7 @@ struct ReviewPage3: View {
                             Button(action: {
                                 self.presentationMode.wrappedValue.dismiss()
                             }, label: {
-                                Image(systemName: "chevron.backward")
+                                Image(systemName: "arrow.backward")
                                     .foregroundColor(.black)
                                     .fontWeight(.bold)
                             })
@@ -83,6 +83,12 @@ struct ReviewPage3: View {
                 
                 ScrollView{
                     VStack(spacing: 28){
+//                        FotoElement(openGallery: {
+//                            isPickerPresented.toggle()
+//                        }, updatePoint: {
+//                            updateTotalPointsForAddPhoto()
+//                        }, deductPoint: {
+//                            deductTotalPointsForAddPhoto()})
                         FotoElement(openGallery: {
                             isPickerPresented.toggle()
                         })
@@ -91,7 +97,50 @@ struct ReviewPage3: View {
                                 .edgesIgnoringSafeArea(.bottom)
                         }
                         
-                        //TODO: tampilin foto yg di add
+                        
+                        if !selectedImages.isEmpty{
+                            ZStack{
+                                HStack{
+                                    Spacer()
+                                        .frame(width: 315)
+                                    Button(action: {
+                                        selectedImages.removeAll()
+                                    }, label: {
+                                       Image(systemName: "x.circle")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 15, height: 15)
+                                            .foregroundColor(.gray)
+                                            
+                                    })
+                                }
+                                .zIndex(1)
+                                .offset(y: -43)
+                                .padding(.top, -7)
+                                
+                                Rectangle()
+                                    .frame(width: 344, height: 120)
+                                    .cornerRadius(16)
+                                    .foregroundColor(.photoBackground)
+                                
+                                ScrollView(.horizontal) {
+                                    HStack {
+                                        ForEach(selectedImages, id: \.self) { image in
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(height: 80)
+                                            
+                                        }
+                                    }
+                                    .padding(.horizontal, 10)
+                                    .padding(.top, 15)
+                                }
+                                .frame(width: 330, height: 95)
+                            }
+                            .padding(.top, -18)
+                            
+                        }
                         
                         
                         ReviewExtra(reviewText: $reviewExtra){
@@ -108,7 +157,7 @@ struct ReviewPage3: View {
                             let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
                             let height = value.height
                             
-                            self.value = height - 175
+                            self.value = height - 170
                         }
                         
                         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main){ (noti) in
@@ -156,6 +205,15 @@ struct ReviewPage3: View {
     private func deductTotalPointsForReviewExtra() {
         totalPoint -= 50
     }
+    
+    private func updateTotalPointsForAddPhoto(){
+        totalPoint += 30
+    }
+    
+    private func deductTotalPointsForAddPhoto(){
+        totalPoint -= 30
+    }
+    
 }
 
 #Preview {
