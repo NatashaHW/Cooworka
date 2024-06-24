@@ -12,6 +12,7 @@ struct KetersediaanParkir: View {
     @Binding var isMobilParking: Bool
     @State var title: String
     let onRatingChange: () -> Void
+    let deductPoint: () -> Void
     @State private var hasChanged: Bool = false
     
     var body: some View {
@@ -41,6 +42,12 @@ struct KetersediaanParkir: View {
                         onRatingChange()
                         hasChanged = true
                     }
+                
+                if isMobilParking == false && isMotorParking == false && hasChanged == true{
+                    deductPoint()
+                    hasChanged = false
+                }
+                
             }
             .onChange(of: isMobilParking) { newValue in
 
@@ -48,6 +55,10 @@ struct KetersediaanParkir: View {
                         onRatingChange()
                         hasChanged = true
                     }
+                if isMobilParking == false && isMotorParking == false && hasChanged == true{
+                    deductPoint()
+                    hasChanged = false
+                }
             }
         }
         .padding(.vertical, 3)
@@ -55,5 +66,5 @@ struct KetersediaanParkir: View {
 }
 
 #Preview {
-    KetersediaanParkir(isMotorParking: .constant(true), isMobilParking: .constant(false), title: "Ketersediaan parkir", onRatingChange: {})
+    KetersediaanParkir(isMotorParking: .constant(false), isMobilParking: .constant(true), title: "Area Parkir", onRatingChange: {}, deductPoint: {})
 }

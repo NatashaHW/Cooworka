@@ -81,6 +81,7 @@ struct ReviewPage2: View {
                     LineProgressReview()
                 }
                 .padding(.horizontal, 24)
+                .padding(.bottom, 12)
                 
                 ScrollView{
                     VStack{
@@ -131,6 +132,8 @@ struct ReviewPage2: View {
                         
                         KetersediaanParkir(isMotorParking: $adaParkirMotor, isMobilParking: $adaParkirMobil, title: "Area Parkir"){
                             updateTotalPoints()
+                        } deductPoint: {
+                            deductPoint()
                         }
                         
 
@@ -174,6 +177,10 @@ struct ReviewPage2: View {
     
     private func updateTotalPoints() {
         totalPoint += 10
+    }
+    
+    private func deductPoint() {
+        totalPoint -= 10
     }
 }
 

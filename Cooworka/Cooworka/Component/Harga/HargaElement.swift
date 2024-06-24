@@ -24,20 +24,19 @@ struct HargaElement: View {
                 .cornerRadius(7)
             
             VStack (spacing: 5){
-                Image(isSelected ? "CoinSelected" : "OkBanget")
+                Image(isSelected ? "CoinSelected" : "CoinAbu")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 29)
+                    .frame(width: 35)
                    
                     
                 
                 Text(label)
-                    .font(.system(size: 9))
+                    .font(.system(size: 9.5))
                     .foregroundColor(.black)
                     .background(Color.clear)
             }
         }
-//        .padding(.horizontal, 5)
         .onTapGesture {
             
             action()
