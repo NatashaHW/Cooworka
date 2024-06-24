@@ -4,6 +4,7 @@ import MapKit
 
 class SearchNearby: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var cafes: [ListCafe] = []
+    @Published var userLocation: CLLocation?
     
     private var locationManager: CLLocationManager?
     
@@ -21,6 +22,7 @@ class SearchNearby: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            userLocation = location // Update userLocation
             searchForCafes(location: location)
             locationManager?.stopUpdatingLocation()
         }
@@ -60,4 +62,3 @@ class SearchNearby: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 }
-
