@@ -75,6 +75,7 @@ struct ReviewPage1: View {
                     LineProgressReview()
                 }
                 .padding(.horizontal, 24)
+                .padding(.bottom, 12)
                 
                 ScrollView{
                     VStack{

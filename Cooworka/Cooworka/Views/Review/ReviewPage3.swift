@@ -11,6 +11,7 @@ struct ReviewPage3: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var reviewExtra: String = ""
+    @State var value: CGFloat = 0
     
     @Binding var totalPoint: Int
     
@@ -74,17 +75,35 @@ struct ReviewPage3: View {
                     LineProgressReview()
                 }
                 .padding(.horizontal, 24)
+                .padding(.bottom, 12)
                 
-                VStack(spacing: 28){
-                    FotoElement()
-                    
-                    
-                    ReviewExtra(reviewText: $reviewExtra){
-                        updateTotalPointsForReviewExtra()
-                    } deductPoint: {
-                        deductTotalPointsForReviewExtra()
+                ScrollView{
+                    VStack(spacing: 28){
+                        FotoElement()
+                        
+                        
+                        ReviewExtra(reviewText: $reviewExtra){
+                            updateTotalPointsForReviewExtra()
+                        } deductPoint: {
+                            deductTotalPointsForReviewExtra()
+                        }
+                        
                     }
-  
+                    .offset(y: -self.value)
+                    .animation(.spring())
+                    .onAppear{
+                        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main){ (noti) in
+                            let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                            let height = value.height
+                            
+                            self.value = height - 175
+                        }
+                        
+                        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main){ (noti) in
+                            
+                            self.value = 0
+                        }
+                    }
                 }
                 
                 
@@ -115,14 +134,15 @@ struct ReviewPage3: View {
             .edgesIgnoringSafeArea(.bottom)
             
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     private func updateTotalPointsForReviewExtra() {
-        totalPoint += 10
+        totalPoint += 50
     }
     
     private func deductTotalPointsForReviewExtra() {
-        totalPoint -= 10
+        totalPoint -= 50
     }
 }
 
