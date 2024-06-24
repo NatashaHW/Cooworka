@@ -1,7 +1,7 @@
 import SwiftUI
 import MapKit
 
-struct PageReview: View {
+struct PageExplore: View {
     @State private var isLocationViewPresented = false
     @State private var selectedLocationName: String = "BSD"
     @StateObject private var viewModel = SearchNearby()
@@ -67,25 +67,27 @@ struct PageReview: View {
                     VStack(alignment: .leading, spacing: 40) {
                         VStack(spacing: 25) {
                             // SearchBar
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.white)
-                                    .frame(width: 344, height: 40)
-                                    .cornerRadius(20)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .stroke(Color.gray, lineWidth: 1)
-                                    )
-                                
-                                HStack {
-                                    Image(systemName: "magnifyingglass")
-                                        .foregroundColor(.gray)
-                                    Text("Search")
-                                        .foregroundColor(.gray)
-                                    Spacer()
+                            NavigationLink(destination: SearchCafeView()) {
+                                ZStack {
+                                    Rectangle()
+                                        .fill(Color.white)
+                                        .frame(width: 344, height: 40)
+                                        .cornerRadius(20)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .stroke(Color.gray, lineWidth: 1)
+                                        )
+                                    
+                                    HStack {
+                                        Image(systemName: "magnifyingglass")
+                                            .foregroundColor(.gray)
+                                        Text("Search")
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                    }
+                                    .padding(.leading, 40)
+                                    .padding(.trailing, 12)
                                 }
-                                .padding(.leading, 40)
-                                .padding(.trailing, 12)
                             }
                             
                             VStack(spacing: 30) {
@@ -153,8 +155,8 @@ struct PageReview: View {
     }
 }
 
-struct PageReview_Previews: PreviewProvider {
+struct PageExplore_Previews: PreviewProvider {
     static var previews: some View {
-        PageReview(reviews: exampleReviews)
+        PageExplore(reviews: exampleReviews)
     }
 }

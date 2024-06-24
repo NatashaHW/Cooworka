@@ -3,7 +3,10 @@ import CoreLocation
 import MapKit
 
 struct ListCafe: Identifiable {
+    // TODO: ini samain ID nya, ID nya generate nya dari database nya kan? -> pas di save
     let id = UUID()
+    // TODO: untuk saat ini, cara gw nampilin review di suatu cafe dengan nyamain namanya -> bisa lu ubah logic nya
+    // Cuman gw agak bingung, berarti pas search kan belum masuk ke database, dia masuk database waktu di klik, nah cara kita tau cafe itu udah kita save ke database atau belum gimana? kan UUID nya baru aada pas di save... apa bandingin nama sama coordinate aja? -> kalo belum ada yang sama -> save jadi UUID baru
     let name: String
     let address: String
     let openHours: String

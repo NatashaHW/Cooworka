@@ -1,7 +1,7 @@
 import SwiftUI
 import MapKit
 
-struct FavoritePageView: View {
+struct AktivitasPageView: View {
     @StateObject private var viewModel = SearchNearby()
     
     private var screenWidth: CGFloat {
@@ -18,15 +18,22 @@ struct FavoritePageView: View {
                         .font(.system(size: 26, weight: .bold))
                     
                     HStack {
+                        
                         NavigationLink(destination: AktivitasPageView()){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
                                     .foregroundColor(.clear)
                                 
-                                Text("Riwayat")
-                                    .font(.system(size: 18, weight: .bold))
-                                    .foregroundColor(Color("Grey500"))
+                                VStack(spacing: 3) {
+                                    Text("Riwayat")
+                                        .font(.system(size: 18, weight: .bold))
+                                        .foregroundColor(Color("PrimaryBase"))
+                                    Rectangle()
+                                        .frame(width: 75, height: 2)
+                                        .foregroundColor(Color("PrimaryBase"))
+                                        .cornerRadius(5)
+                                }
                                 
                             }
                         }
@@ -36,16 +43,9 @@ struct FavoritePageView: View {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
                                     .foregroundColor(.clear)
-                                
-                                VStack(spacing: 3) {
-                                    Text("Tempat Favorite")
-                                        .font(.system(size: 18, weight: .bold))
-                                        .foregroundColor(Color("PrimaryBase"))
-                                    Rectangle()
-                                        .frame(width: 140, height: 2)
-                                        .foregroundColor(Color("PrimaryBase"))
-                                        .cornerRadius(5)
-                                }
+                                Text("Tempat Favorite")
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(Color("Grey500"))
                             }
                         }
                     }
@@ -56,7 +56,7 @@ struct FavoritePageView: View {
                     VStack (spacing: 20) {
                         
                         ForEach(viewModel.cafes) { cafe in
-                            DetailCardView(cafe: cafe)
+                            RiwayatCardView(cafe: cafe)
                                 .onTapGesture {
                                     openInMaps(cafe: cafe)
                                 }
@@ -81,6 +81,6 @@ struct FavoritePageView: View {
 }
 
 #Preview {
-    FavoritePageView()
+    AktivitasPageView()
 }
 

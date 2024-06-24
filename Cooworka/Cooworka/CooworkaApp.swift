@@ -4,7 +4,7 @@ import SwiftUI
 struct CooworkaApp: App {
     var body: some Scene {
         WindowGroup {
-            PageReview(reviews: exampleReviews)
+            PageExplore(reviews: exampleReviews)
         }
     }
 }

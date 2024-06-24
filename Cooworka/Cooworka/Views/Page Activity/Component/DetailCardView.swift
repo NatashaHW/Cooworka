@@ -6,13 +6,13 @@ struct DetailCardView: View {
 
     var body: some View {
 
-        ZStack {
+        ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 16)
                 .foregroundColor(.white)
                 .shadow(color: .black.opacity(0.2), radius: 4)
                 .frame(width: 344, height: 135)
             
-            HStack(spacing: 9) {
+            HStack(spacing: 5) {
                 
                 
                 ZStack(alignment: .topLeading) {
@@ -72,10 +72,15 @@ struct DetailCardView: View {
 
                     VStack(alignment: .leading, spacing: 8) {
 
-                        HStack(alignment: .top) {
-                            Image(systemName: "road.lanes.curved.right")
+                        HStack(alignment: .firstTextBaseline) {
+                            Image(systemName: "mappin.and.ellipse")
                                 .font(.system(size: 12))
-                            Text("\(formatFloat(cafe.distance)) km")
+                            Text("\(cafe.address)")
+                                .font(.system(size: 12))
+                                .lineSpacing(3)
+                                .truncationMode(.tail)
+                                .frame(width: 160, height: 40, alignment: .leading)
+                                .lineLimit(2)
                         }
 
                         HStack(alignment: .center) {
@@ -88,19 +93,12 @@ struct DetailCardView: View {
                             }
                         }
 
-                        Button(action: {}) {
-                            Text("Klaim Hadiah")
-                                .font(
-                                    Font.custom("Nunito", size: 14)
-                                        .weight(.bold)
-                                )
-                                .foregroundColor(.white)
-                                .frame(width: 155, height: 32)
-                                .padding(.horizontal, 15)
-                                .padding(.vertical, 4)
-                                .background(Color("PrimaryBase"))
-                                .cornerRadius(8)
+                        HStack(alignment: .center) {
+                            Image(systemName: "road.lanes.curved.right")
+                                .font(.system(size: 12))
+                            Text("\(formatFloat(cafe.distance)) km")
                         }
+                        
                     }
                     .font(.system(size: 12))
                     .foregroundColor(Color("Grey500"))
@@ -148,4 +146,9 @@ struct DetailCardView: View {
         numberFormatter.minimumFractionDigits = 1
         return numberFormatter.string(from: NSNumber(value: rating)) ?? "\(rating)"
     }
+}
+
+
+#Preview {
+    DetailCardView(cafe: exampleCafe)
 }

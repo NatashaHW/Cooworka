@@ -28,7 +28,7 @@ class SearchNearby: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     private func searchForCafes(location: CLLocation) {
         let request = MKLocalPointsOfInterestRequest(center: location.coordinate, radius: 300)
-        request.pointOfInterestFilter = MKPointOfInterestFilter(including: [.cafe, .restaurant])
+        request.pointOfInterestFilter = MKPointOfInterestFilter(including: [.restaurant, .cafe, .bakery])
         
         let search = MKLocalSearch(request: request)
         search.start { [weak self] response, error in

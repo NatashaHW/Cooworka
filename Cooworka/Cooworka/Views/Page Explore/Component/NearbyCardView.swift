@@ -7,13 +7,13 @@ struct NearbyCardView: View {
 
     var body: some View {
         NavigationLink(destination: PageDetailView(cafe: cafe, reviews: reviews)) {
-            ZStack {
+            ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
                     .shadow(color: .black.opacity(0.2), radius: 4)
                     .frame(width: 344, height: 135)
 
-                HStack(spacing: 9) {
+                HStack(spacing: 5) {
                     ZStack(alignment: .topLeading) {
                         Image("CafeImage")
                             .resizable()
@@ -155,4 +155,8 @@ struct NearbyCardView: View {
         numberFormatter.minimumFractionDigits = 1
         return numberFormatter.string(from: NSNumber(value: rating)) ?? "\(rating)"
     }
+}
+
+#Preview {
+    NearbyCardView(cafe: exampleCafe, reviews: exampleReviews)
 }

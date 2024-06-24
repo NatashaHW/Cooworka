@@ -20,8 +20,9 @@
 		403507D92C296E90001452C0 /* FormatFloatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403507D82C296E90001452C0 /* FormatFloatHelper.swift */; };
 		403507DB2C297BE5001452C0 /* ReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403507DA2C297BE5001452C0 /* ReviewCardView.swift */; };
 		403507DD2C297C1B001452C0 /* CafeReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403507DC2C297C1B001452C0 /* CafeReviewCardView.swift */; };
-		406D8A402C22953A00A4B724 /* PageReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D8A3F2C22953A00A4B724 /* PageReview.swift */; };
-		406D8A422C22955A00A4B724 /* SearchNearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D8A412C22955A00A4B724 /* SearchNearby.swift */; };
+		403507E22C2997D2001452C0 /* PageSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403507E12C2997D2001452C0 /* PageSearchView.swift */; };
+		403507E62C29E0EC001452C0 /* PageSearchCafeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403507E52C29E0EC001452C0 /* PageSearchCafeView.swift */; };
+		406D8A402C22953A00A4B724 /* PageExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D8A3F2C22953A00A4B724 /* PageExplore.swift */; };
 		406D8A442C22957200A4B724 /* SignInApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D8A432C22957200A4B724 /* SignInApple.swift */; };
 		406D8A492C22974A00A4B724 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 406D8A482C22974A00A4B724 /* Nunito-Regular.ttf */; };
 		406D8A4B2C22975700A4B724 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 406D8A4A2C22975700A4B724 /* Nunito-Bold.ttf */; };
@@ -91,8 +92,9 @@
 		403507D82C296E90001452C0 /* FormatFloatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatFloatHelper.swift; sourceTree = "<group>"; };
 		403507DA2C297BE5001452C0 /* ReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCardView.swift; sourceTree = "<group>"; };
 		403507DC2C297C1B001452C0 /* CafeReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeReviewCardView.swift; sourceTree = "<group>"; };
-		406D8A3F2C22953A00A4B724 /* PageReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageReview.swift; sourceTree = "<group>"; };
-		406D8A412C22955A00A4B724 /* SearchNearby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNearby.swift; sourceTree = "<group>"; };
+		403507E12C2997D2001452C0 /* PageSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSearchView.swift; sourceTree = "<group>"; };
+		403507E52C29E0EC001452C0 /* PageSearchCafeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSearchCafeView.swift; sourceTree = "<group>"; };
+		406D8A3F2C22953A00A4B724 /* PageExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageExplore.swift; sourceTree = "<group>"; };
 		406D8A432C22957200A4B724 /* SignInApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInApple.swift; sourceTree = "<group>"; };
 		406D8A482C22974A00A4B724 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		406D8A4A2C22975700A4B724 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -165,9 +167,10 @@
 			children = (
 				403507BF2C27FDA8001452C0 /* ListCafe.swift */,
 				403507C12C27FDDA001452C0 /* NearbyViewModel.swift */,
-				406D8A3F2C22953A00A4B724 /* PageReview.swift */,
+				406D8A3F2C22953A00A4B724 /* PageExplore.swift */,
+				403507E12C2997D2001452C0 /* PageSearchView.swift */,
 				403507C32C27FE19001452C0 /* PageDetailView.swift */,
-				403507C52C27FE2D001452C0 /* LocationView.swift */,
+				403507E52C29E0EC001452C0 /* PageSearchCafeView.swift */,
 				403507D32C27FF0F001452C0 /* Component */,
 			);
 			path = "Page Explore";
@@ -195,6 +198,7 @@
 		403507D32C27FF0F001452C0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				403507C52C27FE2D001452C0 /* LocationView.swift */,
 				403507DC2C297C1B001452C0 /* CafeReviewCardView.swift */,
 				403507DA2C297BE5001452C0 /* ReviewCardView.swift */,
 				403507D62C29626D001452C0 /* InfoCardView.swift */,
@@ -368,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				A8B07B492C2274CD005F662E /* ContentViewModel.swift */,
-				406D8A412C22955A00A4B724 /* SearchNearby.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 			files = (
 				63819FC22C246CDE00826F04 /* QtyComponent.swift in Sources */,
 				408B53E52C1A94D5003DE834 /* ContentView.swift in Sources */,
+				403507E62C29E0EC001452C0 /* PageSearchCafeView.swift in Sources */,
 				403507CA2C27FE59001452C0 /* RiwayatCardView.swift in Sources */,
 				63B5C7552C2520300056341A /* ReviewPage3.swift in Sources */,
 				408B53E32C1A94D5003DE834 /* CooworkaApp.swift in Sources */,
@@ -535,12 +539,12 @@
 				403507D72C29626D001452C0 /* InfoCardView.swift in Sources */,
 				A8B07B452C226CFC005F662E /* CloudKitManager.swift in Sources */,
 				63D333CE2C21E3B300036379 /* User Level.swift in Sources */,
-				406D8A422C22955A00A4B724 /* SearchNearby.swift in Sources */,
 				63D333C62C21E38D00036379 /* Check In.swift in Sources */,
 				403507D92C296E90001452C0 /* FormatFloatHelper.swift in Sources */,
 				A8B07B432C226C9F005F662E /* CloudKitRecord.swift in Sources */,
 				63D333C82C21E39600036379 /* User.swift in Sources */,
 				63B96D8B2C2338A900078480 /* LineProgressReview.swift in Sources */,
+				403507E22C2997D2001452C0 /* PageSearchView.swift in Sources */,
 				406D8A442C22957200A4B724 /* SignInApple.swift in Sources */,
 				403507CE2C27FE76001452C0 /* FavoritePageView.swift in Sources */,
 				63B5C7572C25211E0056341A /* KetersediaanParkirElement.swift in Sources */,
@@ -560,7 +564,7 @@
 				63D333D22C21E3BE00036379 /* Level.swift in Sources */,
 				403507CC2C27FE67001452C0 /* AktivitasPageView.swift in Sources */,
 				403507DB2C297BE5001452C0 /* ReviewCardView.swift in Sources */,
-				406D8A402C22953A00A4B724 /* PageReview.swift in Sources */,
+				406D8A402C22953A00A4B724 /* PageExplore.swift in Sources */,
 				63819FBE2C244A2500826F04 /* ReviewPage2.swift in Sources */,
 				403507C62C27FE2D001452C0 /* LocationView.swift in Sources */,
 				A8B07B482C226D92005F662E /* CafeRepository.swift in Sources */,

@@ -2,6 +2,8 @@ import SwiftUI
 import MapKit
 
 struct PageDetailView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     let cafe: ListCafe
     let reviews: [ReviewCafe]  //TODO: Pass reviews to the view
     
@@ -10,56 +12,80 @@ struct PageDetailView: View {
     }
     
     var body: some View {
-        NavigationView{
-            VStack(spacing: -125) {
-                Image("CafeImage")
-                    .resizable()
-                    .scaledToFill()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: .infinity, maxHeight: 280)
-                    .clipped()
-                    .edgesIgnoringSafeArea(.top)
-                
-                ScrollView {
-                    VStack(spacing: 20) {
-                        InfoCardView(cafe: cafe)
+        NavigationView {
+            ZStack(alignment: .topLeading) {
+                VStack(spacing: -125) {
+                    
+                    Image("CafeImage")
+                        .resizable()
+                        .scaledToFill()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity, maxHeight: 280)
+                        .clipped()
+                        .edgesIgnoringSafeArea(.top)
+                    
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            InfoCardView(cafe: cafe)
+                            
+                            CafeReviewCardView(cafe: cafe, reviews: reviews)  // TODO: Pass reviews here
+                        }
+                    }
+                    .background(
+                        UnevenRoundedRectangle(
+                            topLeadingRadius: 16,
+                            bottomLeadingRadius: 0,
+                            bottomTrailingRadius: 0,
+                            topTrailingRadius: 16,
+                            style: .continuous
+                        ).fill(Color.white)
+                    )
+                    .padding(.bottom, 140)
+                    
+                    ZStack{
+                        Rectangle()
+                            .frame(width: .infinity, height: 120)
+                            .foregroundColor(.white)
+                            .shadow(radius:10)
                         
-                        CafeReviewCardView(cafe: cafe, reviews: reviews)  // TODO: Pass reviews here
+                        Text("Klaim Hadiah")
+                            .font(
+                                Font.custom("Nunito", size: 24)
+                                    .weight(.bold)
+                            )
+                            .padding(.horizontal, 100)
+                            .padding(.vertical, 18)
+                            .foregroundColor(.white)
+                            .background(Color("PrimaryBase"))
+                            .cornerRadius(15)
+                            .padding(.top, 20)
+                            .padding(.bottom, 30)
                     }
                 }
-                .background(
-                    UnevenRoundedRectangle(
-                    topLeadingRadius: 16,
-                    bottomLeadingRadius: 0,
-                    bottomTrailingRadius: 0,
-                    topTrailingRadius: 16,
-                    style: .continuous
-                    ).fill(Color.white)
-                )
-                .padding(.bottom, 140)
+                .edgesIgnoringSafeArea(.bottom)
                 
-                ZStack{
-                    Rectangle()
-                        .frame(width: .infinity, height: 120)
-                        .foregroundColor(.white)
-                        .shadow(radius:10)
-                    
-                    Text("Klaim Hadiah")
-                        .font(
-                            Font.custom("Nunito", size: 24)
-                                .weight(.bold)
+                
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: 40, height: 40)
+                        .overlay(
+                            Image(systemName: "arrow.left")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
                         )
-                        .padding(.horizontal, 100)
-                        .padding(.vertical, 18)
-                        .foregroundColor(.white)
-                        .background(Color("PrimaryBase"))
-                        .cornerRadius(15)
-                        .padding(.top, 20)
-                        .padding(.bottom, 30)
                 }
+                .padding()
+                    .padding(.leading, 5)
+                    .padding(.top, -20)
+                    
+                
+                
             }
-            .edgesIgnoringSafeArea(.bottom)
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
@@ -111,8 +137,30 @@ struct PageDetailView_Previews: PreviewProvider {
     }
 }
 
-struct PageReview_Previews2: PreviewProvider {
+struct PageExplore_Previews2: PreviewProvider {
     static var previews: some View {
-        PageReview(reviews: exampleReviews)
+        PageExplore(reviews: exampleReviews)
+    }
+}
+
+import SwiftUI
+
+struct CustomBackButton: View {
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Circle()
+                .fill(Color.white)
+                .frame(width: 40, height: 40)
+                .overlay(
+                    Image(systemName: "arrow.left")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
+                )
+        }
+        .padding()
     }
 }
