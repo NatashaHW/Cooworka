@@ -11,8 +11,7 @@ struct FotoElement: View {
     @State private var isShowingPhotoPicker = false
     @State private var selectedImages: [UIImage] = []
     let openGallery: () -> Void
-//    let updatePoint: () -> Void
-//    let deductPoint: () -> Void
+    let updatePoint: () -> Void
     @State private var hasChanged = false
     
     var body: some View {
@@ -28,6 +27,11 @@ struct FotoElement: View {
             
             Button(action: {
                 openGallery()
+                
+                if !hasChanged {
+                    updatePoint()
+                    hasChanged = true
+                }
                 
                 
                 
@@ -63,5 +67,5 @@ struct FotoElement: View {
 }
 
 #Preview {
-    FotoElement(openGallery: {})
+    FotoElement(openGallery: {}, updatePoint: {})
 }
