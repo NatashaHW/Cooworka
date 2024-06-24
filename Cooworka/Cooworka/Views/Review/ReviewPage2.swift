@@ -152,8 +152,8 @@ struct ReviewPage2: View {
                         .shadow(radius:10)
                     
                     NavigationLink(destination: ReviewPage3(totalPoint: $totalPoint)) {
-                        Text("Go to Detail View")
-                            .padding(.horizontal, 100)
+                        Text("Lanjut")
+                            .padding(.horizontal, 140)
                             .padding(.vertical, 18)
                             .foregroundColor(.white)
                             .background(Color("PrimaryBase"))
