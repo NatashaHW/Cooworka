@@ -81,7 +81,7 @@ struct RiwayatCardView: View {
                             .frame(width: 155, height: 32)
                             .padding(.horizontal, 15)
                             .padding(.vertical, 4)
-                            .background(Color("Primary"))
+                            .background(Color("PrimaryBase"))
                             .cornerRadius(8)
                     }.font(.system(size: 12))
                     

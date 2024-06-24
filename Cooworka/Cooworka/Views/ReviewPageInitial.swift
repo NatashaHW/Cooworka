@@ -24,7 +24,7 @@ struct ReviewPageInitial: View {
                             .padding(.horizontal, 100)
                             .padding(.vertical, 18)
                             .foregroundColor(.white)
-                            .background(Color("Primary"))
+                            .background(Color("PrimaryBase"))
                             .cornerRadius(15)
                         
                     }

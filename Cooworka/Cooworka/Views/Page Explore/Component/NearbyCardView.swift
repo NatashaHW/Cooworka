@@ -5,41 +5,46 @@ struct NearbyCardView: View {
     let cafe: ListCafe
 
     var body: some View {
+        NavigationLink(destination: PageDetailView(cafe: cafe)) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(.white)
+                    .shadow(color: .black.opacity(0.2), radius: 4)
+                    .frame(width: 344, height: 135)
 
-        ZStack {
-            RoundedRectangle(cornerRadius: 16)
-                .foregroundColor(.white)
-                .shadow(color: .black.opacity(0.2), radius: 4)
-                .frame(width: 344, height: 135)
-            
-            HStack(spacing: 9) {
-                
-                
-                ZStack(alignment: .topLeading) {
-                    Image("CafeImage")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 130, height: 135)
-                        .clipShape(
-                            UnevenRoundedRectangle(
-                                topLeadingRadius: 16,
-                                bottomLeadingRadius: 16,
-                                bottomTrailingRadius: 0,
-                                topTrailingRadius: 0,
-                                style: .continuous
-                            )
-                    )
-                    
+                HStack(spacing: 9) {
+                    ZStack(alignment: .topLeading) {
+                        Image("CafeImage")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 130, height: 135)
+                            .clipShape(
+                                UnevenRoundedRectangle(
+                                    topLeadingRadius: 16,
+                                    bottomLeadingRadius: 16,
+                                    bottomTrailingRadius: 0,
+                                    topTrailingRadius: 0,
+                                    style: .continuous
+                                )
+                        )
+
                         HStack(spacing: 5) {
                             Image(systemName: "star.fill")
                                 .foregroundColor(Color("Star"))
                                 .font(.system(size: 12))
-                            
+
                             HStack(spacing: 3.5) {
-                                Text(formatFloat(cafe.rating))
+                                // TODO: fetch data dari database
+                                var taste = cafe.taste ?? 0
+                                var ambience = cafe.ambience ?? 0
+                                var service = cafe.service ?? 0
+                                
+                                var rating = (taste + ambience + service) / 3
+                                Text(formatFloat(rating))
                                     .font(.system(size: 12, weight: .medium, design: .rounded))
                                     .foregroundColor(.black)
-                                Text("(\(cafe.totalRatings))")
+                                // TODO: fetch data dari database
+                                Text("(\(cafe.totalRatings ?? 0))")
                                     .font(.system(size: 12))
                                     .foregroundColor(Color("Grey500"))
                             }
@@ -54,59 +59,59 @@ struct NearbyCardView: View {
                                 style: .continuous
                             ).fill(Color("Grey50"))
                         )
-                    
-                }
-
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        Text(cafe.name)
-                            .font(
-                                Font.custom("Nunito", size: 18)
-                                    .weight(.bold)
-                            )
-                            .frame(width: 180, height: 12, alignment: .leading)
-                            .lineLimit(1)
-                            .truncationMode(.tail)
                     }
 
-                    VStack(alignment: .leading, spacing: 8) {
-
-                        HStack(alignment: .top) {
-                            Image(systemName: "road.lanes.curved.right")
-                                .font(.system(size: 12))
-                            Text("\(formatFloat(cafe.distance)) km")
-                        }
-
-                        HStack(alignment: .center) {
-                            Image(systemName: "clock")
-                                .font(.system(size: 12))
-                            HStack {
-                                Text(isOpen(now: Date(), openHours: cafe.openHours) ? "Buka" : "Tutup")
-                                    .foregroundColor(isOpen(now: Date(), openHours: cafe.openHours) ? Color("Green") : .red)
-                                Text(cafe.openHours)
-                            }
-                        }
-
-                        Button(action: {
-                            PageDetailView(cafe: cafe)
-                        }) {
-                            Text("Klaim Hadiah")
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Text(cafe.name)
                                 .font(
-                                    Font.custom("Nunito", size: 14)
+                                    Font.custom("Nunito", size: 18)
                                         .weight(.bold)
                                 )
-                                .foregroundColor(.white)
-                                .frame(width: 155, height: 32)
-                                .padding(.horizontal, 15)
-                                .padding(.vertical, 4)
-                                .background(Color("Primary"))
-                                .cornerRadius(8)
+                                .frame(width: 180, height: 12, alignment: .leading)
+                                .lineLimit(1)
+                                .truncationMode(.tail)
+                                .foregroundColor(.black)
                         }
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack(alignment: .top) {
+                                Image(systemName: "road.lanes.curved.right")
+                                    .font(.system(size: 12))
+                                Text("\(formatFloat(cafe.distance)) km")
+                            }
+
+                            HStack(alignment: .center) {
+                                Image(systemName: "clock")
+                                    .font(.system(size: 12))
+                                HStack {
+                                    Text(isOpen(now: Date(), openHours: cafe.openHours) ? "Buka" : "Tutup")
+                                        .foregroundColor(isOpen(now: Date(), openHours: cafe.openHours) ? Color("GreenCorrect") : .red)
+                                    Text(cafe.openHours)
+                                }
+                            }
+
+                            Button(action: {
+                                // Action for claiming the reward
+                            }) {
+                                Text("Klaim Hadiah")
+                                    .font(
+                                        Font.custom("Nunito", size: 14)
+                                            .weight(.bold)
+                                    )
+                                    .foregroundColor(.white)
+                                    .frame(width: 155, height: 32)
+                                    .padding(.horizontal, 15)
+                                    .padding(.vertical, 4)
+                                    .background(Color("PrimaryBase"))
+                                    .cornerRadius(8)
+                            }
+                        }
+                        .font(.system(size: 12))
+                        .foregroundColor(Color("Grey500"))
                     }
-                    .font(.system(size: 12))
-                    .foregroundColor(Color("Grey500"))
+                    .padding(.horizontal, 10)
                 }
-                .padding(.horizontal, 10)
             }
         }
     }

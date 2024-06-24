@@ -28,10 +28,10 @@ struct AktivitasPageView: View {
                                 VStack(spacing: 3) {
                                     Text("Riwayat")
                                         .font(.system(size: 18, weight: .bold))
-                                        .foregroundColor(Color("Primary"))
+                                        .foregroundColor(Color("PrimaryBase"))
                                     Rectangle()
                                         .frame(width: 75, height: 2)
-                                        .foregroundColor(Color("Primary"))
+                                        .foregroundColor(Color("PrimaryBase"))
                                         .cornerRadius(5)
                                 }
                                 

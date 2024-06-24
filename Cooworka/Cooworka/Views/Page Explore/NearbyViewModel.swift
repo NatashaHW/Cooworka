@@ -51,7 +51,7 @@ class SearchNearby: NSObject, ObservableObject, CLLocationManagerDelegate {
                 let rating = item.placemark.title?.split(separator: " ").last.flatMap { Double($0) } ?? 0.0
                 let totalRatings = Int.random(in: 0..<100)
                 
-                return ListCafe(name: name, address: address, openHours: openHours, rating: rating, totalRatings: totalRatings, distance: distance, coordinate: coordinate)
+                return ListCafe(name: name, address: address, openHours: openHours, distance: distance, rating: rating, totalRatings: totalRatings, coordinate: coordinate)
             }
             
             DispatchQueue.main.async {

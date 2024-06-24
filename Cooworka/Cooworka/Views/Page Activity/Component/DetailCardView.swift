@@ -36,6 +36,7 @@ struct DetailCardView: View {
                                 .font(.system(size: 12))
                             
                             HStack(spacing: 3.5) {
+                                //TODO: fetch database
                                 Text(formatFloat(cafe.rating))
                                     .font(.system(size: 12, weight: .medium, design: .rounded))
                                     .foregroundColor(.black)
@@ -82,7 +83,7 @@ struct DetailCardView: View {
                                 .font(.system(size: 12))
                             HStack {
                                 Text(isOpen(now: Date(), openHours: cafe.openHours) ? "Buka" : "Tutup")
-                                    .foregroundColor(isOpen(now: Date(), openHours: cafe.openHours) ? Color("Green") : .red)
+                                    .foregroundColor(isOpen(now: Date(), openHours: cafe.openHours) ? Color("GreenCorrect") : .red)
                                 Text(cafe.openHours)
                             }
                         }
@@ -97,7 +98,7 @@ struct DetailCardView: View {
                                 .frame(width: 155, height: 32)
                                 .padding(.horizontal, 15)
                                 .padding(.vertical, 4)
-                                .background(Color("Primary"))
+                                .background(Color("PrimaryBase"))
                                 .cornerRadius(8)
                         }
                     }

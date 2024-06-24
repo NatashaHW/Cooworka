@@ -40,10 +40,10 @@ struct FavoritePageView: View {
                                 VStack(spacing: 3) {
                                     Text("Tempat Favorite")
                                         .font(.system(size: 18, weight: .bold))
-                                        .foregroundColor(Color("Primary"))
+                                        .foregroundColor(Color("PrimaryBase"))
                                     Rectangle()
                                         .frame(width: 140, height: 2)
-                                        .foregroundColor(Color("Primary"))
+                                        .foregroundColor(Color("PrimaryBase"))
                                         .cornerRadius(5)
                                 }
                             }
