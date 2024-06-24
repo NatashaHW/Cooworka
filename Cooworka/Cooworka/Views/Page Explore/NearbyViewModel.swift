@@ -44,12 +44,12 @@ class SearchNearby: NSObject, ObservableObject, CLLocationManagerDelegate {
                     return nil
                 }
                 
-                let distance = location.distance(from: item.placemark.location!) / 1000 // Convert to kilometers
+                let distance = location.distance(from: item.placemark.location!) / 1000
                 
-                // Replace the open hours, rating, and total distance with real logic to fetch the data from apple maps
-                let openHours = "09:00 - 22:00"
+                //TODO: Ganti jadi database
+                let openHours = "09:00 - 22:00" //Dummy data nya 09:00 - 22:00
                 let rating = item.placemark.title?.split(separator: " ").last.flatMap { Double($0) } ?? 0.0
-                let totalRatings = Int.random(in: 0..<100)
+                let totalRatings = 0
                 
                 return ListCafe(name: name, address: address, openHours: openHours, distance: distance, rating: rating, totalRatings: totalRatings, coordinate: coordinate)
             }

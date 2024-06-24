@@ -5,6 +5,7 @@ struct PageReview: View {
     @State private var isLocationViewPresented = false
     @State private var selectedLocationName: String = "BSD"
     @StateObject private var viewModel = SearchNearby()
+    let reviews: [ReviewCafe]
     
     private var screenWidth: CGFloat {
         UIScreen.main.bounds.width
@@ -129,9 +130,10 @@ struct PageReview: View {
                     
                     // List nearby cafe
                     ScrollView {
-                        VStack (spacing: 20) {
+                        VStack (spacing: 15) {
                             ForEach(viewModel.cafes) { cafe in
-                                NearbyCardView(cafe: cafe)
+                                NearbyCardView(cafe: cafe, reviews: reviews)
+                                    .padding(.top, 5)
                             }.frame(maxWidth: .infinity)
                         }
                     }
@@ -151,7 +153,8 @@ struct PageReview: View {
     }
 }
 
-
-#Preview {
-    PageReview()
+struct PageReview_Previews: PreviewProvider {
+    static var previews: some View {
+        PageReview(reviews: exampleReviews)
+    }
 }

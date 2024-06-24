@@ -3,9 +3,10 @@ import MapKit
 
 struct NearbyCardView: View {
     let cafe: ListCafe
+    let reviews: [ReviewCafe]
 
     var body: some View {
-        NavigationLink(destination: PageDetailView(cafe: cafe)) {
+        NavigationLink(destination: PageDetailView(cafe: cafe, reviews: reviews)) {
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
