@@ -10,6 +10,7 @@ import SwiftUI
 struct ReviewPage2: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @State var ratingWifi: String?
     @State var selectedSocketQty: Int = -1
     @State  var kenyamananKursiDanMeja: String?
     @State private var adaRuangMeeting: Bool = false
@@ -92,9 +93,9 @@ struct ReviewPage2: View {
                             
                         }
                         
-                        Rectangle()
-                            .frame(width: .infinity, height: 73)
-                        
+                        WiFiRatingComponent(selectedLabel: $ratingWifi){
+                            updateTotalPoints()
+                        }
                         
                         SocketQty() { selectedIndex in
                             selectedSocketQty = selectedIndex

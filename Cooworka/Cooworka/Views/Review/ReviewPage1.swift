@@ -12,6 +12,7 @@ struct ReviewPage1: View {
     @State private var ratingSuasana: Int = 0
     @State private var ratingPelayanan: Int = 0
     @State private var ratingRasa: Int = 0
+    @State var rangeHarga: String?
     
     @State private var adaMakananBerat: Bool = false
     
@@ -75,26 +76,32 @@ struct ReviewPage1: View {
                 }
                 .padding(.horizontal, 24)
                 
-                VStack{
-                    StarRating(rating: $ratingSuasana, text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"]){
-                        updateTotalPoints()
-                    }
-                    
-                    StarRating(rating: $ratingPelayanan, text: "Pelayanan", labels: ["Perbaiki ya..", "Kureng", "So-so lah", "Top Abis", "Berasa Raja"]){
-                        updateTotalPoints()
-                    }
-                    
-                    StarRating(rating: $ratingRasa, text: "Rasa", labels: ["Not taste", "Hmm..", "So-so lah", "Boleh Juga", "Enak Bingit"]){
-                        updateTotalPoints()
-                    }
-                    
-                    PreviewYesNoButton(ada: $adaMakananBerat, title: "Makanan berat"){
-                        updateTotalPoints()
-                    }
+                ScrollView{
+                    VStack{
+                        StarRating(rating: $ratingSuasana, text: "Suasana", labels: ["Kaya pasar", "Rame", "So-so lah", "Hening", "Mode Fokus"]){
+                            updateTotalPoints()
+                        }
+                        
+                        StarRating(rating: $ratingPelayanan, text: "Pelayanan", labels: ["Perbaiki ya..", "Kureng", "So-so lah", "Top Abis", "Berasa Raja"]){
+                            updateTotalPoints()
+                        }
+                        
+                        StarRating(rating: $ratingRasa, text: "Rasa", labels: ["Not taste", "Hmm..", "So-so lah", "Boleh Juga", "Enak Bingit"]){
+                            updateTotalPoints()
+                        }
+                        
+                        HargaComponent(selectedLabel: $rangeHarga){
+                            updateTotalPoints()
+                        }
+                        
+                        
+                        PreviewYesNoButton(ada: $adaMakananBerat, title: "Makanan berat"){
+                            updateTotalPoints()
+                        }
                         .padding(.top, 8)
-                        .padding(.bottom, -20)
+                    }
+                    .padding(.horizontal, 24)
                 }
-                .padding(.horizontal, 24)
                 
                 Spacer()
                 
