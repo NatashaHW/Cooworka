@@ -136,6 +136,7 @@
 		63E3B3282C29D3EC00CCF7ED /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		63E3B32B2C29D6B800CCF7ED /* LevelProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProfileModel.swift; sourceTree = "<group>"; };
 		63E3B32D2C29D6CB00CCF7ED /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		A83519C82C2A72ED002868E9 /* Cooworka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cooworka.entitlements; sourceTree = "<group>"; };
 		A8B07B422C226C9F005F662E /* CloudKitRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRecord.swift; sourceTree = "<group>"; };
 		A8B07B442C226CFC005F662E /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		A8B07B472C226D92005F662E /* CafeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeRepository.swift; sourceTree = "<group>"; };
