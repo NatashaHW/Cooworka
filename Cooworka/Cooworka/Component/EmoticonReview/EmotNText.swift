@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EmotNText: View {
     var label: String
+    var emoticonBlue: String
     var isSelected: Bool
     var action: () -> Void
     
@@ -24,7 +25,7 @@ struct EmotNText: View {
                 .cornerRadius(7)
             
             VStack{
-                Image("\(label)")
+                Image(isSelected ? emoticonBlue : label)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
@@ -44,5 +45,5 @@ struct EmotNText: View {
 }
 
 #Preview {
-    EmotNText(label: "Gak nyaman", isSelected: true, action: {})
+    EmotNText(label: "Gak nyaman", emoticonBlue: "CuihLemahBlue", isSelected: true, action: {})
 }
