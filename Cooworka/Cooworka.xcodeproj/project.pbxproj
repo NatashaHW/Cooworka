@@ -167,6 +167,7 @@
 		63E3B3282C29D3EC00CCF7ED /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		63E3B32B2C29D6B800CCF7ED /* LevelProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProfileModel.swift; sourceTree = "<group>"; };
 		63E3B32D2C29D6CB00CCF7ED /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		A85DA0CC2C2A8D1D009B6BC2 /* Cooworka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cooworka.entitlements; sourceTree = "<group>"; };
 		A8B07B422C226C9F005F662E /* CloudKitRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRecord.swift; sourceTree = "<group>"; };
 		A8B07B442C226CFC005F662E /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		A8B07B472C226D92005F662E /* CafeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeRepository.swift; sourceTree = "<group>"; };
@@ -230,6 +231,7 @@
 		408B53E12C1A94D5003DE834 /* Cooworka */ = {
 			isa = PBXGroup;
 			children = (
+				A85DA0CC2C2A8D1D009B6BC2 /* Cooworka.entitlements */,
 				406D8A4C2C22978600A4B724 /* Info.plist */,
 				408B53E22C1A94D5003DE834 /* CooworkaApp.swift */,
 				63B96D892C23387200078480 /* Component */,
@@ -873,10 +875,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cooworka/Cooworka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cooworka/Preview Content\"";
-				DEVELOPMENT_TEAM = 6Y742356Q3;
+				DEVELOPMENT_TEAM = G43U5DAGS3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
@@ -892,7 +895,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka;
+				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -905,10 +908,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cooworka/Cooworka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cooworka/Preview Content\"";
-				DEVELOPMENT_TEAM = 6Y742356Q3;
+				DEVELOPMENT_TEAM = G43U5DAGS3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
@@ -924,7 +928,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka;
+				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

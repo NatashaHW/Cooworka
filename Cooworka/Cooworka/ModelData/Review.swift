@@ -26,8 +26,8 @@ struct Review: CloudKitRecord{
     var cafeReference: CKRecord.Reference
     var checkInReference: CKRecord.Reference
     
-    init(reviewID: CKRecord.ID? = nil, reviewDate: Date, tasteScale: Float, ambienceScale: Float, spendingRange: String, wifiCondition: Float, socketQty: Float, chairTableScale: Float, cleanScale: Float, safetyScale: Float, custServiceScale: Float, description: String, userReference: CKRecord.ID, cafeReference: CKRecord.ID, checkInReference: CKRecord.ID) {
-        self.reviewID = reviewID ?? CKRecord.ID(recordName: UUID().uuidString)
+    init(reviewDate: Date, tasteScale: Float, ambienceScale: Float, spendingRange: String, wifiCondition: Float, socketQty: Float, chairTableScale: Float, cleanScale: Float, safetyScale: Float, custServiceScale: Float, description: String, userReference: CKRecord.ID, cafeReference: CKRecord.ID, checkInReference: CKRecord.ID) {
+        self.reviewID = CKRecord.ID(recordName: UUID().uuidString)
         self.recordID = reviewID
         self.reviewDate = reviewDate
         self.tasteScale = tasteScale
