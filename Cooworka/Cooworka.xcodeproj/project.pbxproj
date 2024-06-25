@@ -32,11 +32,11 @@
 		63B96D882C232E3300078480 /* ReviewPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D872C232E3300078480 /* ReviewPage1.swift */; };
 		63B96D8B2C2338A900078480 /* LineProgressReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D8A2C2338A900078480 /* LineProgressReview.swift */; };
 		63D333C42C21E17800036379 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C32C21E17800036379 /* Cafe.swift */; };
-		63D333C62C21E38D00036379 /* Check In.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C52C21E38D00036379 /* Check In.swift */; };
+		63D333C62C21E38D00036379 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C52C21E38D00036379 /* CheckIn.swift */; };
 		63D333C82C21E39600036379 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C72C21E39600036379 /* User.swift */; };
 		63D333CA2C21E3A200036379 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C92C21E3A200036379 /* Review.swift */; };
-		63D333CC2C21E3AD00036379 /* Quick Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333CB2C21E3AD00036379 /* Quick Survey.swift */; };
-		63D333CE2C21E3B300036379 /* User Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333CD2C21E3B300036379 /* User Level.swift */; };
+		63D333CC2C21E3AD00036379 /* QuickSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333CB2C21E3AD00036379 /* QuickSurvey.swift */; };
+		63D333CE2C21E3B300036379 /* UserLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333CD2C21E3B300036379 /* UserLevel.swift */; };
 		63D333D02C21E3B900036379 /* Foto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333CF2C21E3B900036379 /* Foto.swift */; };
 		63D333D22C21E3BE00036379 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333D12C21E3BE00036379 /* Level.swift */; };
 		63D45AFC2C23CDE100FEC85A /* StarRatingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D45AFB2C23CDE100FEC85A /* StarRatingComponent.swift */; };
@@ -94,11 +94,11 @@
 		63B96D872C232E3300078480 /* ReviewPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPage1.swift; sourceTree = "<group>"; };
 		63B96D8A2C2338A900078480 /* LineProgressReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineProgressReview.swift; sourceTree = "<group>"; };
 		63D333C32C21E17800036379 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
-		63D333C52C21E38D00036379 /* Check In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Check In.swift"; sourceTree = "<group>"; };
+		63D333C52C21E38D00036379 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
 		63D333C72C21E39600036379 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		63D333C92C21E3A200036379 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
-		63D333CB2C21E3AD00036379 /* Quick Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quick Survey.swift"; sourceTree = "<group>"; };
-		63D333CD2C21E3B300036379 /* User Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Level.swift"; sourceTree = "<group>"; };
+		63D333CB2C21E3AD00036379 /* QuickSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSurvey.swift; sourceTree = "<group>"; };
+		63D333CD2C21E3B300036379 /* UserLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLevel.swift; sourceTree = "<group>"; };
 		63D333CF2C21E3B900036379 /* Foto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foto.swift; sourceTree = "<group>"; };
 		63D333D12C21E3BE00036379 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		63D45AFB2C23CDE100FEC85A /* StarRatingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingComponent.swift; sourceTree = "<group>"; };
@@ -267,11 +267,11 @@
 			isa = PBXGroup;
 			children = (
 				63D333C32C21E17800036379 /* Cafe.swift */,
-				63D333C52C21E38D00036379 /* Check In.swift */,
+				63D333C52C21E38D00036379 /* CheckIn.swift */,
 				63D333C72C21E39600036379 /* User.swift */,
 				63D333C92C21E3A200036379 /* Review.swift */,
-				63D333CB2C21E3AD00036379 /* Quick Survey.swift */,
-				63D333CD2C21E3B300036379 /* User Level.swift */,
+				63D333CB2C21E3AD00036379 /* QuickSurvey.swift */,
+				63D333CD2C21E3B300036379 /* UserLevel.swift */,
 				63D333CF2C21E3B900036379 /* Foto.swift */,
 				63D333D12C21E3BE00036379 /* Level.swift */,
 				A8B07B422C226C9F005F662E /* CloudKitRecord.swift */,
@@ -459,9 +459,9 @@
 				63D45AFC2C23CDE100FEC85A /* StarRatingComponent.swift in Sources */,
 				63B96D862C23249300078480 /* ReviewPageInitial.swift in Sources */,
 				A8B07B452C226CFC005F662E /* CloudKitManager.swift in Sources */,
-				63D333CE2C21E3B300036379 /* User Level.swift in Sources */,
+				63D333CE2C21E3B300036379 /* UserLevel.swift in Sources */,
 				406D8A422C22955A00A4B724 /* SearchNearby.swift in Sources */,
-				63D333C62C21E38D00036379 /* Check In.swift in Sources */,
+				63D333C62C21E38D00036379 /* CheckIn.swift in Sources */,
 				A8B07B432C226C9F005F662E /* CloudKitRecord.swift in Sources */,
 				63D333C82C21E39600036379 /* User.swift in Sources */,
 				63B96D8B2C2338A900078480 /* LineProgressReview.swift in Sources */,
@@ -480,7 +480,7 @@
 				406D8A402C22953A00A4B724 /* PageReview.swift in Sources */,
 				63819FBE2C244A2500826F04 /* ReviewPage2.swift in Sources */,
 				A8B07B482C226D92005F662E /* CafeRepository.swift in Sources */,
-				63D333CC2C21E3AD00036379 /* Quick Survey.swift in Sources */,
+				63D333CC2C21E3AD00036379 /* QuickSurvey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
