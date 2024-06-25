@@ -13,9 +13,27 @@ struct PageDetailView: View {
     
     @ObservedObject var searchNearby: SearchNearby
     
+    @State private var showMysteryChestPopup = false
+    @State private var showNotInCafePopup = false
+    
+   
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
+                if showMysteryChestPopup {
+                    PopUpSmall()
+                        .transition(.opacity)
+                        .zIndex(1)
+                }
+                
+                if showNotInCafePopup {
+                    PopUpBelumdiTempat(isDismissed: $showNotInCafePopup)
+                        .transition(.opacity)
+                        .zIndex(1) 
+                }
+                
+                
                 VStack(spacing: -125) {
                     
                     Image("CafeImage")
@@ -58,11 +76,14 @@ struct PageDetailView: View {
                                 if isNearbyUserLocation(userLocation: userLocation, cafeLocation: cafeLocation) {
                                     // Logic untuk menampilkan pop-up MysteryChest jika dekat dengan kafe
                                     // Misalnya: showMysteryChestPopup()
-                                    PopUpSmall()
+                                    
+                                    showMysteryChestPopup = true
+                                    showNotInCafePopup = false
                                     print("User is nearby the cafe")
                                 } else {
                                     // Logic untuk menampilkan pop-up NotInCafe jika tidak dekat dengan kafe
-                                    PopUpBelumdiTempat()
+                                    showMysteryChestPopup = false
+                                    showNotInCafePopup = true
                                     // Misalnya: showNotInCafePopup()
                                     print("User is not nearby the cafe")
                                 }
@@ -99,12 +120,13 @@ struct PageDetailView: View {
                         )
                 }
                 .padding()
-                    .padding(.leading, 5)
-                    .padding(.top, -20)
-                    
+                .padding(.leading, 5)
+                .padding(.top, -20)
+                
                 
                 
             }
+           
         }
         .navigationBarBackButtonHidden()
     }
@@ -176,7 +198,7 @@ import SwiftUI
 
 struct CustomBackButton: View {
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
         Button(action: {
             presentationMode.wrappedValue.dismiss()

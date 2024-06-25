@@ -177,7 +177,7 @@ struct ReviewPage3: View {
                         .foregroundColor(.white)
                         .shadow(radius:10)
                     
-                    NavigationLink(destination: ReviewPage3(totalPoint: $totalPoint)) { //TODO: save ke cloudkit
+                    NavigationLink(destination: OpenChest()) { //TODO: save ke cloudkit
                         Text("Buka Reward")
                             .padding(.horizontal, 120)
                             .padding(.vertical, 18)
