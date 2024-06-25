@@ -11,6 +11,8 @@ struct PageDetailView: View {
         UIScreen.main.bounds.width
     }
     
+    @ObservedObject var searchNearby: SearchNearby
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
@@ -48,18 +50,37 @@ struct PageDetailView: View {
                             .foregroundColor(.white)
                             .shadow(radius:10)
                         
-                        Text("Klaim Hadiah")
-                            .font(
-                                Font.custom("Nunito", size: 24)
-                                    .weight(.bold)
-                            )
-                            .padding(.horizontal, 100)
-                            .padding(.vertical, 18)
-                            .foregroundColor(.white)
-                            .background(Color("PrimaryBase"))
-                            .cornerRadius(15)
-                            .padding(.top, 20)
-                            .padding(.bottom, 30)
+                        Button(action: {
+                            // Action for claiming the reward
+                            if let userLocation = searchNearby.userLocation {
+                                let cafeLocation = CLLocation(latitude: cafe.coordinate.latitude, longitude: cafe.coordinate.longitude)
+                                
+                                if isNearbyUserLocation(userLocation: userLocation, cafeLocation: cafeLocation) {
+                                    // Logic untuk menampilkan pop-up MysteryChest jika dekat dengan kafe
+                                    // Misalnya: showMysteryChestPopup()
+                                    PopUpSmall()
+                                    print("User is nearby the cafe")
+                                } else {
+                                    // Logic untuk menampilkan pop-up NotInCafe jika tidak dekat dengan kafe
+                                    PopUpBelumdiTempat()
+                                    // Misalnya: showNotInCafePopup()
+                                    print("User is not nearby the cafe")
+                                }
+                            }
+                        }) {
+                            Text("Klaim Reward")
+                                .font(
+                                    Font.custom("Nunito", size: 24)
+                                        .weight(.bold)
+                                )
+                                .padding(.horizontal, 100)
+                                .padding(.vertical, 18)
+                                .foregroundColor(.white)
+                                .background(Color("PrimaryBase"))
+                                .cornerRadius(15)
+                                .padding(.top, 20)
+                                .padding(.bottom, 30)
+                        }
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
@@ -86,6 +107,12 @@ struct PageDetailView: View {
             }
         }
         .navigationBarBackButtonHidden()
+    }
+    
+    // Logic Check In: Toleransi 50 meter
+    private func isNearbyUserLocation(userLocation: CLLocation, cafeLocation: CLLocation, maxDistance: CLLocationDistance = 50) -> Bool {
+        let distance = userLocation.distance(from: cafeLocation)
+        return distance <= maxDistance
     }
 }
 
@@ -133,13 +160,15 @@ let exampleReviews = [
 
 struct PageDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PageDetailView(cafe: exampleCafe, reviews: exampleReviews)
+        PageDetailView(cafe: exampleCafe, reviews: exampleReviews, searchNearby: SearchNearby())
     }
 }
 
 struct PageExplore_Previews2: PreviewProvider {
     static var previews: some View {
-        PageExplore(reviews: exampleReviews)
+        //TODO: ganti jadi firstname user
+        var firstName = "Natasha"
+        PageExplore(reviews: exampleReviews, firstName: firstName)
     }
 }
 
