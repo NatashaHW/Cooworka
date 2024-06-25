@@ -201,9 +201,9 @@ struct LevelView: View {
                                     }
                                 }
                             }
-                        )
+                    )
                     
-   
+                    
                     Spacer()
                     
                 }
