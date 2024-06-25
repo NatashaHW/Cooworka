@@ -39,6 +39,7 @@
 		63B96D862C23249300078480 /* ReviewPageInitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D852C23249300078480 /* ReviewPageInitial.swift */; };
 		63B96D882C232E3300078480 /* ReviewPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D872C232E3300078480 /* ReviewPage1.swift */; };
 		63B96D8B2C2338A900078480 /* LineProgressReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D8A2C2338A900078480 /* LineProgressReview.swift */; };
+		63D288082C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D288072C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift */; };
 		63D333C42C21E17800036379 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C32C21E17800036379 /* Cafe.swift */; };
 		63D333C62C21E38D00036379 /* Check In.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C52C21E38D00036379 /* Check In.swift */; };
 		63D333C82C21E39600036379 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333C72C21E39600036379 /* User.swift */; };
@@ -117,6 +118,7 @@
 		63B96D852C23249300078480 /* ReviewPageInitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageInitial.swift; sourceTree = "<group>"; };
 		63B96D872C232E3300078480 /* ReviewPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPage1.swift; sourceTree = "<group>"; };
 		63B96D8A2C2338A900078480 /* LineProgressReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineProgressReview.swift; sourceTree = "<group>"; };
+		63D288072C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpBelumdiTempat.swift; sourceTree = "<group>"; };
 		63D333C32C21E17800036379 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 		63D333C52C21E38D00036379 /* Check In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Check In.swift"; sourceTree = "<group>"; };
 		63D333C72C21E39600036379 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			children = (
 				63E3B31D2C29AD7500CCF7ED /* PopUpSmall.swift */,
 				63E3B31F2C29BFEF00CCF7ED /* OpenChest.swift */,
+				63D288072C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				408B53E52C1A94D5003DE834 /* ContentView.swift in Sources */,
 				63B5C7552C2520300056341A /* ReviewPage3.swift in Sources */,
 				63807E962C291D8E0066FCDB /* WiFiRatingComponent.swift in Sources */,
+				63D288082C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift in Sources */,
 				408B53E32C1A94D5003DE834 /* CooworkaApp.swift in Sources */,
 				63819FC62C24819400826F04 /* EmotNText.swift in Sources */,
 				63B96D882C232E3300078480 /* ReviewPage1.swift in Sources */,

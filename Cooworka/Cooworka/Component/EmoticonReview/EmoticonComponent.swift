@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EmoticonComponent: View {
     let labels: [String] = ["Gak nyaman", "Kureng", "So-so lah", "Pewee", "Super pewe"]
+    let emoticonBlue: [String] = ["CuihLemahBiru", "LemahAbisBiru", "SoSoBiru", "OkAjaBiru", "OkBangetBiru"]
     @Binding var selectedLabel: String?
     @State private var hasChanged: Bool = false
     let onFirstTap: () -> Void
@@ -24,10 +25,10 @@ struct EmoticonComponent: View {
                 Spacer()
             }
             HStack(spacing: 2) {
-                ForEach(labels, id: \.self) { label in
-                    EmotNText(label: label, isSelected: selectedLabel == label) {
+                ForEach(Array(zip(labels, emoticonBlue)), id: \.0) { label, emoticonBlue in
+                    EmotNText(label: label, emoticonBlue: emoticonBlue, isSelected: selectedLabel == label, action: {
                         handleSelection(label)
-                    }
+                    })
                 }
             }
             
