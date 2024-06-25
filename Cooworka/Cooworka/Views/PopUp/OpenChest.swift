@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OpenChest: View {
-    @State private var isChestOpen = true
+    @State private var isChestOpen = false
     @State private var shouldShake = false
     
     private let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
@@ -166,6 +166,7 @@ struct OpenChest: View {
             
         }
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .navigationBarBackButtonHidden(true)
         
     }
 }
