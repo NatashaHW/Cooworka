@@ -48,8 +48,10 @@ struct PhotoProfileComponent: View {
                     
                     RoundedRectangle(cornerRadius: 25.0)
                         .frame(width: 890/1000*250, height: 9) //TODO: kalo mau dynamic, 890 ikutin XP, 1000 ikutin req next lvl
-                        .foregroundColor(.clear) //TODO: ganti warna jadi gradient
-                        .background(LinearGradient(gradient: Gradient(colors: [.lightYellow, .darkYellow]), startPoint: .leading, endPoint: .trailing))
+                        .overlay(
+                            LinearGradient(gradient: Gradient(colors: [.lightYellow, .darkYellow]), startPoint: .leading, endPoint: .trailing))
+                        .mask(RoundedRectangle(cornerRadius: 25.0)
+                            .frame(width: 890/1000*250, height: 9))
                         .padding(3)
                     
                     
