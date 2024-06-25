@@ -21,7 +21,6 @@ var Levels: [LevelProfileModel] = [
     .init(imageName: "Unknown", pointsToUnlock: 16000, noLevel: 5),
     .init(imageName: "Unknown", pointsToUnlock: 32000, noLevel: 6),
     .init(imageName: "Unknown", pointsToUnlock: 64000, noLevel: 7),
-    .init(imageName: "Unknown", pointsToUnlock: 128000, noLevel: 8),
-    .init(imageName: "Unknown", pointsToUnlock: 256000, noLevel: 9)
+    .init(imageName: "Unknown", pointsToUnlock: 128000, noLevel: 8)
          
 ]
