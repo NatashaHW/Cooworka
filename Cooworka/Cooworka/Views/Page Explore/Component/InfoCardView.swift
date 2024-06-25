@@ -91,7 +91,7 @@ struct InfoCardView: View {
                         Spacer()
                         
                         Text("\(formatFloat(cafe.distance)) km")
-                            .foregroundColor(Color("Grey400"))
+                            .foregroundColor(Color("Grey500"))
                             .font(.system(size: 13))
                     }
                     
