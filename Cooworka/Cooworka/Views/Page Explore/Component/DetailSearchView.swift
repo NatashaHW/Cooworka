@@ -6,7 +6,7 @@ struct DetailSearchView: View {
     let reviews: [ReviewCafe]
     
     var body: some View {
-        NavigationLink(destination: PageDetailView(cafe: ListCafe(from: cafe), reviews: reviews)) {
+        NavigationLink(destination: PageDetailView(cafe: ListCafe(from: cafe), reviews: reviews, searchNearby: SearchNearby())) {
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)

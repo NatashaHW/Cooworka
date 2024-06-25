@@ -3,9 +3,11 @@ import MapKit
 
 struct PageExplore: View {
     @State private var isLocationViewPresented = false
-    @State private var selectedLocationName: String = "BSD"
+    @State private var selectedLocationName: String = "Your Location"
     @StateObject private var viewModel = SearchNearby()
+    //TODO: ganti ke database
     let reviews: [ReviewCafe]
+    var firstName: String?
     
     private var screenWidth: CGFloat {
         UIScreen.main.bounds.width
@@ -21,8 +23,8 @@ struct PageExplore: View {
                         .frame(maxWidth: screenWidth, maxHeight: 260)
                         .edgesIgnoringSafeArea(.top)
                     
-                    VStack(alignment: .center, spacing: 26) {
-                        HStack (spacing: screenWidth - 180) {
+                    VStack(alignment: .leading, spacing: 18) {
+                        HStack () {
                             // Select Location
                             Button(action: {
                                 isLocationViewPresented = true
@@ -47,7 +49,12 @@ struct PageExplore: View {
                                 .background(
                                     RoundedRectangle(cornerRadius: 8, style: .continuous)
                                         .fill(Color("Grey50"))
+                                        
                                 )
+                                .frame(width: 200, alignment: .leading)
+                                .multilineTextAlignment(.center)
+                                .lineLimit(1)
+                                .truncationMode(.tail)
                                 .padding(.leading, 20)
                             }
                             .sheet(isPresented: $isLocationViewPresented) {
@@ -56,21 +63,28 @@ struct PageExplore: View {
                                 }
                             }
                             
+                            Spacer()
                             
                             Image(systemName: "bell.badge.fill")
                                 .foregroundStyle(.red, .white)
                                 .font(.system(size: 20))
+                                .padding(.trailing, 22)
                             
                         }
                         
-                        Text("Welcome Natasha!")
+                        //TODO: ubah jadi database
+                        Text("Welcome \(firstName ?? "Natasha")!")
                             .font(
                                 Font.custom("Nunito", size: 16)
                                     .weight(.bold)
                             )
                             .lineSpacing(3)
-                            .frame(width: 112)
-                            .padding(.leading, 210)
+                            .frame(width: 120)
+                            .frame(maxHeight: 60)
+                            .padding(.leading, 225)
+                            .lineLimit(2)
+                            .truncationMode(.tail)
+                            .multilineTextAlignment(.center)
                     }
                 }
                 
@@ -149,7 +163,9 @@ struct PageExplore: View {
 
 struct PageExplore_Previews: PreviewProvider {
     static var previews: some View {
-        PageExplore(reviews: exampleReviews)
+        //TODO: ganti jadi firstname user
+        var firstName = "Natasha"
+        PageExplore(reviews: exampleReviews, firstName: firstName)
     }
 }
 

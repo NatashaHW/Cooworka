@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		403507FE2C2ACB69001452C0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403507FD2C2ACB69001452C0 /* MainTabView.swift */; };
 		406D8A442C22957200A4B724 /* SignInApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D8A432C22957200A4B724 /* SignInApple.swift */; };
 		406D8A492C22974A00A4B724 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 406D8A482C22974A00A4B724 /* Nunito-Regular.ttf */; };
 		406D8A4B2C22975700A4B724 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 406D8A4A2C22975700A4B724 /* Nunito-Bold.ttf */; };
@@ -97,6 +98,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		403507FC2C2ACB51001452C0 /* Cooworka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cooworka.entitlements; sourceTree = "<group>"; };
+		403507FD2C2ACB69001452C0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		406D8A432C22957200A4B724 /* SignInApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInApple.swift; sourceTree = "<group>"; };
 		406D8A482C22974A00A4B724 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		406D8A4A2C22975700A4B724 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -483,6 +486,7 @@
 		A8B07B3F2C226BD3005F662E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				403507FD2C2ACB69001452C0 /* MainTabView.swift */,
 				63D288272C2A72FB00BCCEC7 /* Page Activity */,
 				63D288092C2A709300BCCEC7 /* Page Explore */,
 				63E3B31C2C29AD6600CCF7ED /* PopUp */,
@@ -687,6 +691,7 @@
 				630C1EB42C23DFDE007A5CA7 /* YesOrNoRating.swift in Sources */,
 				63D288262C2A72DC00BCCEC7 /* ReviewCardView.swift in Sources */,
 				63E3B3232C29D20000CCF7ED /* PhotoProfileComponent.swift in Sources */,
+				403507FE2C2ACB69001452C0 /* MainTabView.swift in Sources */,
 				63E3B3272C29D3A000CCF7ED /* ReviewHelpfulStat.swift in Sources */,
 				63D2881A2C2A725A00BCCEC7 /* CafeReviewCardView.swift in Sources */,
 				63D288222C2A72B600BCCEC7 /* LocationView.swift in Sources */,
