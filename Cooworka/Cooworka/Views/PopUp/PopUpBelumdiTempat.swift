@@ -19,9 +19,10 @@ struct PopUpBelumdiTempat: View {
 
                         Image(systemName: "xmark")
                             .resizable()
-                            .frame(width: 15, height: 17)
+                            .frame(width: 15, height: 15)
                             .offset(x: 130, y: -137 )
                             .zIndex(1)
+                            .foregroundColor(.grey900)
                     
                     RoundedRectangle(cornerRadius: 16)
                         .frame(width: 300, height: 317)
@@ -45,24 +46,26 @@ struct PopUpBelumdiTempat: View {
                     
                     
                     VStack{
-                        Image("Reward")
+                        Image("BelumdiTempat")
                             .resizable()
-                            .frame(width: 243, height: 236)
-                            .padding(.top, -35)
+                            .frame(width: 216, height: 154)
+                            
                         
-                        Text("Belum di cafe, ya?")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        
-                        Text("Datangi cafe untuk klaim reward dan dapatkan kejutannya.")
-                            .multilineTextAlignment(.center)
-                            .lineLimit(nil)
-                            .padding(.horizontal)
-                            .padding(.top, -5)
-                            .frame(width: 225)
-                            .font(.system(size: 12, weight: .regular))
-                            .padding(.bottom, 10)
-                        
+                        VStack {
+                            Text("Belum di cafe, ya?")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            
+                            Text("Datangi cafe untuk klaim reward dan dapatkan kejutannya.")
+                                .multilineTextAlignment(.center)
+                                .lineLimit(nil)
+                                .padding(.horizontal)
+                                .padding(.top, -5)
+                                .frame(width: 225)
+                                .font(.system(size: 12, weight: .regular))
+                                .padding(.bottom, 10)
+                        }
+                        .offset(y: 20)
                         
                     }
                     .padding(.top, 20)

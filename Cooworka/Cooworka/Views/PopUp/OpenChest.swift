@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OpenChest: View {
-    @State private var isChestOpen = false
+    @State private var isChestOpen = true
     @State private var shouldShake = false
     
     private let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
@@ -30,9 +30,11 @@ struct OpenChest: View {
                 if !isChestOpen{
                     VStack {
                         
-                        Text("Review Selesai") //TODO: minta jadiin asset
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
+                        Image("ReviewSelesai") //TODO: minta jadiin asset
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 250)
+                            .padding(.bottom, 20)
                         
                         
                         
@@ -42,10 +44,10 @@ struct OpenChest: View {
                             .font(.system(size: 15, weight: .medium))
                             .foregroundColor(.white)
                             .frame(width: 250)
-                            .padding(.top, -15)
+                            .padding(.top, -20)
                     }
                 } else{
-                    Text("Yeay! Kamu dapat") //TODO: minta jadiin asset
+                    Text("Yeay! Kamu dapat")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -74,22 +76,22 @@ struct OpenChest: View {
                                 shouldShake.toggle()
                             }
                             
-                            // Start a timer to toggle `isChestOpen` after 3 seconds
+                           
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 withAnimation {
                                     isChestOpen.toggle()
                                     self.feedbackGenerator.impactOccurred() //TODO: testing haptics
-                                    shouldShake = false // Stop shaking when opening
+                                    shouldShake = false
                                 }
                             }
                             
-                            // Shake animation loop
+                           
                             let shakeTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
                                 withAnimation {
                                     shouldShake.toggle()
                                 }
                             }
-                            // Invalidate timer after 3 seconds (same as opening duration)
+                           
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 shakeTimer.invalidate()
                             }
@@ -120,18 +122,37 @@ struct OpenChest: View {
             }
             
             if isChestOpen{
-                HStack { //TODO: asset kado wardrobe
-                    Rectangle()
-                        .frame(width: 125, height: 75)
-                        .scaleEffect(scale)
-                        .offset(x: offsetX, y: offsetY)
-                        .opacity(opacity)
+                HStack {
+                    ZStack{
+                        Text("+200 XP")
+                            .font(.subheadline)
+                            .zIndex(1)
+                            .foregroundColor(.buttonClaimChest)
+                            .offset(y: 15)
+     
+                        Image("RewardPointKuning")
+                            .resizable()
+                            .frame(width: 125, height: 75)
+                    }
+                    .scaleEffect(scale)
+                    .offset(x: offsetX, y: offsetY)
+                    .opacity(opacity)
                     
-                    Rectangle()
-                        .frame(width: 125, height: 75)
-                        .scaleEffect(scale)
-                        .offset(x: -offsetX, y: offsetY)
-                        .opacity(opacity)
+                    ZStack{
+                        Text("Kacamata")
+                            .font(.subheadline)
+                            .zIndex(1)
+                            .foregroundColor(.buttonClaimChest)
+                            .offset(y: 15)
+                        
+                        Image("Kacamata")
+                            .resizable()
+                            .frame(width: 125, height: 65)
+                            .padding(.top, 10)
+                    }
+                    .scaleEffect(scale)
+                    .offset(x: -offsetX, y: offsetY)
+                    .opacity(opacity)
                 }
                 .onAppear {
                     withAnimation(.spring(response: 1.5, dampingFraction: 1.5, blendDuration: 0.5)) {

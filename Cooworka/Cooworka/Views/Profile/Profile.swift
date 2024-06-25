@@ -8,50 +8,75 @@
 import SwiftUI
 
 struct Profile: View {
+    var action: () -> Void
+    
     var body: some View {
         VStack{
             ZStack(alignment: .top){
                 
                 Rectangle()
                     .frame(width: .infinity, height: 320)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.clear)
                 
                 
                 Rectangle()
-                    .frame(width: .infinity, height: 220)
+                    .frame(width: .infinity, height: 245)
                     .foregroundColor(.lightBlueForPopUp)
                     .cornerRadius(16)
+                
+                ZStack {
+                    Rectangle()
+                        .frame(width: .infinity, height: 80)
+                        .foregroundColor(.lightBlueForPopUp)
+                    
+                    VStack{
+                        Image(systemName: "chevron.up")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 12)
+                        
+                        Text("Scroll to back")
+                            .font(.system(size: 12))
+                            
+                    }
+                    .offset(y: 25)
+                    .foregroundColor(.grey500)
+                        
+                }
+                .gesture(
+                    DragGesture()
+                        .onEnded { gesture in
+                            withAnimation {
+                                if gesture.translation.height > 25 {
+                                    
+                                    print("Swiped down!")
+                                    action()
+                                }
+                            }
+                        }
+                    )
                     
                 
-                VStack(spacing: 30){ //TODO: tanyain ini jadi gada badges??
+                VStack(spacing: 30){
+                    
                     PhotoProfileComponent()
                     
                     ReviewHelpfulStat()
                     
                     HStack(spacing: 100){
-                        Text("Reviews")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 50)
-                                        .frame(height: 2)
-                                        .foregroundColor(.black)
-                                        .offset(y: 14)
-                                )
-                        
-                        Text("Badges")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.white) //TODO: SESUAIIN WARNA
-                            
-                            
-                        
+                        Text("My Reviews")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+
+                       
+                        Spacer()
                         
                     }
-                    .padding(.top, -6)
+                    .padding(.leading, 24)
+                    .padding(.top, -10)
                     
                 }
-                .padding(.top, 77)
+                .padding(.top, 100)
                 
                 
             }
@@ -77,5 +102,5 @@ struct Profile: View {
 }
 
 #Preview {
-    Profile()
+    Profile(action: {})
 }

@@ -42,7 +42,7 @@ struct MainTabView: View {
 //                    Label("Leaderboard", systemImage: "star")
 //                }
             
-            LevelView()
+            LevelProfile()
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EmoticonComponent: View {
     let labels: [String] = ["Gak nyaman", "Kureng", "So-so lah", "Pewee", "Super pewe"]
-    let emoticonBlue: [String] = ["CuihLemahBiru", "LemahAbisBiru", "SoSoBiru", "OkAjaBiru", "OkBangetBiru"]
+    let emoticonBlue: [String] = ["GakNyamanBiru", "KurengBiru", "So-so lah Biru", "PeweeBiru", "Super Pewe Biru"]
     @Binding var selectedLabel: String?
     @State private var hasChanged: Bool = false
     let onFirstTap: () -> Void

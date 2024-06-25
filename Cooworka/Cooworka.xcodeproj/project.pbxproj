@@ -32,6 +32,7 @@
 		63819FC22C246CDE00826F04 /* QtyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63819FC12C246CDE00826F04 /* QtyComponent.swift */; };
 		63819FC42C247EED00826F04 /* EmoticonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63819FC32C247EED00826F04 /* EmoticonComponent.swift */; };
 		63819FC62C24819400826F04 /* EmotNText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63819FC52C24819400826F04 /* EmotNText.swift */; };
+		638230872C2B089800AC82E4 /* LevelProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638230862C2B089800AC82E4 /* LevelProfile.swift */; };
 		63B5C7552C2520300056341A /* ReviewPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5C7542C2520300056341A /* ReviewPage3.swift */; };
 		63B5C7572C25211E0056341A /* KetersediaanParkirElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5C7562C25211E0056341A /* KetersediaanParkirElement.swift */; };
 		63B87F462C25BF6F00EEE984 /* KetersediaanParkir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B87F452C25BF6F00EEE984 /* KetersediaanParkir.swift */; };
@@ -128,6 +129,7 @@
 		63819FC12C246CDE00826F04 /* QtyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QtyComponent.swift; sourceTree = "<group>"; };
 		63819FC32C247EED00826F04 /* EmoticonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonComponent.swift; sourceTree = "<group>"; };
 		63819FC52C24819400826F04 /* EmotNText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotNText.swift; sourceTree = "<group>"; };
+		638230862C2B089800AC82E4 /* LevelProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProfile.swift; sourceTree = "<group>"; };
 		63B5C7542C2520300056341A /* ReviewPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPage3.swift; sourceTree = "<group>"; };
 		63B5C7562C25211E0056341A /* KetersediaanParkirElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KetersediaanParkirElement.swift; sourceTree = "<group>"; };
 		63B87F452C25BF6F00EEE984 /* KetersediaanParkir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KetersediaanParkir.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			children = (
 				63E3B32B2C29D6B800CCF7ED /* LevelProfileModel.swift */,
 				63E3B32D2C29D6CB00CCF7ED /* LevelView.swift */,
+				638230862C2B089800AC82E4 /* LevelProfile.swift */,
 			);
 			path = LevelProfile;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				A8B07B4A2C2274CD005F662E /* ContentViewModel.swift in Sources */,
 				63D333D22C21E3BE00036379 /* Level.swift in Sources */,
 				633C48F42C25C9C600BC6B8D /* FotoElement.swift in Sources */,
+				638230872C2B089800AC82E4 /* LevelProfile.swift in Sources */,
 				63D2880D2C2A716E00BCCEC7 /* NearbyViewModel.swift in Sources */,
 				63D2880B2C2A715700BCCEC7 /* ListCafe.swift in Sources */,
 				633C48F72C25CFCA00BC6B8D /* ReviewExtra.swift in Sources */,
