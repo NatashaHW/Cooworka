@@ -28,49 +28,79 @@ struct CafeReviewCardView: View {
         
         VStack(spacing: 0) {
             HStack {
-//                NavigationLink(){
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 168, height: 38)
-                            .foregroundColor(.clear)
-                        
-                        VStack(spacing: 3) {
-                            Text("Reviews")
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(Color("PrimaryBase"))
-                            Rectangle()
-                                .frame(width: 80, height: 2)
-                                .foregroundColor(Color("PrimaryBase"))
-                                .cornerRadius(5)
-                        }
-                        
-                    }
-//                }
-                
-//                NavigationLink(){
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 168, height: 38)
-                            .foregroundColor(.clear)
-                        
-                        Text("Photos")
+                //                NavigationLink(){
+                ZStack {
+                    Rectangle()
+                        .frame(width: 168, height: 38)
+                        .foregroundColor(.clear)
+                    
+                    VStack(spacing: 3) {
+                        Text("Reviews")
                             .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(Color("Grey500"))
+                            .foregroundColor(Color("PrimaryBase"))
+                        Rectangle()
+                            .frame(width: 80, height: 2)
+                            .foregroundColor(Color("PrimaryBase"))
+                            .cornerRadius(5)
                     }
-//                }
+                    
+                }
+                //                }
+                
+                //                NavigationLink(){
+                ZStack {
+                    Rectangle()
+                        .frame(width: 168, height: 38)
+                        .foregroundColor(.clear)
+                    
+                    Text("Photos")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(Color("Grey500"))
+                }
+                //                }
             }
-            
-            ForEach(reviews.filter { $0.cafeName == cafe.name }) { review in
-                ReviewCard(
-                    userImage: review.userImage,
-                    userName: review.userName,
-                    userLevel: review.userLevel,
-                    reviewCount: review.reviewCount,
-                    reviewText: review.reviewText,
-                    reviewDate: review.reviewDate,
-                    rating: review.rating,
-                    likeCount: review.likeCount
-                )
+            //TODO: ganti jadi database
+            if !(reviews.filter { $0.cafeName == cafe.name }).isEmpty {
+                //TODO: ganti jadi database -> sekarang ini bandingin nama cafe nya yang sama -> bisa lu ganti sama bandingin UUID -> bebas yg mana, yang gampang dulu aja sher
+                ForEach(reviews.filter { $0.cafeName == cafe.name }) { review in
+                    ReviewCard(
+                        userImage: review.userImage,
+                        userName: review.userName,
+                        userLevel: review.userLevel,
+                        reviewCount: review.reviewCount,
+                        reviewText: review.reviewText,
+                        reviewDate: review.reviewDate,
+                        rating: review.rating,
+                        likeCount: review.likeCount
+                    )
+                }
+            } else {
+                HStack{
+                    Spacer()
+                    VStack(alignment: .center, spacing: -5) {
+                        
+                        Text("Pahlawan ulasan dibutuhkan !\nSiap jadi yang pertama ?")
+                            .font(
+                                Font.custom("Nunito", size: 20)
+                                    .weight(.bold)
+                            )
+                            .frame(width: 280, height: 100, alignment: .center)
+                            .multilineTextAlignment(.center)
+                        
+                        
+                        Image("EmptyStateRiwayat")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, alignment: .center)
+                        
+                        
+                        Spacer()
+                    }
+                    .padding(.top, 40)
+                    
+                    
+                    Spacer()
+                }.padding(.top, -25)
             }
         }
     }

@@ -17,23 +17,71 @@ struct SignInApple: View {
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     
-   private var isSignedIn: Bool {
+    private var isSignedIn: Bool {
         !userId.isEmpty
     }
-   
-//    @State private var isSignedIn = false
+    
+    //    @State private var isSignedIn = false
     
     var body: some View {
         NavigationView {
             VStack {
                 
                 if !isSignedIn {
-                    SignInButtonView()
+                    
+                    ZStack(alignment: .bottom) {
+                        
+                        ZStack(alignment: .top) {
+                            VStack {
+                                Image("PageDaftar")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .ignoresSafeArea()
+                                    .frame(width: 419, height: 694)
+                                    .padding(.top, -100)
+                                
+                                Spacer()
+                            }
+                            
+                            Text("Buruan daftar sekarang !\nTemukan tempat WFC\nfavorit-mu")
+                                .font(
+                                    Font.custom("Nunito", size: 16)
+                                        .weight(.bold)
+                                )
+                                .frame(width: 280, height: 100, alignment: .center)
+                                .multilineTextAlignment(.center)
+                                .padding(.top, 125)
+                                .padding(.leading, -55)
+                        }
+                        
+                        
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(.white)
+                                .frame(width: 393, height: 202)
+                                .cornerRadius(30)
+                            
+                            VStack(alignment: .leading, spacing: 22) {
+                                Text("Daftar")
+                                    .font(
+                                        Font.custom("Nunito", size: 26)
+                                            .weight(.bold)
+                                    )
+                                    .foregroundColor(.black)
+                                    .padding(.leading, 50)
+                                
+                                SignInButtonView()
+                                    .padding(.horizontal, 35)
+                            }
+                            
+                        }
+                    }
                 }
                 else {
                     
 //                    PageExplore(reviews: exampleReviews, firstName: firstName)
-                    //Signed in
+                    
+                    //Already Signed in
                     MainTabView()
                     
                 }

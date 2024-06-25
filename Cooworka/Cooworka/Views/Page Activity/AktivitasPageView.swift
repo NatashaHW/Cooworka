@@ -54,13 +54,52 @@ struct AktivitasPageView: View {
                 
                 ScrollView {
                     VStack (spacing: 20) {
-                        
-                        ForEach(viewModel.cafes) { cafe in
-                            RiwayatCardView(cafe: cafe)
-                                .onTapGesture {
-                                    openInMaps(cafe: cafe)
+                        //TODO: Ganti viewModel nya jangan viewModel.cafes, ganti sesuai database
+                        if !viewModel.cafes.isEmpty {
+                            //TODO: ganti jadi database cafe yg udah di checkin user (udah pencet tombol klaim reward)
+                            //TODO: Ganti viewModel nya jangan viewModel.cafes, ganti sesuai database
+                            ForEach(viewModel.cafes) { cafe in
+                                RiwayatCardView(cafe: cafe)
+                                    .onTapGesture {
+                                        openInMaps(cafe: cafe)
+                                    }
+                            }.frame(maxWidth: .infinity)
+                        } else {
+                            HStack{
+                                Spacer()
+                                VStack(alignment: .center, spacing: -5) {
+                                    Spacer()
+                                    VStack(alignment: .center, spacing: -5) {
+                                        Text("Loh, kosong?!")
+                                            .font(
+                                                Font.custom("Nunito", size: 22)
+                                                    .weight(.bold)
+                                            )
+                                        
+                                        
+                                        Text("Ayo, kunjungi cafe dan review sekarang!")
+                                            .font(
+                                                Font.custom("Nunito", size: 22)
+                                                    .weight(.regular)
+                                            )
+                                            .frame(width: 280, height: 100, alignment: .center)
+                                            .multilineTextAlignment(.center)
+                                    }
+                                    
+                                    Image("EmptyStateRiwayat")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 285, alignment: .center)
+                                    
+                                    
+                                    Spacer()
                                 }
-                        }.frame(maxWidth: .infinity)
+                                .padding(.top, 40)
+                                
+                                
+                                Spacer()
+                            }
+                        }
                     }
                 }
             }
