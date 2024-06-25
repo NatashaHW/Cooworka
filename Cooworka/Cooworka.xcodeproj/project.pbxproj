@@ -103,6 +103,7 @@
 		63D333D12C21E3BE00036379 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		63D45AFB2C23CDE100FEC85A /* StarRatingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingComponent.swift; sourceTree = "<group>"; };
 		63D45AFD2C23D1F000FEC85A /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		A83519C82C2A72ED002868E9 /* Cooworka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cooworka.entitlements; sourceTree = "<group>"; };
 		A8B07B422C226C9F005F662E /* CloudKitRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRecord.swift; sourceTree = "<group>"; };
 		A8B07B442C226CFC005F662E /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		A8B07B472C226D92005F662E /* CafeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeRepository.swift; sourceTree = "<group>"; };
@@ -166,6 +167,7 @@
 		408B53E12C1A94D5003DE834 /* Cooworka */ = {
 			isa = PBXGroup;
 			children = (
+				A83519C82C2A72ED002868E9 /* Cooworka.entitlements */,
 				406D8A4C2C22978600A4B724 /* Info.plist */,
 				408B53E22C1A94D5003DE834 /* CooworkaApp.swift */,
 				63B96D892C23387200078480 /* Component */,
@@ -641,6 +643,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cooworka/Cooworka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cooworka/Preview Content\"";
@@ -672,6 +675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cooworka/Cooworka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cooworka/Preview Content\"";
