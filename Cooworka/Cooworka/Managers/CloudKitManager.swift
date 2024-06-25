@@ -11,7 +11,7 @@ class CloudKitManager<T: CloudKitRecord> {
     private var database: CKDatabase
     
     init() {
-        self.database = CKContainer.(identifier:"iCloud.ADA.mini2.cooworka.app").publicCloudDatabase
+        self.database = CKContainer(identifier:"iCloud.ADA.mini2.cooworka.app").publicCloudDatabase
     }
     
     func save(record: T, recordType: String, completion: @escaping (Result<T, Error>) -> Void) {
