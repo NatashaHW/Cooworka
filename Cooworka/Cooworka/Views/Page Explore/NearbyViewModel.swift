@@ -28,7 +28,7 @@ class SearchNearby: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    private func searchForCafes(location: CLLocation) {
+    func searchForCafes(location: CLLocation) {
         let request = MKLocalPointsOfInterestRequest(center: location.coordinate, radius: 300)
         request.pointOfInterestFilter = MKPointOfInterestFilter(including: [.restaurant, .cafe, .bakery])
         
@@ -60,5 +60,10 @@ class SearchNearby: NSObject, ObservableObject, CLLocationManagerDelegate {
                 self?.cafes = cafes
             }
         }
+    }
+    
+    func searchForCafes(at location: CLLocationCoordinate2D) {
+        let location = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        searchForCafes(location: location)
     }
 }

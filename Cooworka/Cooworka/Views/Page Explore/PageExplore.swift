@@ -49,7 +49,6 @@ struct PageExplore: View {
                                 .background(
                                     RoundedRectangle(cornerRadius: 8, style: .continuous)
                                         .fill(Color("Grey50"))
-                                        
                                 )
                                 .frame(width: 200, alignment: .leading)
                                 .multilineTextAlignment(.center)
@@ -60,6 +59,8 @@ struct PageExplore: View {
                             .sheet(isPresented: $isLocationViewPresented) {
                                 SelectLocationView { location in
                                     selectedLocationName = location.name
+                                    let coordinate = location.coordinate
+                                    viewModel.searchForCafes(at: coordinate)
                                 }
                             }
                             
@@ -69,10 +70,9 @@ struct PageExplore: View {
                                 .foregroundStyle(.red, .white)
                                 .font(.system(size: 20))
                                 .padding(.trailing, 22)
-                            
                         }
                         
-                        //TODO: ubah jadi database
+                        //TODO: ganti ke database
                         Text("Welcome \(firstName ?? "Natasha")!")
                             .font(
                                 Font.custom("Nunito", size: 16)
@@ -130,7 +130,7 @@ struct PageExplore: View {
                                 }
                             }
                         }
-                        Text("Cafe di Sekitar Kamu")
+                        Text("Cafe di Sekitar \(selectedLocationName == "Your Location" ? "Kamu" : selectedLocationName)")
                             .font(.system(size: 26, weight: .bold))
                             .padding(.leading, 20)
                     }
@@ -160,6 +160,7 @@ struct PageExplore: View {
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
 }
+
 
 struct PageExplore_Previews: PreviewProvider {
     static var previews: some View {
