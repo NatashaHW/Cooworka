@@ -1,0 +1,71 @@
+# User-specific files
+.DS_Store
+*.swp
+*.lock
+*~
+
+# Xcode
+build/
+DerivedData/
+.idea/
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.xcworkspace/xcuserdata/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Swift Package Manager
+.build/
+Packages
+Package.pins
+Package.resolved
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Xcode automatic backups
+*.xcscmblueprint
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Index
+*.idx
+*.index
+
+# Core Data
+*.xcdatamodeld
+
+# Certificates
+*.cer
+*.crt
+*.pem
+
+# Archives
+*.xcarchive
+
+# App data
+*.appex
+
+# Logs
+*.log
+*.logarchive
+
+# Temporary files
+*.tmp
+*.temp
+
+# Other
+*.orig
+*.bak
+
