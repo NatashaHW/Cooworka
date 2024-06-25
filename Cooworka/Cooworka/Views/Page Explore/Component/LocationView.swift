@@ -80,6 +80,7 @@ struct SelectLocationView: View {
     @ObservedObject private var viewModel = LocationViewModel()
     @State private var searchQuery = ""
     var onLocationSelected: ((Location) -> Void)?
+    var onCurrentLocationSelected: (() -> Void)?
 
     var body: some View {
         VStack {
@@ -104,6 +105,8 @@ struct SelectLocationView: View {
             // Use Current Location Button
             Button(action: {
                 viewModel.requestCurrentLocation()
+                onCurrentLocationSelected?()
+                presentationMode.wrappedValue.dismiss()
             }) {
                 HStack {
                     Image(systemName: "location.fill")
