@@ -94,27 +94,31 @@ struct SearchCafeView: View {
                                 }
                             }
                         }
+                    } else {
+                        HStack{
+                            Spacer()
+                            VStack(alignment: .center) {
+                                Spacer()
+                                Image("SearchEmptyState")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 285, alignment: .center)
+                                
+                                Text("Yuk, cari dan kunjungi cafe yang pas untuk WFC !")
+                                    .font(
+                                        Font.custom("Nunito", size: 22)
+                                            .weight(.bold)
+                                    )
+                                    .frame(width: 280, height: 100, alignment: .center)
+                                    .multilineTextAlignment(.center)
+                                Spacer()
+                            }
+                            .padding(.top, 40)
+                            
+                            
+                            Spacer()
+                        }
                     }
-                    
-//                    if !viewModel.nearbyCafeLocations.isEmpty {
-//                        Section(header:
-//                                    Text("Rekomendasi Cafe Terdekat")
-//                            .font(
-//                                Font.custom("Nunito", size: 22)
-//                                    .weight(.semibold)
-//                            )
-//
-//                                .padding(.leading, 22)
-//                                .padding(.bottom, -5)
-//                        ) {
-//                            VStack(spacing: 10) {
-//                                ForEach(viewModel.nearbyCafeLocations) { location in
-//                                    DetailSearchView(cafe: location, reviews: reviews)
-//                                        .frame(maxWidth: .infinity)
-//                                }
-//                            }
-//                        }
-//                    }
                 }
                 
             }

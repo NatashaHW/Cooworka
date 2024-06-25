@@ -18,10 +18,10 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var currentLocation: CLLocationCoordinate2D?
     @Published var searchResults: [Location] = []
     @Published var nearbyLocations: [Location] = []
-
+    
     private var locationManager: CLLocationManager
     private var cancellable: AnyCancellable?
-
+    
     override init() {
         self.locationManager = CLLocationManager()
         super.init()
@@ -30,22 +30,22 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
     }
-
+    
     func requestCurrentLocation() {
         self.locationManager.startUpdatingLocation()
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         self.currentLocation = location.coordinate
         self.locationManager.stopUpdatingLocation()
         self.fetchNearbyLocations(location: location)
     }
-
+    
     func searchLocations(query: String) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = query
-
+        
         let search = MKLocalSearch(request: request)
         search.start { [weak self] response, error in
             guard let response = response else { return }
@@ -54,19 +54,32 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
         }
     }
-
+    
     func fetchNearbyLocations(location: CLLocation) {
-        let request = MKLocalPointsOfInterestRequest(center: location.coordinate, radius: 1000)
-        request.pointOfInterestFilter = MKPointOfInterestFilter(including: [.park, .restaurant, .cafe, .museum])
-
-        let search = MKLocalSearch(request: request)
-        search.start { [weak self] response, error in
-            guard let response = response else { return }
-            self?.nearbyLocations = response.mapItems.compactMap {
-                Location(name: $0.name ?? "Unknown", coordinate: $0.placemark.coordinate)
+        // Reverse geocode to get nearby areas, districts, cities, etc.
+        CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            guard let placemark = placemarks?.first else { return }
+            var nearbyLocations: [Location] = []
+            
+            if let areasOfInterest = placemark.areasOfInterest {
+                for area in areasOfInterest {
+                    nearbyLocations.append(Location(name: area, coordinate: placemark.location!.coordinate))
+                }
             }
+            
+            // Add other nearby locations like districts, cities, etc. if available
+            if let locality = placemark.locality {
+                nearbyLocations.append(Location(name: locality, coordinate: placemark.location!.coordinate))
+            }
+            
+            if let subLocality = placemark.subLocality {
+                nearbyLocations.append(Location(name: subLocality, coordinate: placemark.location!.coordinate))
+            }
+            
+            self?.nearbyLocations = nearbyLocations
         }
     }
+    
 }
 
 
@@ -80,76 +93,169 @@ struct SelectLocationView: View {
     @ObservedObject private var viewModel = LocationViewModel()
     @State private var searchQuery = ""
     var onLocationSelected: ((Location) -> Void)?
-
+    var onCurrentLocationSelected: (() -> Void)?
+    
     var body: some View {
-        VStack {
-            // Search Bar
+        VStack(alignment: .leading, spacing: 24) {
+            
             HStack {
-                TextField("Search for a location", text: $searchQuery, onCommit: {
-                    viewModel.searchLocations(query: searchQuery)
-                })
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-
-                Button(action: {
-                    viewModel.searchLocations(query: searchQuery)
-                }) {
-                    Image(systemName: "magnifyingglass")
-                }
-                .padding(.trailing, 8)
+                Spacer()
+                Rectangle()
+                    .frame(width: 75, height: 5)
+                    .foregroundColor(.gray)
+                    .cornerRadius(20)
+                Spacer()
             }
-            .padding()
-
-            // Use Current Location Button
-            Button(action: {
-                viewModel.requestCurrentLocation()
-            }) {
-                HStack {
-                    Image(systemName: "location.fill")
-                    Text("Use Current Location")
-                        .fontWeight(.bold)
+            .padding(.top, 20)
+            
+            Text("Pilih Lokasi")
+                .font(
+                    Font.custom("Nunito", size: 26)
+                        .weight(.semibold)
+                )
+                .padding(.leading, 25)
+                .padding(.top, 8)
+                
+            
+            VStack(spacing: 25) {
+                VStack(alignment: .leading, spacing: 20) {
+                    ZStack {
+                        Rectangle()
+                            .fill(Color.white)
+                            .frame(width: 360, height: 50)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 50)
+                                    .stroke(Color.gray, lineWidth: 1)
+                            )
+                        
+                        HStack(spacing: 14) {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.gray)
+                            TextField("Mau lihat-lihat daerah mana", text: $searchQuery)
+                                .onChange(of: searchQuery, perform: { newValue in
+                                    viewModel.searchLocations(query: newValue)
+                                })
+                            Spacer()
+                        }
+                        .padding(.leading, 30)
+                        .padding(.trailing, 12)
+                    }
+                    
+                    // Use Current Location Button
+                    Button(action: {
+                        viewModel.requestCurrentLocation()
+                        onCurrentLocationSelected?()
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack(spacing: 14) {
+                            Image(systemName: "smallcircle.filled.circle")
+                                .foregroundColor(Color("PrimaryBase"))
+                                .font(.system(size: 20))
+                            Text("Lokasi saat ini")
+                                .font(.system(size: 18, weight: .regular))
+                                .foregroundColor(.black)
+                        }
+                        //                .padding()
+                    }
+                    .padding(.horizontal, 30)
                 }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(8)
-            }
-            .padding(.horizontal)
-
-            // Search Results
-            List {
-                if !viewModel.searchResults.isEmpty {
-                    Section(header: Text("Search Results")) {
-                        ForEach(viewModel.searchResults) { location in
-                            HStack {
-                                Text(location.name)
-                                Spacer()
-                                Button("Select") {
-                                    onLocationSelected?(location)
-                                    presentationMode.wrappedValue.dismiss()
+                
+                Divider()
+                    .background(Color.gray)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                
+                // Search Results
+                //            List {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 25) {
+                        if !viewModel.searchResults.isEmpty {
+                            Section(header:
+                                        Text("Hasil Pencarian")
+                                .font(
+                                    Font.custom("Nunito", size: 22)
+                                        .weight(.semibold)
+                                )
+                                    
+                                    .padding(.leading, 22)
+                                    .padding(.bottom, 5)
+                            ) {
+                                VStack(alignment: .leading, spacing: 18) {
+                                    ForEach(viewModel.searchResults) { location in
+                                        Button(action: {
+                                            onLocationSelected?(location)
+                                            presentationMode.wrappedValue.dismiss()
+                                        }) {
+                                            HStack(spacing: 14) {
+                                                Image(systemName: "map")
+                                                    .foregroundColor(Color("PrimaryBase"))
+                                                    .font(.system(size: 20))
+                                                Text(location.name)
+                                                    .foregroundColor(Color(.black))
+                                                    .font(.system(size: 18))
+                                            }
+                                            .padding(.horizontal, 30)
+                                        }
+                                        
+                                        Divider()
+                                            .background(Color.gray)
+                                            .padding(.leading, 20)
+                                            .padding(.trailing, 20)
+                                        
+                                    }
                                 }
+                                
                             }
                         }
-                    }
-                }
-
-                if !viewModel.nearbyLocations.isEmpty {
-                    Section(header: Text("Nearby Locations")) {
-                        ForEach(viewModel.nearbyLocations) { location in
-                            HStack {
-                                Text(location.name)
-                                Spacer()
-                                Button("Select") {
-                                    onLocationSelected?(location)
-                                    presentationMode.wrappedValue.dismiss()
+                        
+                        
+                        
+                        if !viewModel.nearbyLocations.isEmpty {
+                            Section(header:
+                                        Text("Area di Sekitar Kamu")
+                                .font(
+                                    Font.custom("Nunito", size: 22)
+                                        .weight(.semibold)
+                                )
+                                    
+                                    .padding(.leading, 22)
+                                    .padding(.bottom, 5)
+                            ) {
+                                VStack(alignment: .leading, spacing: 18) {
+                                    ForEach(viewModel.nearbyLocations) { location in
+                                        Button(action: {
+                                            onLocationSelected?(location)
+                                            presentationMode.wrappedValue.dismiss()
+                                        }) {
+                                            HStack(spacing: 14) {
+                                                Image(systemName: "map")
+                                                    .foregroundColor(Color("PrimaryBase"))
+                                                    .font(.system(size: 20))
+                                                Text(location.name)
+                                                    .foregroundColor(Color(.black))
+                                                    .font(.system(size: 18))
+                                            }
+                                            .padding(.horizontal, 30)
+                                        }
+                                        
+                                        Divider()
+                                            .background(Color.gray)
+                                            .padding(.leading, 20)
+                                            .padding(.trailing, 20)
+                                        
+                                    }
                                 }
+                                
                             }
                         }
+                        
+                        
                     }
                 }
             }
-            .listStyle(GroupedListStyle())
+            Spacer()
+            //            .listStyle(GroupedListStyle())
         }
         .onAppear {
             viewModel.requestCurrentLocation()
