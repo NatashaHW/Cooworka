@@ -13,7 +13,9 @@ struct LevelView: View {
     
     @State var currentLevel = 1
     
-    let levels: [LevelProfileModel]
+    let levels = Levels
+    
+    var action: () -> Void
     
     var body: some View {
         VStack{
@@ -57,25 +59,25 @@ struct LevelView: View {
                     ZStack{
                         HStack(spacing: 150){
                             Button(action: {
-                                if currentLevel != 1 {
+                                if currentLevel > 1 {
                                     currentLevel -= 1
                                 }
                             }, label: {
                                 Image(systemName: "chevron.left")
                                     .resizable()
                                     .frame(width: 8, height: 13)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(currentLevel == 1 ? .gray : .black)
                             })
                             
                             Button(action: {
-                                if currentLevel != 9 {
+                                if currentLevel < 9 {
                                     currentLevel += 1
                                 }
                             }, label: {
                                 Image(systemName: "chevron.right")
                                     .resizable()
                                     .frame(width: 8, height: 13)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(currentLevel == 9 ? .gray : .black)
                             })
                             
                             
@@ -109,7 +111,7 @@ struct LevelView: View {
                                             .padding()
                                             .zIndex(0.5)
                                             .overlay(
-                                                LinearGradient(gradient: Gradient(colors: [.red, .blue]), startPoint: .leading, endPoint: .trailing))
+                                                LinearGradient(gradient: Gradient(colors: [.lightYellow, .darkYellow]), startPoint: .leading, endPoint: .trailing))
                                             .mask(RoundedRectangle(cornerRadius: 25)
                                                 .frame(width: 2070/170, height: 10))
                                         
@@ -140,11 +142,12 @@ struct LevelView: View {
                                             
                                         }
                                         .padding(.leading, 178)
+                                        .padding(.trailing, 178)
                                         .zIndex(1)
                                     }
                                 }
                             }
-                            .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                            .disabled(true)
                             .onChange(of: currentLevel) { newValue in
                                 withAnimation {
                                     proxy.scrollTo(newValue, anchor: .center)
@@ -156,13 +159,23 @@ struct LevelView: View {
                     Text("Kumpulkan 110 XP lagi untuk naik pangkat!")
                         .font(.subheadline)
                         .fontWeight(.regular)
-//                        .padding(.top, 15)
-                   
-                    Text("Kunjungi cafe dan tulis review sekarang.")
-                        .font(.subheadline)
-                        .fontWeight(.regular)
-                        .padding(.bottom, 20)
-                    //TODO: cari cara buat hyperlink tulisan sekarang
+                    
+                    HStack {
+                        Text("Kunjungi cafe dan tulis review ")
+                            .font(.subheadline)
+                            .fontWeight(.regular)
+                        
+                        Text("sekarang.")
+                            .font(.subheadline)
+                            .fontWeight(.regular)
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                //TODO: LANJUT KE PAGE MANA?
+                                
+                            }
+                            .padding(.leading, -9)
+                    }
+                    .padding(.bottom, 20)
                     
                     ReviewHelpfulStat()
                     
@@ -177,17 +190,23 @@ struct LevelView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 22)
                     }
-                    .padding(.top, 10)
+                    .padding(.top, 5)
+                    .gesture(
+                        DragGesture()
+                            .onEnded { gesture in
+                                withAnimation {
+                                    if gesture.translation.height < -25 {
+                                        print("Swiped up!")
+                                        action()
+                                    }
+                                }
+                            }
+                        )
                     
-                    
-                    
-                        
-                    
-                    
+   
                     Spacer()
                     
                 }
-//                .padding()
             }
             .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
@@ -197,10 +216,5 @@ struct LevelView: View {
 }
 
 #Preview {
-    LevelView(levels: [LevelProfileModel(imageName: "BudakJompo", pointsToUnlock: 256000, noLevel: 1),
-                       LevelProfileModel(imageName: "Unknown", pointsToUnlock: 512000, noLevel: 2),
-                       LevelProfileModel(imageName: "Unknown", pointsToUnlock: 512000, noLevel: 3)
-                       
-                       
-                      ])
+    LevelView( action: {})
 }
