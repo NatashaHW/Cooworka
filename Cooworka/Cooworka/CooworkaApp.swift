@@ -17,6 +17,7 @@ struct CooworkaApp: App {
 //            EmoticonComponent()
             SignInApple()
             
+            
         }
     }
 }

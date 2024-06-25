@@ -125,7 +125,9 @@ struct ReviewPage1: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
+            
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     private func updateTotalPoints() {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopUpBelumdiTempat: View {
-    @State private var isDismissed = false
+    @Binding var isDismissed: Bool
     
     var body: some View {
         if !isDismissed {
@@ -23,6 +23,10 @@ struct PopUpBelumdiTempat: View {
                             .offset(x: 130, y: -137 )
                             .zIndex(1)
                             .foregroundColor(.grey900)
+                            .onTapGesture {
+                                isDismissed = true
+                            }
+                            
                     
                     RoundedRectangle(cornerRadius: 16)
                         .frame(width: 300, height: 317)
@@ -85,5 +89,5 @@ struct PopUpBelumdiTempat: View {
 }
 
 #Preview {
-    PopUpBelumdiTempat()
+    PopUpBelumdiTempat(isDismissed: .constant(false))
 }

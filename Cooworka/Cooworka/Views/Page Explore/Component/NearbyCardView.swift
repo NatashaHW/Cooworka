@@ -102,11 +102,11 @@ struct NearbyCardView: View {
                                     if isNearbyUserLocation(userLocation: userLocation, cafeLocation: cafeLocation) {
                                         // Logic untuk menampilkan pop-up MysteryChest jika dekat dengan kafe
                                         // Misalnya: showMysteryChestPopup()
-                                        PopUpSmall()
+//                                        PopUpSmall()
                                         print("User is nearby the cafe")
                                     } else {
                                         // Logic untuk menampilkan pop-up NotInCafe jika tidak dekat dengan kafe
-                                        PopUpBelumdiTempat()
+//                                        PopUpBelumdiTempat()
                                         // Misalnya: showNotInCafePopup()
                                         print("User is not nearby the cafe")
                                     }
