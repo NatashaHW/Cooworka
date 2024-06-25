@@ -13,8 +13,9 @@ struct CooworkaApp: App {
         WindowGroup {
 //            PageExplore(reviews: exampleReviews)
 //            ContentView()
-            ReviewPage1()
+//            ReviewPage1()
 //            EmoticonComponent()
+            SignInApple()
             
         }
     }

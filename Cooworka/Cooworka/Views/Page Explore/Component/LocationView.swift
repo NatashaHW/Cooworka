@@ -151,7 +151,6 @@ struct SelectLocationView: View {
             }
             .listStyle(GroupedListStyle())
         }
-        .navigationBarTitle("Select Location", displayMode: .inline)
         .onAppear {
             viewModel.requestCurrentLocation()
         }
