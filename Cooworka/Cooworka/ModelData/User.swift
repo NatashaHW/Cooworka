@@ -10,23 +10,26 @@ import CloudKit
 
 struct User: CloudKitRecord{
     var recordID: CKRecord.ID?
-    var userID: CKRecord.ID
-    var username: String
+    var userID: String
+    var firstName: String
+    var lastName: String
     var xp: Int
     var emailUser: String
     
-    init(userID: CKRecord.ID? = nil, username: String, xp: Int, emailUser: String) {
-        self.userID = userID ?? CKRecord.ID(recordName: UUID().uuidString)
-        self.recordID = userID
-        self.username = username
+    init(userID: String, firstName: String, lastName: String, xp: Int, emailUser: String) {
+        self.userID = userID
+        self.recordID = CKRecord.ID(recordName: userID)
+        self.firstName = firstName
+        self.lastName = lastName
         self.xp = xp
         self.emailUser = emailUser
     }
     
     init(record: CKRecord) {
         self.recordID = record.recordID
-        self.userID = record.recordID
-        self.username = record["username"] as? String ?? ""
+        self.userID = record["userID"] as? String ?? ""
+        self.firstName = record["firstName"] as? String ?? ""
+        self.lastName = record["lastName"] as? String ?? ""
         self.xp = record["xp"] as? Int ?? 0
         self.emailUser = record["emailUser"] as? String ?? ""
     }
@@ -34,8 +37,9 @@ struct User: CloudKitRecord{
     
     func toDictionary() -> [String: Any] {
             return [
-                "userID": userID.recordName,
-                "username": username,
+                "userID": userID,
+                "firstName": firstName,
+                "lastName": lastName,
                 "xp": xp,
                 "emailUser": emailUser
             ]
@@ -43,8 +47,9 @@ struct User: CloudKitRecord{
     
 
     func toCKRecord(recordType: String) -> CKRecord {
-            let record = CKRecord(recordType: recordType, recordID: userID)
-            record["username"] = username as CKRecordValue
+            let record = CKRecord(recordType: recordType, recordID: recordID!)
+            record["firstName"] = firstName as CKRecordValue
+            record["lastName"] = lastName as CKRecordValue
             record["xp"] = xp as CKRecordValue
             record["emailUser"] = emailUser as CKRecordValue
             return record
