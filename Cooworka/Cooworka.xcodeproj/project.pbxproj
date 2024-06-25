@@ -19,6 +19,7 @@
 		408B53F42C1A94D7003DE834 /* CooworkaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53F32C1A94D7003DE834 /* CooworkaTests.swift */; };
 		408B53FE2C1A94D7003DE834 /* CooworkaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53FD2C1A94D7003DE834 /* CooworkaUITests.swift */; };
 		408B54002C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */; };
+		630758FE2C29470A00AD7241 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630758FD2C29470A00AD7241 /* PhotoPicker.swift */; };
 		630C1EB42C23DFDE007A5CA7 /* YesOrNoRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C1EB32C23DFDE007A5CA7 /* YesOrNoRating.swift */; };
 		630C1EB62C23F20F007A5CA7 /* PreviewYesNoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C1EB52C23F20F007A5CA7 /* PreviewYesNoButton.swift */; };
 		633C48F42C25C9C600BC6B8D /* FotoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C48F32C25C9C600BC6B8D /* FotoElement.swift */; };
@@ -48,6 +49,14 @@
 		63D333D22C21E3BE00036379 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D333D12C21E3BE00036379 /* Level.swift */; };
 		63D45AFC2C23CDE100FEC85A /* StarRatingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D45AFB2C23CDE100FEC85A /* StarRatingComponent.swift */; };
 		63D45AFE2C23D1F000FEC85A /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D45AFD2C23D1F000FEC85A /* StarRating.swift */; };
+		63E3B31E2C29AD7500CCF7ED /* PopUpSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E3B31D2C29AD7500CCF7ED /* PopUpSmall.swift */; };
+		63E3B3202C29BFEF00CCF7ED /* OpenChest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E3B31F2C29BFEF00CCF7ED /* OpenChest.swift */; };
+		63E3B3232C29D20000CCF7ED /* PhotoProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E3B3222C29D20000CCF7ED /* PhotoProfileComponent.swift */; };
+		63E3B3252C29D33000CCF7ED /* ReviewHelpfulComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E3B3242C29D32F00CCF7ED /* ReviewHelpfulComponent.swift */; };
+		63E3B3272C29D3A000CCF7ED /* ReviewHelpfulStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E3B3262C29D3A000CCF7ED /* ReviewHelpfulStat.swift */; };
+		63E3B3292C29D3EC00CCF7ED /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E3B3282C29D3EC00CCF7ED /* Profile.swift */; };
+		63E3B32C2C29D6B800CCF7ED /* LevelProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E3B32B2C29D6B800CCF7ED /* LevelProfileModel.swift */; };
+		63E3B32E2C29D6CB00CCF7ED /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E3B32D2C29D6CB00CCF7ED /* LevelView.swift */; };
 		A8B07B432C226C9F005F662E /* CloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B07B422C226C9F005F662E /* CloudKitRecord.swift */; };
 		A8B07B452C226CFC005F662E /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B07B442C226CFC005F662E /* CloudKitManager.swift */; };
 		A8B07B482C226D92005F662E /* CafeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B07B472C226D92005F662E /* CafeRepository.swift */; };
@@ -88,6 +97,7 @@
 		408B53F92C1A94D7003DE834 /* CooworkaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CooworkaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		408B53FD2C1A94D7003DE834 /* CooworkaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooworkaUITests.swift; sourceTree = "<group>"; };
 		408B53FF2C1A94D7003DE834 /* CooworkaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooworkaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		630758FD2C29470A00AD7241 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		630C1EB32C23DFDE007A5CA7 /* YesOrNoRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesOrNoRating.swift; sourceTree = "<group>"; };
 		630C1EB52C23F20F007A5CA7 /* PreviewYesNoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewYesNoButton.swift; sourceTree = "<group>"; };
 		633C48F32C25C9C600BC6B8D /* FotoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoElement.swift; sourceTree = "<group>"; };
@@ -117,6 +127,14 @@
 		63D333D12C21E3BE00036379 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		63D45AFB2C23CDE100FEC85A /* StarRatingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingComponent.swift; sourceTree = "<group>"; };
 		63D45AFD2C23D1F000FEC85A /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		63E3B31D2C29AD7500CCF7ED /* PopUpSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpSmall.swift; sourceTree = "<group>"; };
+		63E3B31F2C29BFEF00CCF7ED /* OpenChest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChest.swift; sourceTree = "<group>"; };
+		63E3B3222C29D20000CCF7ED /* PhotoProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoProfileComponent.swift; sourceTree = "<group>"; };
+		63E3B3242C29D32F00CCF7ED /* ReviewHelpfulComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHelpfulComponent.swift; sourceTree = "<group>"; };
+		63E3B3262C29D3A000CCF7ED /* ReviewHelpfulStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHelpfulStat.swift; sourceTree = "<group>"; };
+		63E3B3282C29D3EC00CCF7ED /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		63E3B32B2C29D6B800CCF7ED /* LevelProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProfileModel.swift; sourceTree = "<group>"; };
+		63E3B32D2C29D6CB00CCF7ED /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		A8B07B422C226C9F005F662E /* CloudKitRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRecord.swift; sourceTree = "<group>"; };
 		A8B07B442C226CFC005F662E /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		A8B07B472C226D92005F662E /* CafeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeRepository.swift; sourceTree = "<group>"; };
@@ -340,12 +358,42 @@
 			path = ModelData;
 			sourceTree = "<group>";
 		};
+		63E3B31C2C29AD6600CCF7ED /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				63E3B31D2C29AD7500CCF7ED /* PopUpSmall.swift */,
+				63E3B31F2C29BFEF00CCF7ED /* OpenChest.swift */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		63E3B3212C29D18600CCF7ED /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				63E3B3222C29D20000CCF7ED /* PhotoProfileComponent.swift */,
+				63E3B3282C29D3EC00CCF7ED /* Profile.swift */,
+				63E3B3242C29D32F00CCF7ED /* ReviewHelpfulComponent.swift */,
+				63E3B3262C29D3A000CCF7ED /* ReviewHelpfulStat.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		63E3B32A2C29D6A700CCF7ED /* LevelProfile */ = {
+			isa = PBXGroup;
+			children = (
+				63E3B32B2C29D6B800CCF7ED /* LevelProfileModel.swift */,
+				63E3B32D2C29D6CB00CCF7ED /* LevelView.swift */,
+			);
+			path = LevelProfile;
+			sourceTree = "<group>";
+		};
 		63F876462C26A82100DFB001 /* Review */ = {
 			isa = PBXGroup;
 			children = (
 				63B96D872C232E3300078480 /* ReviewPage1.swift */,
 				63819FBD2C244A2500826F04 /* ReviewPage2.swift */,
 				63B5C7542C2520300056341A /* ReviewPage3.swift */,
+				630758FD2C29470A00AD7241 /* PhotoPicker.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -353,10 +401,13 @@
 		A8B07B3F2C226BD3005F662E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63E3B31C2C29AD6600CCF7ED /* PopUp */,
 				408B53E42C1A94D5003DE834 /* ContentView.swift */,
 				406D8A3F2C22953A00A4B724 /* PageReview.swift */,
 				406D8A432C22957200A4B724 /* SignInApple.swift */,
 				63B96D852C23249300078480 /* ReviewPageInitial.swift */,
+				63E3B32A2C29D6A700CCF7ED /* LevelProfile */,
+				63E3B3212C29D18600CCF7ED /* Profile */,
 				63F876462C26A82100DFB001 /* Review */,
 			);
 			path = Views;
@@ -527,12 +578,16 @@
 				63819FC62C24819400826F04 /* EmotNText.swift in Sources */,
 				63B96D882C232E3300078480 /* ReviewPage1.swift in Sources */,
 				63D45AFC2C23CDE100FEC85A /* StarRatingComponent.swift in Sources */,
+				63E3B32C2C29D6B800CCF7ED /* LevelProfileModel.swift in Sources */,
+				63E3B31E2C29AD7500CCF7ED /* PopUpSmall.swift in Sources */,
 				63B96D862C23249300078480 /* ReviewPageInitial.swift in Sources */,
+				63E3B3252C29D33000CCF7ED /* ReviewHelpfulComponent.swift in Sources */,
 				A8B07B452C226CFC005F662E /* CloudKitManager.swift in Sources */,
 				63D333CE2C21E3B300036379 /* User Level.swift in Sources */,
 				406D8A422C22955A00A4B724 /* SearchNearby.swift in Sources */,
 				63D333C62C21E38D00036379 /* Check In.swift in Sources */,
 				63B87F462C25BF6F00EEE984 /* KetersediaanParkir.swift in Sources */,
+				63E3B3292C29D3EC00CCF7ED /* Profile.swift in Sources */,
 				A8B07B432C226C9F005F662E /* CloudKitRecord.swift in Sources */,
 				63D333C82C21E39600036379 /* User.swift in Sources */,
 				63B96D8B2C2338A900078480 /* LineProgressReview.swift in Sources */,
@@ -540,14 +595,18 @@
 				406D8A442C22957200A4B724 /* SignInApple.swift in Sources */,
 				63B5C7572C25211E0056341A /* KetersediaanParkirElement.swift in Sources */,
 				630C1EB42C23DFDE007A5CA7 /* YesOrNoRating.swift in Sources */,
+				63E3B3232C29D20000CCF7ED /* PhotoProfileComponent.swift in Sources */,
+				63E3B3272C29D3A000CCF7ED /* ReviewHelpfulStat.swift in Sources */,
 				63819FC42C247EED00826F04 /* EmoticonComponent.swift in Sources */,
 				63D333D02C21E3B900036379 /* Foto.swift in Sources */,
+				630758FE2C29470A00AD7241 /* PhotoPicker.swift in Sources */,
 				63807E922C290E1B0066FCDB /* WiFiElement.swift in Sources */,
 				63807E992C2921C80066FCDB /* HargaElement.swift in Sources */,
 				63819FC02C2469A300826F04 /* SocketQty.swift in Sources */,
 				63D333C42C21E17800036379 /* Cafe.swift in Sources */,
 				63D333CA2C21E3A200036379 /* Review.swift in Sources */,
 				63D45AFE2C23D1F000FEC85A /* StarRating.swift in Sources */,
+				63E3B32E2C29D6CB00CCF7ED /* LevelView.swift in Sources */,
 				630C1EB62C23F20F007A5CA7 /* PreviewYesNoButton.swift in Sources */,
 				A8B07B4A2C2274CD005F662E /* ContentViewModel.swift in Sources */,
 				63D333D22C21E3BE00036379 /* Level.swift in Sources */,
@@ -557,6 +616,7 @@
 				63819FBE2C244A2500826F04 /* ReviewPage2.swift in Sources */,
 				A8B07B482C226D92005F662E /* CafeRepository.swift in Sources */,
 				63D333CC2C21E3AD00036379 /* Quick Survey.swift in Sources */,
+				63E3B3202C29BFEF00CCF7ED /* OpenChest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +785,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cooworka need your location to find nearby cafes.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -756,6 +817,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Cooworka need your location to find nearby cafes.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

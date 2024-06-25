@@ -36,7 +36,7 @@ struct ReviewPage2: View {
                             Button(action: {
                                 self.presentationMode.wrappedValue.dismiss()
                             }, label: {
-                                Image(systemName: "chevron.backward")
+                                Image(systemName: "arrow.backward")
                                     .foregroundColor(.black)
                                     .fontWeight(.bold)
                             })
@@ -81,6 +81,7 @@ struct ReviewPage2: View {
                     LineProgressReview()
                 }
                 .padding(.horizontal, 24)
+                .padding(.bottom, 12)
                 
                 ScrollView{
                     VStack{
@@ -131,6 +132,8 @@ struct ReviewPage2: View {
                         
                         KetersediaanParkir(isMotorParking: $adaParkirMotor, isMobilParking: $adaParkirMobil, title: "Area Parkir"){
                             updateTotalPoints()
+                        } deductPoint: {
+                            deductPoint()
                         }
                         
 
@@ -149,8 +152,8 @@ struct ReviewPage2: View {
                         .shadow(radius:10)
                     
                     NavigationLink(destination: ReviewPage3(totalPoint: $totalPoint)) {
-                        Text("Go to Detail View")
-                            .padding(.horizontal, 100)
+                        Text("Lanjut")
+                            .padding(.horizontal, 140)
                             .padding(.vertical, 18)
                             .foregroundColor(.white)
                             .background(Color("PrimaryBase"))
@@ -174,6 +177,10 @@ struct ReviewPage2: View {
     
     private func updateTotalPoints() {
         totalPoint += 10
+    }
+    
+    private func deductPoint() {
+        totalPoint -= 10
     }
 }
 
