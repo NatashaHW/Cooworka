@@ -5,7 +5,7 @@ struct PageExplore: View {
     @State private var isLocationViewPresented = false
     @State private var selectedLocationName: String = "Your Location"
     @StateObject private var viewModel = SearchNearby()
-    //TODO: ganti ke database
+    //TODO: Ganti ke database
     let reviews: [ReviewCafe]
     var firstName: String?
     
@@ -57,11 +57,13 @@ struct PageExplore: View {
                                 .padding(.leading, 20)
                             }
                             .sheet(isPresented: $isLocationViewPresented) {
-                                SelectLocationView { location in
+                                SelectLocationView(onLocationSelected: { location in
                                     selectedLocationName = location.name
-                                    let coordinate = location.coordinate
-                                    viewModel.searchForCafes(at: coordinate)
-                                }
+                                    viewModel.searchForCafes(at: location.coordinate)
+                                }, onCurrentLocationSelected: {
+                                    selectedLocationName = "Your Location"
+                                    viewModel.requestLocationPermission()
+                                })
                             }
                             
                             Spacer()
@@ -72,7 +74,7 @@ struct PageExplore: View {
                                 .padding(.trailing, 22)
                         }
                         
-                        //TODO: ganti ke database
+                        //TODO: Ganti ke database
                         Text("Welcome \(firstName ?? "Natasha")!")
                             .font(
                                 Font.custom("Nunito", size: 16)
@@ -133,6 +135,9 @@ struct PageExplore: View {
                         Text("Cafe di Sekitar \(selectedLocationName == "Your Location" ? "Kamu" : selectedLocationName)")
                             .font(.system(size: 26, weight: .bold))
                             .padding(.leading, 20)
+                            .truncationMode(.tail)
+                            .lineLimit(1)
+                            .frame(width: 360, alignment: .leading)
                     }
                     .frame(maxWidth: screenWidth)
                     
@@ -160,7 +165,6 @@ struct PageExplore: View {
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
 }
-
 
 struct PageExplore_Previews: PreviewProvider {
     static var previews: some View {
