@@ -17,9 +17,11 @@ struct SignInApple: View {
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     
-    private var isSignedIn: Bool {
+   private var isSignedIn: Bool {
         !userId.isEmpty
     }
+   
+//    @State private var isSignedIn = false
     
     var body: some View {
         NavigationView {
@@ -29,11 +31,13 @@ struct SignInApple: View {
                     SignInButtonView()
                 }
                 else {
+                    
+//                    PageExplore(reviews: exampleReviews, firstName: firstName)
                     //Signed in
-                    Text("Welcome back!")
+                    MainTabView()
+                    
                 }
             }
-            .navigationTitle("Sign In")
         }
     }
 }
@@ -77,9 +81,9 @@ struct SignInButtonView: View {
                     //tambahin error case kalau email, dll itu empty jadi pake guard
                     
                     print(userId)
-                    print(email!)
-                    print(firstName!)
-                    print(lastName!)
+                    print(email ?? "")
+                    print(firstName ?? "")
+                    print(lastName ?? "")
                     
                     
                     break

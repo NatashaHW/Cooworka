@@ -8,7 +8,7 @@ struct NearbyCardView: View {
     @ObservedObject var searchNearby: SearchNearby
     
     var body: some View {
-        NavigationLink(destination: PageDetailView(cafe: cafe, reviews: reviews)) {
+        NavigationLink(destination: PageDetailView(cafe: cafe, reviews: reviews, searchNearby: SearchNearby())) {
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
@@ -102,9 +102,11 @@ struct NearbyCardView: View {
                                     if isNearbyUserLocation(userLocation: userLocation, cafeLocation: cafeLocation) {
                                         // Logic untuk menampilkan pop-up MysteryChest jika dekat dengan kafe
                                         // Misalnya: showMysteryChestPopup()
+                                        PopUpSmall()
                                         print("User is nearby the cafe")
                                     } else {
                                         // Logic untuk menampilkan pop-up NotInCafe jika tidak dekat dengan kafe
+                                        PopUpBelumdiTempat()
                                         // Misalnya: showNotInCafePopup()
                                         print("User is not nearby the cafe")
                                     }
