@@ -51,13 +51,18 @@ class SearchViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 let totalRatings = Int.random(in: 50...500) // Dummy total ratings
                 let openHours = "09:00 - 22:00" // Dummy open hours
                 let distance = self?.calculateDistance(from: $0.placemark.coordinate) ?? 0.0
+                let wifi = "Wifi Kuat"
+                let powerOutlet = 2
                 return SearchCafe(name: name,
                                   coordinate: $0.placemark.coordinate,
                                   address: address,
                                   rating: rating,
                                   totalRatings: totalRatings,
                                   openHours: openHours,
-                                  distance: distance)
+                                  distance: distance,
+                                  wifi: wifi,
+                                  powerOutlet: powerOutlet
+                )
             }
         }
     }
@@ -80,13 +85,18 @@ class SearchViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 let totalRatings = 0
                 let openHours = "09:00 - 22:00" // Dummy open hours
                 let distance = location.distance(from: CLLocation(latitude: $0.placemark.coordinate.latitude, longitude: $0.placemark.coordinate.longitude)) / 1000
+                let wifi = "Wifi Kuat"
+                let powerOutlet = 2
                 return SearchCafe(name: name,
                                   coordinate: $0.placemark.coordinate,
                                   address: address,
                                   rating: rating,
                                   totalRatings: totalRatings,
                                   openHours: openHours,
-                                  distance: distance)
+                                  distance: distance,
+                                  wifi: wifi,
+                                  powerOutlet: powerOutlet
+                )
             }
         }
     }

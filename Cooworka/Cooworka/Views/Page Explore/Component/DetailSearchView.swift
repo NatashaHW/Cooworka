@@ -70,16 +70,16 @@ struct DetailSearchView: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            HStack(alignment: .firstTextBaseline) {
-                                Image(systemName: "mappin.and.ellipse")
-                                    .font(.system(size: 12))
-                                Text("\(cafe.address)")
-                                    .font(.system(size: 12))
-                                    .lineSpacing(3)
-                                    .truncationMode(.tail)
-                                    .frame(width: 160, height: 40, alignment: .leading)
-                                    .lineLimit(2)
-                            }
+//                            HStack(alignment: .firstTextBaseline) {
+//                                Image(systemName: "mappin.and.ellipse")
+//                                    .font(.system(size: 12))
+//                                Text("\(cafe.address)")
+//                                    .font(.system(size: 12))
+//                                    .lineSpacing(3)
+//                                    .truncationMode(.tail)
+//                                    .frame(width: 160, height: 40, alignment: .leading)
+//                                    .lineLimit(2)
+//                            }
                             
                             HStack(alignment: .center) {
                                 Image(systemName: "clock")
@@ -96,6 +96,24 @@ struct DetailSearchView: View {
                                     .font(.system(size: 12))
                                 Text("\(formatFloat(cafe.distance)) km")
                             }
+                            
+                            HStack(alignment: .center) {
+                                Image(systemName: "wifi")
+                                    .font(.system(size: 12))
+                                Text("\(cafe.wifi)")
+                            }
+                            
+                            HStack(alignment: .center) {
+                                Image(systemName: "powerplug")
+                                    .font(.system(size: 12))
+                                if cafe.powerOutlet != -1 {
+                                    Text("\(cafe.powerOutlet) stop kontak / meja")
+                                } else {
+                                    Text("No Data")
+                                }
+                            }
+                            
+                            
                         }
                         .font(.system(size: 12))
                         .foregroundColor(Color("Grey500"))
@@ -155,7 +173,9 @@ struct DetailSearchView_Previews: PreviewProvider {
             rating: 4.5,
             totalRatings: 2,
             openHours: "09:00 - 22:00",
-            distance: 120
+            distance: 120,
+            wifi: "Wifi Kuat",
+            powerOutlet: 2
         )
         
         DetailSearchView(cafe: exampleCafe, reviews: exampleReviews)

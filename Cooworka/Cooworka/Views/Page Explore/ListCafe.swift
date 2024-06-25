@@ -138,6 +138,8 @@ struct ListCafe: Identifiable {
         self.totalRatings = searchCafe.totalRatings
         self.openHours = searchCafe.openHours
         self.distance = searchCafe.distance
+        self.wifi = searchCafe.wifi
+        self.powerOutlet = searchCafe.powerOutlet
     }
     
     // Custom initializer for ListCafe

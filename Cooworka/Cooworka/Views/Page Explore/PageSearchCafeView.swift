@@ -8,10 +8,12 @@ struct SearchCafe: Identifiable {
     let name: String
     let coordinate: CLLocationCoordinate2D
     let address: String
-    let rating: Double
-    let totalRatings: Int
-    let openHours: String
-    let distance: Double
+    var rating: Double
+    var totalRatings: Int
+    var openHours: String
+    var distance: Double
+    var wifi: String
+    var powerOutlet: Int
 }
 
 //search cafe view
@@ -94,25 +96,25 @@ struct SearchCafeView: View {
                         }
                     }
                     
-                    if !viewModel.nearbyCafeLocations.isEmpty {
-                        Section(header:
-                                    Text("Cafe Terdekat")
-                            .font(
-                                Font.custom("Nunito", size: 26)
-                                    .weight(.semibold)
-                            )
-                                
-                                .padding(.leading, 22)
-                                .padding(.bottom, -5)
-                        ) {
-                            VStack(spacing: 10) {
-                                ForEach(viewModel.nearbyCafeLocations) { location in
-                                    DetailSearchView(cafe: location, reviews: reviews)
-                                        .frame(maxWidth: .infinity)
-                                }
-                            }
-                        }
-                    }
+//                    if !viewModel.nearbyCafeLocations.isEmpty {
+//                        Section(header:
+//                                    Text("Rekomendasi Cafe Terdekat")
+//                            .font(
+//                                Font.custom("Nunito", size: 22)
+//                                    .weight(.semibold)
+//                            )
+//                                
+//                                .padding(.leading, 22)
+//                                .padding(.bottom, -5)
+//                        ) {
+//                            VStack(spacing: 10) {
+//                                ForEach(viewModel.nearbyCafeLocations) { location in
+//                                    DetailSearchView(cafe: location, reviews: reviews)
+//                                        .frame(maxWidth: .infinity)
+//                                }
+//                            }
+//                        }
+//                    }
                 }
                 
             }

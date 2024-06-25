@@ -140,6 +140,10 @@ struct InfoCardView: View {
                                 InfoRow(cafe: cafe, imageSystemName: "powerplug", detail: "No Data")
                             }
                             
+                            if (wifi == "No Data") {
+                                InfoRow(cafe: cafe, imageSystemName: "wifi", detail: "No Data")
+                            }
+                            
                             VStack(alignment: .leading, spacing: 16) {
                             VStack(alignment: .leading, spacing: 10) {
                                 Text("Makanan")
@@ -242,7 +246,7 @@ struct InfoRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: 20) {
             Image(systemName: imageSystemName)
-                .font(.system(size: 13))
+                .font(.system(size: (imageSystemName == "powerplug" ? 12 : 13)))
             
             HStack {
                 if imageSystemName == "clock" {
