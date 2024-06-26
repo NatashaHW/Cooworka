@@ -20,6 +20,8 @@ struct ReviewPage3: View {
     
     @Binding var totalPoint: Int
     
+    let cafe: ListCafe
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -51,11 +53,8 @@ struct ReviewPage3: View {
                         .padding()
                         .padding(.leading, 10)
                         
-                        Rectangle()
-                            .frame(width: .infinity, height: 110)
-                            .padding()
-                            .padding(.top, -10)
-                            .padding(.horizontal, 10)
+                        CafeCardMini(cafe: cafe)
+                            .padding(.bottom, 20)
                         
                         HStack{
                             Text("Kamu akan mendapatkan...")
@@ -76,8 +75,8 @@ struct ReviewPage3: View {
                 
                 HStack{
                     LineProgressReview()
-                    LineProgressReview(color: "GreyProgressBarSelected")
                     LineProgressReview()
+                    LineProgressReview(color: "GreyProgressBarSelected")
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 12)
@@ -222,5 +221,5 @@ struct ReviewPage3: View {
 }
 
 #Preview {
-    ReviewPage3(totalPoint: .constant(25))
+    ReviewPage3(totalPoint: .constant(25), cafe: exampleCafe)
 }

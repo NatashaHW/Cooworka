@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ReviewPageInitial: View {
+    let cafe: ListCafe
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -19,7 +21,7 @@ struct ReviewPageInitial: View {
                         .foregroundColor(.white)
                         .shadow(radius:10)
                     
-                    NavigationLink(destination: ReviewPage1()) {
+                    NavigationLink(destination: ReviewPage1(cafe: cafe)) {
                         Text("Go to Detail View")
                             .padding(.horizontal, 100)
                             .padding(.vertical, 18)
@@ -44,5 +46,5 @@ struct ReviewPageInitial: View {
 }
 
 #Preview {
-    ReviewPageInitial()
+    ReviewPageInitial(cafe: exampleCafe)
 }

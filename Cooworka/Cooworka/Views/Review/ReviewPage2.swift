@@ -21,6 +21,8 @@ struct ReviewPage2: View {
     
     @Binding var totalPoint: Int
     
+    let cafe: ListCafe
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -52,11 +54,8 @@ struct ReviewPage2: View {
                         .padding()
                         .padding(.leading, 10)
                         
-                        Rectangle()
-                            .frame(width: .infinity, height: 110)
-                            .padding()
-                            .padding(.top, -10)
-                            .padding(.horizontal, 10)
+                        CafeCardMini(cafe: cafe)
+                            .padding(.bottom, 20)
                         
                         HStack{
                             Text("Kamu akan mendapatkan...")
@@ -151,7 +150,7 @@ struct ReviewPage2: View {
                         .foregroundColor(.white)
                         .shadow(radius:10)
                     
-                    NavigationLink(destination: ReviewPage3(totalPoint: $totalPoint)) {
+                    NavigationLink(destination: ReviewPage3(totalPoint: $totalPoint, cafe: cafe)) {
                         Text("Lanjut")
                             .padding(.horizontal, 140)
                             .padding(.vertical, 18)
@@ -185,5 +184,5 @@ struct ReviewPage2: View {
 }
 
 #Preview {
-    ReviewPage2(totalPoint: .constant(15))
+    ReviewPage2(totalPoint: .constant(15), cafe: exampleCafe)
 }

@@ -109,5 +109,5 @@ struct Profile: View {
 }
 
 #Preview {
-    Profile(action: {}, reviews: exampleReviews)
+    Profile(action: {}, reviews: exampleReviewsIsi)
 }
