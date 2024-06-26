@@ -157,11 +157,11 @@ let exampleReviewsIsi = [
         userImage: "UserProfile",
         userName: "Natasha",
         userLevel: "Budak Jompo",
-        reviewCount: 3,
+        reviewCount: 1,
         reviewText: "Salah satu tempat WFC favorit gw di BSD 😍 tempatnya luas & cozy banget! Even pelayanannya ramah 😍",
         reviewDate: "24 Apr 2024",
         rating: 4.8,
-        likeCount: 13,
+        likeCount: 1,
         cafeName: "NOB Cafe, The Breeze BSD" //TODO: Notes, nama cafe di exampleReview dan nama cafe di exampleCafe harus sama, karna skrg ini logic nya nyari yang namanya sama -> bisa lu ganti jadi cari yang userID nya sama
     ),
 ]

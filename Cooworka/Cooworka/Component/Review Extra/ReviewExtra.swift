@@ -1,10 +1,3 @@
-//
-//  ReviewExtra.swift
-//  Cooworka
-//
-//  Created by Lucinda Artahni on 21/06/24.
-//
-
 import SwiftUI
 
 struct ReviewExtra: View {
@@ -14,7 +7,7 @@ struct ReviewExtra: View {
     @State private var filled: Bool = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10){
+        VStack(alignment: .leading, spacing: 10) {
             Text("Review Extra")
                 .font(.subheadline)
                 .fontWeight(.bold)
@@ -35,19 +28,24 @@ struct ReviewExtra: View {
                 .disableAutocorrection(true)
                 .autocapitalization(.sentences)
                 .onChange(of: reviewText) { newValue in
-                    if !reviewText.isEmpty && filled == false{
+                    if !reviewText.isEmpty && filled == false {
                         updatePoint()
                         filled = true
                     }
-                    if reviewText.isEmpty && filled == true{
+                    if reviewText.isEmpty && filled == true {
                         deductPoint()
                         filled = false
                     }
-                       
                 }
-            
-
         }
+        .contentShape(Rectangle())  // To make the entire VStack tappable
+        .onTapGesture {
+            self.hideKeyboard()
+        }
+    }
+    
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

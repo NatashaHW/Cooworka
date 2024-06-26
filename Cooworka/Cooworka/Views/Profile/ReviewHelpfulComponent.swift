@@ -17,7 +17,7 @@ struct ReviewHelpfulComponent: View {
                 .frame(width: 37, height: 37)
             
             VStack{
-                Text("10") //TODO: count of review
+                Text("1") //TODO: count of review
                     .font(.title3)
                     .fontWeight(.medium)
                 

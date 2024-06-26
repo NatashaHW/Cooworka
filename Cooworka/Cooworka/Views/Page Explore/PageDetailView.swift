@@ -20,7 +20,7 @@ struct PageDetailView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
-                VStack(spacing: -125) {
+                VStack(spacing: -130) {
                     Image("CafeImage")
                         .resizable()
                         .scaledToFill()
@@ -96,7 +96,7 @@ struct PageDetailView: View {
                             )
                     }
                     .padding()
-                    .offset(x: -153 , y: -650)
+                    .offset(x: -153 , y: -695)
                     
                     
                     if showMysteryChestPopup {
@@ -127,14 +127,14 @@ struct PageDetailView: View {
 
 // Sample data for preview
 let exampleCafe = ListCafe(
-    name: "Red Foxed Cafe By Moritz INN BSD",
+    name: "Red Foxes Cafe By Moritz INN BSD",
     address: "The Breeze, Jl. Grand Boulevard, BSD, Serpong, Tangerang Selatan",
     openHours: "09:00 - 22:00",
     distance: 2.5,
     taste: 4.0,
     ambience: 4.5,
     service: 4.7,
-    rating: 0, totalRatings: 120,
+    rating: 0, totalRatings: 1,
     coordinate: CLLocationCoordinate2D(latitude: -6.2088, longitude: 106.8456)
 )
 
@@ -148,7 +148,7 @@ let exampleReviews = [
         reviewDate: "24 Apr 2024",
         rating: 4.8,
         likeCount: 13,
-        cafeName: "Red Foxed Cafe By Moritz INN BSD" //TODO: Notes, nama cafe di exampleReview dan nama cafe di exampleCafe harus sama, karna skrg ini logic nya nyari yang namanya sama -> bisa lu ganti jadi cari yang userID nya sama
+        cafeName: "Red Foxes Cafe By Moritz INN BSD" //TODO: Notes, nama cafe di exampleReview dan nama cafe di exampleCafe harus sama, karna skrg ini logic nya nyari yang namanya sama -> bisa lu ganti jadi cari yang userID nya sama
     ),
     
     
@@ -161,7 +161,7 @@ let exampleReviews = [
         reviewDate: "26 Apr 2024",
         rating: 4.7,
         likeCount: 12,
-        cafeName: "Red Foxed Cafe By Moritz INN BSD"
+        cafeName: "Red Foxes Cafe By Moritz INN BSD"
     ),
     
     // Add more Review instances as needed

@@ -48,7 +48,7 @@ class SearchViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 //TODO: ganti jadi database
                 let rating = $0.pointOfInterestCategory == .cafe ? 4.5 : 4.0 // Dummy rating
                 
-                let totalRatings = Int.random(in: 50...500) // Dummy total ratings
+                let totalRatings = Int.random(in: 1...10) // Dummy total ratings
                 let openHours = "09:00 - 22:00" // Dummy open hours
                 let distance = self?.calculateDistance(from: $0.placemark.coordinate) ?? 0.0
                 let wifi = "Wifi Kuat"

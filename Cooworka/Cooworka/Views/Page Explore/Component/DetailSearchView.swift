@@ -168,7 +168,7 @@ struct DetailSearchView: View {
 struct DetailSearchView_Previews: PreviewProvider {
     static var previews: some View {
         let exampleCafe = SearchCafe(
-            name: "Red Foxed Cafe By Moritz INN BSD",
+            name: "Red Foxes Cafe By Moritz INN BSD",
             coordinate: CLLocationCoordinate2D(latitude: -6.2088, longitude: 106.8456), address: "The Breeze, Jl. Grand Boulevard, BSD, Serpong, Tangerang Selatan",
             rating: 4.5,
             totalRatings: 2,
