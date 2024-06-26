@@ -82,7 +82,7 @@ struct SignInApple: View {
 //                    PageExplore(reviews: exampleReviews, firstName: firstName)
                     
                     //Already Signed in
-                    PageExplore(reviews: exampleReviews)
+                    PageExplore(reviews: exampleReviews, cafe: exampleCafe)
                     
                     
                 }

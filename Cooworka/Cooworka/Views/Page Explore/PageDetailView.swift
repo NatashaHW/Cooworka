@@ -100,7 +100,7 @@ struct PageDetailView: View {
                     
                     
                     if showMysteryChestPopup {
-                        PopUpSmall(isActive: $showMysteryChestPopup)
+                        PopUpSmall(isActive: $showMysteryChestPopup, cafe: cafe)
                             .transition(.opacity)
                             .zIndex(1)
                     }
@@ -177,7 +177,7 @@ struct PageExplore_Previews2: PreviewProvider {
     static var previews: some View {
         //TODO: ganti jadi firstname user
         var firstName = "Natasha"
-        PageExplore(reviews: exampleReviews, firstName: firstName)
+        PageExplore(reviews: exampleReviews, firstName: firstName, cafe: exampleCafe)
     }
 }
 

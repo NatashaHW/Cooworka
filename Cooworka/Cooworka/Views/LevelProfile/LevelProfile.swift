@@ -26,6 +26,7 @@ extension AnyTransition {
 struct LevelProfile: View { //TODO: animation belum smooth
     @State private var showProfile = false
     let reviews: [ReviewCafe]
+    let cafe: ListCafe
 
          var body: some View {
              NavigationView{
@@ -54,7 +55,7 @@ struct LevelProfile: View { //TODO: animation belum smooth
 
                          HStack(spacing: 83){
 
-                             NavigationLink(destination: PageExplore(reviews: exampleReviews)){
+                             NavigationLink(destination: PageExplore(reviews: exampleReviews, cafe: cafe)){
                                  ZStack {
 
                                      VStack (spacing: 5){
@@ -74,7 +75,7 @@ struct LevelProfile: View { //TODO: animation belum smooth
                              }
 
                              NavigationLink {
-                                 AktivitasPageView(reviews: reviews)
+                                 AktivitasPageView(reviews: reviews, cafe: cafe)
                              } label: {
                                  ZStack {
                                      VStack (spacing: 5){
@@ -94,7 +95,7 @@ struct LevelProfile: View { //TODO: animation belum smooth
 
 
                              NavigationLink {
-                                 LevelProfile(reviews: reviews)
+                                 LevelProfile(reviews: reviews, cafe: cafe)
                              } label: {
                                  ZStack {
                                      VStack (spacing: 5){
@@ -129,5 +130,5 @@ struct LevelProfile: View { //TODO: animation belum smooth
 
 
 #Preview {
-    LevelProfile(reviews: exampleReviews)
+    LevelProfile(reviews: exampleReviews, cafe: exampleCafe)
 }

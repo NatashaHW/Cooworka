@@ -8,6 +8,7 @@ struct FavoritePageView: View {
         UIScreen.main.bounds.width
     }
     let reviews: [ReviewCafe]
+    let cafe: ListCafe
     
     var body: some View {
         NavigationView {
@@ -19,7 +20,7 @@ struct FavoritePageView: View {
                         .font(.system(size: 26, weight: .bold))
                     
                     HStack {
-                        NavigationLink(destination: AktivitasPageView(reviews: reviews)){
+                        NavigationLink(destination: AktivitasPageView(reviews: reviews, cafe: cafe)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -32,7 +33,7 @@ struct FavoritePageView: View {
                             }
                         }
                         
-                        NavigationLink(destination: FavoritePageView(reviews: reviews)){
+                        NavigationLink(destination: FavoritePageView(reviews: reviews, cafe: cafe)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -114,7 +115,7 @@ struct FavoritePageView: View {
                     
                     HStack(spacing: 83){
                         
-                        NavigationLink(destination: PageExplore(reviews: exampleReviews)){
+                        NavigationLink(destination: PageExplore(reviews: exampleReviews, cafe: cafe)){
                             ZStack {
                                 
                                 VStack (spacing: 5){
@@ -134,7 +135,7 @@ struct FavoritePageView: View {
                         }
                         
                         NavigationLink {
-                            AktivitasPageView(reviews: reviews)
+                            AktivitasPageView(reviews: reviews, cafe: cafe)
                         } label: {
                             ZStack {
                                 VStack (spacing: 5){
@@ -154,7 +155,7 @@ struct FavoritePageView: View {
                         
                         
                         NavigationLink {
-                            LevelProfile(reviews: reviews)
+                            LevelProfile(reviews: reviews, cafe: cafe)
                         } label: {
                             ZStack {
                                 VStack (spacing: 5){
@@ -194,5 +195,5 @@ struct FavoritePageView: View {
 }
 
 #Preview {
-    FavoritePageView(reviews: exampleReviews)
+    FavoritePageView(reviews: exampleReviews, cafe: exampleCafe)
 }

@@ -9,6 +9,7 @@ struct AktivitasPageView: View {
     }
     
     let reviews: [ReviewCafe]
+    let cafe: ListCafe
     
     
     var body: some View {
@@ -22,7 +23,7 @@ struct AktivitasPageView: View {
                     
                     HStack {
                         
-                        NavigationLink(destination: AktivitasPageView(reviews: reviews)){
+                        NavigationLink(destination: AktivitasPageView(reviews: reviews, cafe: cafe)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -41,7 +42,7 @@ struct AktivitasPageView: View {
                             }
                         }
                         
-                        NavigationLink(destination: FavoritePageView(reviews: reviews)){
+                        NavigationLink(destination: FavoritePageView(reviews: reviews, cafe: cafe)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -113,7 +114,7 @@ struct AktivitasPageView: View {
                     
                     HStack(spacing: 83){
                         
-                        NavigationLink(destination: PageExplore(reviews: exampleReviews)){
+                        NavigationLink(destination: PageExplore(reviews: exampleReviews, cafe: cafe)){
                             ZStack {
                                 
                                 VStack (spacing: 5){
@@ -133,7 +134,7 @@ struct AktivitasPageView: View {
                         }
                         
                         NavigationLink {
-                            AktivitasPageView(reviews: reviews)
+                            AktivitasPageView(reviews: reviews, cafe: cafe)
                         } label: {
                             ZStack {
                                 VStack (spacing: 5){
@@ -153,7 +154,7 @@ struct AktivitasPageView: View {
                         
                         
                         NavigationLink {
-                            LevelProfile(reviews: reviews)
+                            LevelProfile(reviews: reviews, cafe: cafe)
                         } label: {
                             ZStack {
                                 VStack (spacing: 5){
@@ -194,5 +195,5 @@ struct AktivitasPageView: View {
 }
 
 #Preview {
-    AktivitasPageView(reviews: exampleReviews)
+    AktivitasPageView(reviews: exampleReviews, cafe: exampleCafe)
 }
