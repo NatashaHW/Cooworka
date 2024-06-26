@@ -130,3 +130,7 @@ struct RiwayatCardView: View {
         return numberFormatter.string(from: NSNumber(value: rating)) ?? "\(rating)"
     }
 }
+
+#Preview {
+    RiwayatCardView(cafe: exampleCafe)
+}

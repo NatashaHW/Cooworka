@@ -8,49 +8,80 @@
 import SwiftUI
 
 struct MainTabView: View {
-    init() {
-            let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor.white
-            appearance.stackedLayoutAppearance.normal.iconColor = UIColor.gray
-            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.gray]
-            appearance.stackedLayoutAppearance.selected.iconColor = UIColor.primaryBase
-            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.primaryBase]
-            
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
+//    let labels: [String] = ["Eksplor", "Aktivitas", "Profil"]
+//    let imageBlues: [String] = ["EksplorBiru", "AktivitasBiru", "ProfilBiru"]
+    @State var selectedLabel = "Eksplor" ?? nil
+    let reviews: [ReviewCafe]
+    var isSelected: Bool = true
+    
     
     var body: some View {
-        var firstName = "Natasha"
-        TabView {
+        NavigationView{
+            
+            ZStack{
+                Rectangle()
+                    .frame(width: .infinity, height: 83)
+                    .foregroundColor(.white)
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                
+                HStack{
+                    NavigationLink {
+                        PageExplore(reviews: reviews)
+                    } label: {
+                        TabViewComponent(label: "Eksplor", isSelected: selectedLabel == "Eksplor", imageBlue: "EksplorBiru", action: {
+                            handleSelection("Eksplor")
+                        })
+                    }
+                    
+                    Spacer()
+                    
+                    NavigationLink {
+                        AktivitasPageView()
+                    } label: {
+                        TabViewComponent(label: "Aktivitas", isSelected: selectedLabel == "Aktivitas", imageBlue: "AktivitasBiru", action: {
+                            handleSelection("Aktivitas")
+                        })
+                    }
+                    
+                    Spacer()
 
-            PageExplore(reviews: exampleReviews, firstName: firstName)
-                .tabItem {
-                    Label("Eksplor", systemImage: "magnifyingglass")
-                        
-                        
+                    NavigationLink {
+                        LevelProfile()
+                    } label: {
+                        TabViewComponent(label: "Profil", isSelected: selectedLabel == "Profil", imageBlue: "ProfilBiru", action: {
+                            handleSelection("Profil")
+                        })
+                    }
+                    
                 }
-            
-            AktivitasPageView()
-                .tabItem {
-                    Label("Aktivitas", systemImage: "list.bullet")
-                }
-            
-//            ReviewPageInitial()
-//                .tabItem {
-//                    Label("Leaderboard", systemImage: "star")
-//                }
-            
-            LevelProfile()
-                .tabItem {
-                    Label("Profile", systemImage: "person")
-                }
+
+                    }
+
         }
-        
     }
-}
+    private func handleSelection(_ label: String) {
+        if selectedLabel != label {
+            selectedLabel = label
+            print("Selected label: \(label)")
+            
+//            switch selectedLabel {
+//            case "Eksplor":
+//                
+//                NavigationLink(destination: {PageExplore(reviews: reviews)}, label: {})
+//            case "Aktivitas":
+//                NavigationLink(destination: {AktivitasPageView()}, label: {})
+//            case "Profil":
+//                NavigationLink(destination: {LevelProfile()}, label: {})
+//            default:
+//               
+//                NavigationLink(destination: {PageExplore(reviews: reviews)}, label: {})
+//            }
+            
+            }
+        }
+    }
+
 
 #Preview {
-    MainTabView()
+   MainTabView(reviews: exampleReviews)
 }

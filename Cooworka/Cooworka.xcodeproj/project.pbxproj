@@ -39,6 +39,7 @@
 		63B96D862C23249300078480 /* ReviewPageInitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D852C23249300078480 /* ReviewPageInitial.swift */; };
 		63B96D882C232E3300078480 /* ReviewPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D872C232E3300078480 /* ReviewPage1.swift */; };
 		63B96D8B2C2338A900078480 /* LineProgressReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B96D8A2C2338A900078480 /* LineProgressReview.swift */; };
+		63C455612C2BF01100219709 /* TabViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C455602C2BF01100219709 /* TabViewComponent.swift */; };
 		63D288082C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D288072C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift */; };
 		63D2880B2C2A715700BCCEC7 /* ListCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2880A2C2A715700BCCEC7 /* ListCafe.swift */; };
 		63D2880D2C2A716E00BCCEC7 /* NearbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2880C2C2A716E00BCCEC7 /* NearbyViewModel.swift */; };
@@ -136,6 +137,7 @@
 		63B96D852C23249300078480 /* ReviewPageInitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageInitial.swift; sourceTree = "<group>"; };
 		63B96D872C232E3300078480 /* ReviewPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPage1.swift; sourceTree = "<group>"; };
 		63B96D8A2C2338A900078480 /* LineProgressReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineProgressReview.swift; sourceTree = "<group>"; };
+		63C455602C2BF01100219709 /* TabViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewComponent.swift; sourceTree = "<group>"; };
 		63D288072C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpBelumdiTempat.swift; sourceTree = "<group>"; };
 		63D2880A2C2A715700BCCEC7 /* ListCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCafe.swift; sourceTree = "<group>"; };
 		63D2880C2C2A716E00BCCEC7 /* NearbyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewModel.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				403507FD2C2ACB69001452C0 /* MainTabView.swift */,
+				63C455602C2BF01100219709 /* TabViewComponent.swift */,
 				63D288272C2A72FB00BCCEC7 /* Page Activity */,
 				63D288092C2A709300BCCEC7 /* Page Explore */,
 				63E3B31C2C29AD6600CCF7ED /* PopUp */,
@@ -720,6 +723,7 @@
 				A8B07B482C226D92005F662E /* CafeRepository.swift in Sources */,
 				63D2881C2C2A728000BCCEC7 /* DetailSearchView.swift in Sources */,
 				63D288242C2A72C700BCCEC7 /* NearbyCardView.swift in Sources */,
+				63C455612C2BF01100219709 /* TabViewComponent.swift in Sources */,
 				63D333CC2C21E3AD00036379 /* Quick Survey.swift in Sources */,
 				63D288292C2A733300BCCEC7 /* AktivitasPageView.swift in Sources */,
 				63E3B3202C29BFEF00CCF7ED /* OpenChest.swift in Sources */,
@@ -887,7 +891,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cooworka/Preview Content\"";
-				DEVELOPMENT_TEAM = G43U5DAGS3;
+				DEVELOPMENT_TEAM = UC6TG39XPP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
@@ -903,7 +907,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka2;
+				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -920,7 +924,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cooworka/Preview Content\"";
-				DEVELOPMENT_TEAM = G43U5DAGS3;
+				DEVELOPMENT_TEAM = UC6TG39XPP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
@@ -936,7 +940,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka2;
+				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
