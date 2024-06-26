@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		403508012C2B3723001452C0 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403508002C2B3723001452C0 /* WardrobeView.swift */; };
+		403508032C2B3991001452C0 /* SunglassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403508022C2B3991001452C0 /* SunglassesView.swift */; };
+		405158742C2C000300A63449 /* CafeCardMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405158732C2C000300A63449 /* CafeCardMini.swift */; };
+		406BE4652C2C17EE00E4A583 /* PageDetailViewIsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406BE4642C2C17EE00E4A583 /* PageDetailViewIsi.swift */; };
 		406D8A442C22957200A4B724 /* SignInApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D8A432C22957200A4B724 /* SignInApple.swift */; };
 		406D8A492C22974A00A4B724 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 406D8A482C22974A00A4B724 /* Nunito-Regular.ttf */; };
 		406D8A4B2C22975700A4B724 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 406D8A4A2C22975700A4B724 /* Nunito-Bold.ttf */; };
@@ -99,6 +103,10 @@
 
 /* Begin PBXFileReference section */
 		403507FC2C2ACB51001452C0 /* Cooworka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cooworka.entitlements; sourceTree = "<group>"; };
+		403508002C2B3723001452C0 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
+		403508022C2B3991001452C0 /* SunglassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunglassesView.swift; sourceTree = "<group>"; };
+		405158732C2C000300A63449 /* CafeCardMini.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeCardMini.swift; sourceTree = "<group>"; };
+		406BE4642C2C17EE00E4A583 /* PageDetailViewIsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDetailViewIsi.swift; sourceTree = "<group>"; };
 		406D8A432C22957200A4B724 /* SignInApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInApple.swift; sourceTree = "<group>"; };
 		406D8A482C22974A00A4B724 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		406D8A4A2C22975700A4B724 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -201,6 +209,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		403507FF2C2B3669001452C0 /* Wardrobe */ = {
+			isa = PBXGroup;
+			children = (
+				403508002C2B3723001452C0 /* WardrobeView.swift */,
+				403508022C2B3991001452C0 /* SunglassesView.swift */,
+			);
+			path = Wardrobe;
+			sourceTree = "<group>";
+		};
 		406D8A472C22972D00A4B724 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +401,7 @@
 				63D2880A2C2A715700BCCEC7 /* ListCafe.swift */,
 				63D2880C2C2A716E00BCCEC7 /* NearbyViewModel.swift */,
 				63D2880E2C2A719000BCCEC7 /* PageDetailView.swift */,
+				406BE4642C2C17EE00E4A583 /* PageDetailViewIsi.swift */,
 				63D288102C2A71AC00BCCEC7 /* PageExplore.swift */,
 				63D288122C2A71BF00BCCEC7 /* PageSearchCafeView.swift */,
 				63D288142C2A71D200BCCEC7 /* SearchViewModel.swift */,
@@ -479,6 +497,7 @@
 				63819FBD2C244A2500826F04 /* ReviewPage2.swift */,
 				63B5C7542C2520300056341A /* ReviewPage3.swift */,
 				630758FD2C29470A00AD7241 /* PhotoPicker.swift */,
+				405158732C2C000300A63449 /* CafeCardMini.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -492,6 +511,7 @@
 				408B53E42C1A94D5003DE834 /* ContentView.swift */,
 				406D8A432C22957200A4B724 /* SignInApple.swift */,
 				63B96D852C23249300078480 /* ReviewPageInitial.swift */,
+				403507FF2C2B3669001452C0 /* Wardrobe */,
 				63E3B32A2C29D6A700CCF7ED /* LevelProfile */,
 				63E3B3212C29D18600CCF7ED /* Profile */,
 				63F876462C26A82100DFB001 /* Review */,
@@ -655,8 +675,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403508032C2B3991001452C0 /* SunglassesView.swift in Sources */,
 				63819FC22C246CDE00826F04 /* QtyComponent.swift in Sources */,
 				408B53E52C1A94D5003DE834 /* ContentView.swift in Sources */,
+				405158742C2C000300A63449 /* CafeCardMini.swift in Sources */,
 				63B5C7552C2520300056341A /* ReviewPage3.swift in Sources */,
 				63807E962C291D8E0066FCDB /* WiFiRatingComponent.swift in Sources */,
 				63D288082C2A5E6500BCCEC7 /* PopUpBelumdiTempat.swift in Sources */,
@@ -677,6 +699,7 @@
 				63B87F462C25BF6F00EEE984 /* KetersediaanParkir.swift in Sources */,
 				63D2882B2C2A734600BCCEC7 /* FavoritePageView.swift in Sources */,
 				63E3B3292C29D3EC00CCF7ED /* Profile.swift in Sources */,
+				406BE4652C2C17EE00E4A583 /* PageDetailViewIsi.swift in Sources */,
 				63D2882E2C2A736300BCCEC7 /* DetailCardView.swift in Sources */,
 				A8B07B432C226C9F005F662E /* CloudKitRecord.swift in Sources */,
 				63D288132C2A71BF00BCCEC7 /* PageSearchCafeView.swift in Sources */,
@@ -689,6 +712,7 @@
 				63B5C7572C25211E0056341A /* KetersediaanParkirElement.swift in Sources */,
 				630C1EB42C23DFDE007A5CA7 /* YesOrNoRating.swift in Sources */,
 				63D288262C2A72DC00BCCEC7 /* ReviewCardView.swift in Sources */,
+				403508012C2B3723001452C0 /* WardrobeView.swift in Sources */,
 				63E3B3232C29D20000CCF7ED /* PhotoProfileComponent.swift in Sources */,
 				63E3B3272C29D3A000CCF7ED /* ReviewHelpfulStat.swift in Sources */,
 				63D2881A2C2A725A00BCCEC7 /* CafeReviewCardView.swift in Sources */,
