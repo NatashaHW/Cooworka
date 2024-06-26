@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SunglassesView: View {
-    @State private var selectedImage: String? = "NoSunglasses"
+    @Binding var selectedImage: String?
 
     let sunglasses = [
         "NoSunglasses",
@@ -129,6 +129,6 @@ struct SunglassesView: View {
 
 struct SunglassesView_Previews: PreviewProvider {
     static var previews: some View {
-        SunglassesView()
+        SunglassesView(selectedImage: .constant("NoSunglasses"))
     }
 }
