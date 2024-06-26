@@ -14,14 +14,12 @@ struct UserLevel: CloudKitRecord{
     let userReference: CKRecord.Reference
     let levelReference: CKRecord.Reference
     
-    init(userLevelID: CKRecord.ID? = nil, userReference: CKRecord.ID, levelReference: CKRecord.ID) {
-        self.userLevelID = userLevelID ?? CKRecord.ID(recordName: UUID().uuidString)
+    init(userReference: CKRecord.ID, levelReference: CKRecord.ID) {
+        self.userLevelID = CKRecord.ID(recordName: UUID().uuidString)
         self.recordID = userLevelID
         self.userReference = CKRecord.Reference(recordID: userReference, action: .deleteSelf)
         self.levelReference = CKRecord.Reference(recordID: levelReference, action: .deleteSelf)
-        
     }
-    
     
     init(record: CKRecord) {
         self.recordID = record.recordID
@@ -29,7 +27,6 @@ struct UserLevel: CloudKitRecord{
         self.userReference = record["userReference"] as! CKRecord.Reference
         self.levelReference = record["levelReference"] as! CKRecord.Reference
     }
-    
     
     func toDictionary() -> [String: Any] {
         return [

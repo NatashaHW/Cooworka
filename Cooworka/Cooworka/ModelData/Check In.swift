@@ -16,9 +16,9 @@ struct CheckIn: CloudKitRecord{
     var cafeReference: CKRecord.Reference
     var userReference: CKRecord.Reference
     
-    init(recordID: CKRecord.ID? = nil, checkInID: CKRecord.ID, checkInDate: Date, cafeReference: CKRecord.ID, userReference: CKRecord.ID) {
-        self.recordID = recordID
-        self.checkInID = checkInID
+    init(checkInDate: Date, cafeReference: CKRecord.ID, userReference: CKRecord.ID) {
+        self.checkInID = CKRecord.ID(recordName: UUID().uuidString)
+        self.recordID = checkInID
         self.checkInDate = checkInDate
         self.cafeReference = CKRecord.Reference(recordID: cafeReference, action: .deleteSelf)
         self.userReference = CKRecord.Reference(recordID: userReference, action: .deleteSelf)
@@ -46,6 +46,7 @@ struct CheckIn: CloudKitRecord{
     
     func toCKRecord(recordType: String) -> CKRecord {
         let record = CKRecord(recordType: recordType, recordID: checkInID)
+        record["checkInID"] = checkInID.recordName as CKRecordValue
         record["checkInDate"] = checkInDate as CKRecordValue
         record["cafeReference"] = cafeReference
         record["userReference"] = userReference
