@@ -24,8 +24,8 @@ struct QuickSurvey: CloudKitRecord{
     var cafeReference: CKRecord.Reference
     var checkInReference: CKRecord.Reference
     
-    init(quickSurveyID: CKRecord.ID? = nil, quickSurveyDate: Date, isMainDish: Bool, isMeetingRoom: Bool, isPrayerRoom: Bool, isSmokingArea: Bool, isCarParking: Bool, isMotorParking: Bool, isCash: Bool, isCashless: Bool, userReference: CKRecord.ID, cafeReference: CKRecord.ID, checkInReference: CKRecord.ID) {
-        self.quickSurveyID = quickSurveyID ?? CKRecord.ID(recordName: UUID().uuidString)
+    init(quickSurveyDate: Date, isMainDish: Bool, isMeetingRoom: Bool, isPrayerRoom: Bool, isSmokingArea: Bool, isCarParking: Bool, isMotorParking: Bool, isCash: Bool, isCashless: Bool, userReference: CKRecord.ID, cafeReference: CKRecord.ID, checkInReference: CKRecord.ID) {
+        self.quickSurveyID = CKRecord.ID(recordName: UUID().uuidString)
         self.recordID = quickSurveyID
         self.quickSurveyDate = quickSurveyDate
         self.isMainDish = isMainDish

@@ -903,7 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cooworka/Preview Content\"";
-				DEVELOPMENT_TEAM = 6Y742356Q3;
+				DEVELOPMENT_TEAM = G43U5DAGS3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
@@ -919,7 +919,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka;
+				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -936,7 +936,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cooworka/Preview Content\"";
-				DEVELOPMENT_TEAM = 6Y742356Q3;
+				DEVELOPMENT_TEAM = G43U5DAGS3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooworka/Info.plist;
@@ -952,7 +952,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka;
+				PRODUCT_BUNDLE_IDENTIFIER = id.Natasha.Cooworka2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
