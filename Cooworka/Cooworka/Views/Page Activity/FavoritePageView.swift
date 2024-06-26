@@ -7,6 +7,8 @@ struct FavoritePageView: View {
     private var screenWidth: CGFloat {
         UIScreen.main.bounds.width
     }
+    let reviews: [ReviewCafe]
+    let cafe: ListCafe
     
     var body: some View {
         NavigationView {
@@ -18,7 +20,7 @@ struct FavoritePageView: View {
                         .font(.system(size: 26, weight: .bold))
                     
                     HStack {
-                        NavigationLink(destination: AktivitasPageView()){
+                        NavigationLink(destination: AktivitasPageView(reviews: reviews, cafe: cafe)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -31,7 +33,7 @@ struct FavoritePageView: View {
                             }
                         }
                         
-                        NavigationLink(destination: FavoritePageView()){
+                        NavigationLink(destination: FavoritePageView(reviews: reviews, cafe: cafe)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -104,8 +106,79 @@ struct FavoritePageView: View {
                         }
                     }
                 }
+                
+                ZStack{
+                    Rectangle()
+                        .frame(width: .infinity, height: 83)
+                        .foregroundColor(.white)
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    
+                    HStack(spacing: 83){
+                        
+                        NavigationLink(destination: PageExplore(reviews: exampleReviews, cafe: cafe)){
+                            ZStack {
+                                
+                                VStack (spacing: 5){
+                                    Image("Eksplor")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30)
+                                    
+                                    Text("Eksplor")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.grey999)
+                                        .background(Color.clear)
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        NavigationLink {
+                            AktivitasPageView(reviews: reviews, cafe: cafe)
+                        } label: {
+                            ZStack {
+                                VStack (spacing: 5){
+                                    Image("AktivitasBiru")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30)
+                                    
+                                    Text("Aktivitas")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.primaryBase)
+                                        .background(Color.clear)
+                                }
+                                
+                            }
+                        }
+                        
+                        
+                        NavigationLink {
+                            LevelProfile(reviews: reviews, cafe: cafe)
+                        } label: {
+                            ZStack {
+                                VStack (spacing: 5){
+                                    Image("Profil")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30)
+                                    
+                                    Text("Profil")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.grey999)
+                                        .background(Color.clear)
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                    
+                }
+
             }
-            
+            .edgesIgnoringSafeArea(.bottom)
             .onAppear {
                 viewModel.requestLocationPermission()
             }
@@ -122,5 +195,5 @@ struct FavoritePageView: View {
 }
 
 #Preview {
-    FavoritePageView()
+    FavoritePageView(reviews: exampleReviews, cafe: exampleCafe)
 }

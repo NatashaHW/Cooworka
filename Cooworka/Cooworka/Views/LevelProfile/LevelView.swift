@@ -4,6 +4,7 @@ struct LevelView: View {
     @State var descPangkat = "Pangkat kamu saat ini adalah"
     @State var label = "Budak Jompo"
     
+    
     @State var currentLevel = 1
     
     let levels = Levels

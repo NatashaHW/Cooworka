@@ -3,6 +3,8 @@ import SwiftUI
 struct WardrobeView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @State var selectedImage: String? = "NoSunglasses"
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
@@ -29,7 +31,7 @@ struct WardrobeView: View {
                         
                     }
                     
-                    SunglassesView()
+                    SunglassesView(selectedImage: $selectedImage)
                         .padding(.bottom, -50)
                     
                 }
@@ -42,7 +44,7 @@ struct WardrobeView: View {
                                         .frame(width: 40, height: 40)
                                         .overlay(
                                             Image(systemName: "arrow.left")
-                                                .font(.system(size: 20))
+                                                .font(.system(size: 22))
                                                 .foregroundColor(.black)
                                         )
                                 }

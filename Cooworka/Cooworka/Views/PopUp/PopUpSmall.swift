@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct PopUpSmall: View {
-    @State private var isDismissed = false
+    @Binding var isActive: Bool
     @State private var scale: CGFloat = 1.0
     @State private var offsetY: CGFloat = 0
     @State private var offsetX: CGFloat = 0
-    @State private var backgroundOpacity = 0.4
+    @State private var backgroundOpacity = 0.6
     @State private var opacity = 1.0
     
     @State private var navigateToReviewPage = false
     
+    let cafe: ListCafe
+    
     var body: some View {
-        NavigationView{
-            if !isDismissed {
+            if isActive {
                 VStack{
                     Spacer()
                     
@@ -77,7 +78,7 @@ struct PopUpSmall: View {
                                     .cornerRadius(10)
                             }
                             .background(
-                                NavigationLink(destination: ReviewPage1(), isActive: $navigateToReviewPage) {
+                                NavigationLink(destination: ReviewPage1(cafe: cafe), isActive: $navigateToReviewPage) {
                                     EmptyView()
                                 }
                                     .hidden()
@@ -87,14 +88,14 @@ struct PopUpSmall: View {
                                 //TODO: save ke activity
                                 withAnimation(.spring(response: 0.5, dampingFraction: 2, blendDuration: 0.6)) {
                                     scale = 0.1
-                                    offsetY = 360
-                                    offsetX = -55
+                                    offsetY = 390
+                                    offsetX = 0
                                     backgroundOpacity = 0
                                     opacity = 0
                                 }
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                     
-                                    isDismissed = true
+                                    isActive = false
                                     
                                 }
                             }) {
@@ -121,8 +122,8 @@ struct PopUpSmall: View {
             }
         }
     }
-}
+
 
 #Preview {
-    PopUpSmall()
+    PopUpSmall(isActive: .constant(true), cafe: exampleCafe)
 }

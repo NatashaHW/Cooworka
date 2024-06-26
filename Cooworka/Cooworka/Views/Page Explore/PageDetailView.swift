@@ -5,37 +5,22 @@ struct PageDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     
     let cafe: ListCafe
-    let reviews: [ReviewCafe]  //TODO: Pass reviews to the view
+    let reviews: [ReviewCafe]
     
     private var screenWidth: CGFloat {
         UIScreen.main.bounds.width
     }
     
     @ObservedObject var searchNearby: SearchNearby
+//    @StateObject private var viewModel = SearchNearby() 
     
     @State private var showMysteryChestPopup = false
     @State private var showNotInCafePopup = false
     
-   
-    
     var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
-                if showMysteryChestPopup {
-                    PopUpSmall()
-                        .transition(.opacity)
-                        .zIndex(1)
-                }
-                
-                if showNotInCafePopup {
-                    PopUpBelumdiTempat(isDismissed: $showNotInCafePopup)
-                        .transition(.opacity)
-                        .zIndex(1) 
-                }
-                
-                
                 VStack(spacing: -125) {
-                    
                     Image("CafeImage")
                         .resizable()
                         .scaledToFill()
@@ -47,96 +32,98 @@ struct PageDetailView: View {
                     ScrollView {
                         VStack(spacing: 20) {
                             InfoCardView(cafe: cafe)
-                            
-                            CafeReviewCardView(cafe: cafe, reviews: reviews)  // TODO: Pass reviews here
+                            CafeReviewCardView(cafe: cafe, reviews: reviews)
                         }
-                    }
-                    .background(
-                        UnevenRoundedRectangle(
-                            topLeadingRadius: 16,
-                            bottomLeadingRadius: 0,
-                            bottomTrailingRadius: 0,
-                            topTrailingRadius: 16,
-                            style: .continuous
-                        ).fill(Color.white)
-                    )
-                    .padding(.bottom, 140)
-                    
-                    ZStack{
-                        Rectangle()
-                            .frame(width: .infinity, height: 120)
-                            .foregroundColor(.white)
-                            .shadow(radius:10)
-                        
-                        Button(action: {
-                            // Action for claiming the reward
-                            if let userLocation = searchNearby.userLocation {
-                                let cafeLocation = CLLocation(latitude: cafe.coordinate.latitude, longitude: cafe.coordinate.longitude)
-                                
-                                if isNearbyUserLocation(userLocation: userLocation, cafeLocation: cafeLocation) {
-                                    // Logic untuk menampilkan pop-up MysteryChest jika dekat dengan kafe
-                                    // Misalnya: showMysteryChestPopup()
-                                    
-                                    showMysteryChestPopup = true
-                                    showNotInCafePopup = false
-                                    print("User is nearby the cafe")
-                                } else {
-                                    // Logic untuk menampilkan pop-up NotInCafe jika tidak dekat dengan kafe
-                                    showMysteryChestPopup = false
-                                    showNotInCafePopup = true
-                                    // Misalnya: showNotInCafePopup()
-                                    print("User is not nearby the cafe")
-                                }
-                            }
-                        }) {
-                            Text("Klaim Reward")
-                                .font(
-                                    Font.custom("Nunito", size: 24)
-                                        .weight(.bold)
-                                )
-                                .padding(.horizontal, 100)
-                                .padding(.vertical, 18)
-                                .foregroundColor(.white)
-                                .background(Color("PrimaryBase"))
-                                .cornerRadius(15)
-                                .padding(.top, 20)
-                                .padding(.bottom, 30)
-                        }
-                    }
-                }
-                .edgesIgnoringSafeArea(.bottom)
-                
-                
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 40, height: 40)
-                        .overlay(
-                            Image(systemName: "arrow.left")
-                                .font(.system(size: 20))
-                                .foregroundColor(.black)
+                        .background(
+                            UnevenRoundedRectangle(
+                                topLeadingRadius: 16,
+                                bottomLeadingRadius: 0,
+                                bottomTrailingRadius: 0,
+                                topTrailingRadius: 16,
+                                style: .continuous
+                            ).fill(Color.white)
                         )
+                        .padding(.bottom, 140)
+                        
+                        ZStack {
+                            Rectangle()
+                                .frame(width: .infinity, height: 120)
+                                .foregroundColor(.white)
+                                .shadow(radius: 10)
+                            
+                            Button(action: {
+                                if let userLocation = searchNearby.userLocation {
+                                    let cafeLocation = CLLocation(latitude: cafe.coordinate.latitude, longitude: cafe.coordinate.longitude)
+                                    
+                                    if isNearbyUserLocation(userLocation: userLocation, cafeLocation: cafeLocation) {
+                                        showMysteryChestPopup = true
+                                        showNotInCafePopup = false
+                                        print("User is nearby the cafe")
+                                    } else {
+                                        showMysteryChestPopup = false
+                                        showNotInCafePopup = true
+                                        print("User is not nearby the cafe")
+                                    }
+                                }
+                            }) {
+                                Text("Klaim Reward")
+                                    .font(
+                                        Font.custom("Nunito", size: 24)
+                                            .weight(.bold)
+                                    )
+                                    .padding(.horizontal, 100)
+                                    .padding(.vertical, 18)
+                                    .foregroundColor(.white)
+                                    .background(Color("PrimaryBase"))
+                                    .cornerRadius(15)
+                                    .padding(.top, 20)
+                                    .padding(.bottom, 30)
+                            }
+                        }
+                    }
+                    .edgesIgnoringSafeArea(.bottom)
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 40, height: 40)
+                            .overlay(
+                                Image(systemName: "arrow.left")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.black)
+                            )
+                    }
+                    .padding()
+                    .offset(x: -153 , y: -650)
+                    
+                    
+                    if showMysteryChestPopup {
+                        PopUpSmall(isActive: $showMysteryChestPopup, cafe: cafe)
+                            .transition(.opacity)
+                            .zIndex(1)
+                    }
+                    
+                    if showNotInCafePopup {
+                        PopUpBelumdiTempat(isActive: $showNotInCafePopup)
+                            .transition(.opacity)
+                            .zIndex(1)
+                    }
                 }
-                .padding()
-                .padding(.leading, 5)
-                .padding(.top, -20)
-                
-                
-                
             }
-           
         }
         .navigationBarBackButtonHidden()
+        
+        
     }
     
-    // Logic Check In: Toleransi 50 meter
     private func isNearbyUserLocation(userLocation: CLLocation, cafeLocation: CLLocation, maxDistance: CLLocationDistance = 50) -> Bool {
         let distance = userLocation.distance(from: cafeLocation)
         return distance <= maxDistance
     }
 }
+
 
 // Sample data for preview
 let exampleCafe = ListCafe(
@@ -190,7 +177,7 @@ struct PageExplore_Previews2: PreviewProvider {
     static var previews: some View {
         //TODO: ganti jadi firstname user
         var firstName = "Natasha"
-        PageExplore(reviews: exampleReviews, firstName: firstName)
+        PageExplore(reviews: exampleReviews, firstName: firstName, cafe: exampleCafe)
     }
 }
 
