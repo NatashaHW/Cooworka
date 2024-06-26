@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReviewPage3: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var userProgress = UserProgress.shared
     
     @State private var selectedImages: [UIImage] = []
     @State private var reviewExtra: String = ""
@@ -18,6 +19,11 @@ struct ReviewPage3: View {
     @State private var isPickerPresented: Bool = false
     
     @Binding var totalPoint: Int
+    
+    let cafe: ListCafe
+    let reviews: [ReviewCafe]
+    
+    @State private var navigateToOpenChest = false
     
     var body: some View {
         NavigationView{
@@ -50,11 +56,8 @@ struct ReviewPage3: View {
                         .padding()
                         .padding(.leading, 10)
                         
-                        Rectangle()
-                            .frame(width: .infinity, height: 110)
-                            .padding()
-                            .padding(.top, -10)
-                            .padding(.horizontal, 10)
+                        CafeCardMini(cafe: cafe)
+                            .padding(.bottom, 20)
                         
                         HStack{
                             Text("Kamu akan mendapatkan...")
@@ -75,15 +78,15 @@ struct ReviewPage3: View {
                 
                 HStack{
                     LineProgressReview()
-                    LineProgressReview(color: "GreyProgressBarSelected")
                     LineProgressReview()
+                    LineProgressReview(color: "GreyProgressBarSelected")
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 12)
                 
                 ScrollView{
                     VStack(spacing: 28){
-
+                        
                         FotoElement(openGallery: {
                             isPickerPresented.toggle()
                         }, updatePoint: {
@@ -175,22 +178,31 @@ struct ReviewPage3: View {
                     Rectangle()
                         .frame(width: .infinity, height: 110)
                         .foregroundColor(.white)
-                        .shadow(radius:10)
+                        .shadow(radius: 10)
                     
-                    NavigationLink(destination: OpenChest()) { //TODO: save ke cloudkit
+                    NavigationLink(destination: OpenChest(totalPoint: $totalPoint, reviews: reviews, cafe: cafe), isActive: $navigateToOpenChest) {
+                        EmptyView()
+                    }
+                    .hidden()
+                    
+                    Button(action: {
+                        userProgress.xp += totalPoint
+                        navigateToOpenChest = true
+                    }) {
                         Text("Buka Reward")
                             .padding(.horizontal, 120)
                             .padding(.vertical, 18)
                             .foregroundColor(.white)
                             .background(Color("PrimaryBase"))
                             .cornerRadius(15)
-                        
                     }
                     .padding(.top, 20)
                     .padding(.bottom, 30)
                     
                     
+                    
                 }
+                
                 
             }
             .edgesIgnoringSafeArea(.bottom)
@@ -218,5 +230,5 @@ struct ReviewPage3: View {
 }
 
 #Preview {
-    ReviewPage3(totalPoint: .constant(25))
+    ReviewPage3(totalPoint: .constant(25), cafe: exampleCafe, reviews: exampleReviews)
 }

@@ -13,6 +13,8 @@ struct Profile: View {
 //    let cafe: ListCafe
     let reviews: [ReviewCafe]
     
+    
+    
     var body: some View {
         VStack{
             ZStack(alignment: .top){
@@ -109,5 +111,5 @@ struct Profile: View {
 }
 
 #Preview {
-    Profile(action: {}, reviews: exampleReviews)
+    Profile(action: {}, reviews: exampleReviewsIsi)
 }

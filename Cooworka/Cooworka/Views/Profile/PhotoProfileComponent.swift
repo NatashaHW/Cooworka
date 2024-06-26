@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PhotoProfileComponent: View {
+    @ObservedObject var userProgress = UserProgress.shared
+    
     var body: some View {
         HStack(spacing: 15){
             Image("PhotoProfile")
@@ -29,7 +31,7 @@ struct PhotoProfileComponent: View {
                     Spacer()
                         .frame(width: 18)
                     
-                    Text("20 XP lagi naik pangkat") //TODO: sesuaiin warnanya
+                    Text("\(1000-userProgress.xp) XP lagi naik pangkat") //TODO: sesuaiin warnanya
                         .font(.system(size: 12))
                         .fontWeight(.regular)
                     
@@ -47,11 +49,11 @@ struct PhotoProfileComponent: View {
                         .foregroundColor(.white)
                     
                     RoundedRectangle(cornerRadius: 25.0)
-                        .frame(width: 890/1000*250, height: 9) //TODO: kalo mau dynamic, 890 ikutin XP, 1000 ikutin req next lvl
+                        .frame(width: CGFloat(userProgress.xp)/1000*250, height: 9) //TODO: kalo mau dynamic, 890 ikutin XP, 1000 ikutin req next lvl
                         .overlay(
                             LinearGradient(gradient: Gradient(colors: [.lightYellow, .darkYellow]), startPoint: .leading, endPoint: .trailing))
                         .mask(RoundedRectangle(cornerRadius: 25.0)
-                            .frame(width: 890/1000*250, height: 9))
+                            .frame(width: CGFloat(userProgress.xp)/1000*250, height: 9))
                         .padding(3)
                     
                     

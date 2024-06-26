@@ -17,6 +17,9 @@ struct PopUpSmall: View {
     
     @State private var navigateToReviewPage = false
     
+    let cafe: ListCafe
+    let reviews: [ReviewCafe]
+    
     var body: some View {
             if isActive {
                 VStack{
@@ -76,7 +79,7 @@ struct PopUpSmall: View {
                                     .cornerRadius(10)
                             }
                             .background(
-                                NavigationLink(destination: ReviewPage1(), isActive: $navigateToReviewPage) {
+                                NavigationLink(destination: ReviewPage1(cafe: cafe, reviews: reviews), isActive: $navigateToReviewPage) {
                                     EmptyView()
                                 }
                                     .hidden()
@@ -123,5 +126,5 @@ struct PopUpSmall: View {
 
 
 #Preview {
-    PopUpSmall(isActive: .constant(true))
+    PopUpSmall(isActive: .constant(true), cafe: exampleCafe, reviews: exampleReviews)
 }
