@@ -26,14 +26,16 @@ extension AnyTransition {
 struct LevelProfile: View { //TODO: animation belum smooth
     @State private var showProfile = false
     
+    let reviews: [ReviewCafe]
+    
     var body: some View {
         ZStack {
             if showProfile {
-                Profile {
+                Profile(action: {
                     withAnimation {
                         showProfile.toggle()
                     }
-                }
+                }, reviews: reviews)
                 .transition(.pushFromBottom)
             } else {
                 LevelView {
@@ -49,5 +51,5 @@ struct LevelProfile: View { //TODO: animation belum smooth
 }
 
 #Preview {
-    LevelProfile()
+    LevelProfile(reviews: exampleReviews)
 }

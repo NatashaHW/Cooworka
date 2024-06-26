@@ -19,18 +19,18 @@ struct SunglassesView: View {
                 Image(selectedImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .frame(maxWidth: 190, maxHeight: .infinity)
                     .padding()
-                    .padding(.bottom, 150)
+                    .padding(.bottom, 190)
             }
             
-            ZStack {
+            ZStack(alignment: .top) {
                 Rectangle()
-                    .foregroundColor(.red)
+                    .foregroundColor(.white)
                     .frame(width: 393, height: 319)
                     .cornerRadius(32)
                 
-                VStack(spacing: 30) {
+                VStack(spacing: 10) {
                         HStack(spacing: 10) {
                             ZStack {
                                 Rectangle()
@@ -39,7 +39,7 @@ struct SunglassesView: View {
                                     .cornerRadius(20)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 20)
-                                            .stroke(Color("PrimaryBase"), lineWidth: 4)
+                                            .stroke(Color("PrimaryBase"), lineWidth: 3)
                                     )
                                 Image("KacamataHeader")
                                     .frame(maxHeight: 50)
@@ -53,7 +53,7 @@ struct SunglassesView: View {
                                     .cornerRadius(20)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 20)
-                                            .stroke(Color("Grey300"), lineWidth: 4)
+                                            .stroke(Color("Grey300"), lineWidth: 2)
                                     )
                                 Image("TopiHeader")
                                     .frame(maxHeight: 50)

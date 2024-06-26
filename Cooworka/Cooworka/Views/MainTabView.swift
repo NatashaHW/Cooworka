@@ -23,6 +23,7 @@ struct MainTabView: View {
     
     var body: some View {
         var firstName = "Natasha"
+
         TabView {
 
             PageExplore(reviews: exampleReviews, firstName: firstName)
@@ -42,7 +43,7 @@ struct MainTabView: View {
 //                    Label("Leaderboard", systemImage: "star")
 //                }
             
-            LevelProfile()
+            LevelProfile(reviews: exampleReviews)
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
