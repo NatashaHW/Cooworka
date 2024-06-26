@@ -9,6 +9,6 @@ import SwiftUI
 
 class UserProgress: ObservableObject {
     static let shared = UserProgress()
-    @Published var xp: Int = 200
-     init() {}
+    @Published var xp: Int = 0
+    
 }

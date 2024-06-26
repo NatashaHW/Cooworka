@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReviewPageInitial: View {
     let cafe: ListCafe
+    let reviews: [ReviewCafe]
     
     var body: some View {
         NavigationView{
@@ -21,7 +22,7 @@ struct ReviewPageInitial: View {
                         .foregroundColor(.white)
                         .shadow(radius:10)
                     
-                    NavigationLink(destination: ReviewPage1(cafe: cafe)) {
+                    NavigationLink(destination: ReviewPage1(cafe: cafe, reviews: reviews)) {
                         Text("Go to Detail View")
                             .padding(.horizontal, 100)
                             .padding(.vertical, 18)
@@ -46,5 +47,5 @@ struct ReviewPageInitial: View {
 }
 
 #Preview {
-    ReviewPageInitial(cafe: exampleCafe)
+    ReviewPageInitial(cafe: exampleCafe, reviews: exampleReviews)
 }

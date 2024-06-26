@@ -19,6 +19,7 @@ struct ReviewPage1: View {
     @State private var totalPoint = 0
     
     let cafe: ListCafe
+    let reviews: [ReviewCafe]
     
     
     var body: some View {
@@ -112,7 +113,7 @@ struct ReviewPage1: View {
                         .foregroundColor(.white)
                         .shadow(radius:10)
                     
-                    NavigationLink(destination: ReviewPage2( totalPoint: $totalPoint, cafe: cafe)) {
+                    NavigationLink(destination: ReviewPage2( totalPoint: $totalPoint, cafe: cafe, reviews: reviews)) {
                         Text("Lanjut")
                             .padding(.horizontal, 140)
                             .padding(.vertical, 18)
@@ -137,5 +138,5 @@ struct ReviewPage1: View {
 }
 
 #Preview {
-    ReviewPage1(cafe: exampleCafe)
+    ReviewPage1(cafe: exampleCafe, reviews: exampleReviews)
 }
