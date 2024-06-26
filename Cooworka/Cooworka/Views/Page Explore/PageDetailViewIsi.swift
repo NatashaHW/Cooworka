@@ -22,7 +22,7 @@ struct PageDetailViewIsi: View {
         NavigationView {
             ZStack(alignment: .topLeading) {
                 if showMysteryChestPopup {
-                    PopUpSmall(isActive: $showMysteryChestPopup, cafe: cafe)
+                    PopUpSmall(isActive: $showMysteryChestPopup, cafe: cafe, reviews: reviews)
                         .transition(.opacity)
                         .zIndex(1)
                 }

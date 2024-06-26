@@ -100,7 +100,7 @@ struct PageDetailView: View {
                     
                     
                     if showMysteryChestPopup {
-                        PopUpSmall(isActive: $showMysteryChestPopup, cafe: cafe)
+                        PopUpSmall(isActive: $showMysteryChestPopup, cafe: cafe, reviews: reviews)
                             .transition(.opacity)
                             .zIndex(1)
                     }

@@ -232,14 +232,14 @@ struct PageExplore: View {
                             }
                         }
                     }
-                    .padding(.bottom, -32)
+                    .padding(.bottom, -34)
                 }
                 .onAppear {
                     viewModel.requestLocationPermission()
                 }
                 
                 if showMysteryChestPopup {
-                    PopUpSmall(isActive: $showMysteryChestPopup, cafe: cafe)
+                    PopUpSmall(isActive: $showMysteryChestPopup, cafe: cafe, reviews: reviews)
                         .transition(.opacity)
                         .zIndex(1)
                 }

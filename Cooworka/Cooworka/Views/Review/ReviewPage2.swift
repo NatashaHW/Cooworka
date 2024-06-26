@@ -23,6 +23,8 @@ struct ReviewPage2: View {
     
     let cafe: ListCafe
     
+    let reviews: [ReviewCafe]
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -150,7 +152,7 @@ struct ReviewPage2: View {
                         .foregroundColor(.white)
                         .shadow(radius:10)
                     
-                    NavigationLink(destination: ReviewPage3(totalPoint: $totalPoint, cafe: cafe)) {
+                    NavigationLink(destination: ReviewPage3(totalPoint: $totalPoint, cafe: cafe, reviews: reviews)) {
                         Text("Lanjut")
                             .padding(.horizontal, 140)
                             .padding(.vertical, 18)
@@ -184,5 +186,5 @@ struct ReviewPage2: View {
 }
 
 #Preview {
-    ReviewPage2(totalPoint: .constant(15), cafe: exampleCafe)
+    ReviewPage2(totalPoint: .constant(15), cafe: exampleCafe, reviews: exampleReviews)
 }
