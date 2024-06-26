@@ -8,6 +8,7 @@ struct LevelView: View {
     @State var currentLevel = 1
     
     let levels = Levels
+    @StateObject var userProgress = UserProgress()
     
     var action: () -> Void
     
@@ -49,7 +50,7 @@ struct LevelView: View {
                                         .foregroundColor(.white)
                                         .shadow(color: Color("PrimaryBase").opacity(0.3), radius: 4, x: 0, y: 5)
                                     
-                                    Text("890 XP") //TODO: ganti xp dari data
+                                    Text("\(userProgress.xp) XP") //TODO: ganti xp dari data
                                     //                                .font(.title3)
                                         .font(.system(size: 19))
                                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -109,13 +110,13 @@ struct LevelView: View {
                                             
                                             ZStack (alignment: .leading){
                                                 RoundedRectangle(cornerRadius: 25)
-                                                    .frame(width: 2070/170, height: 10) //bagi point xp
+                                                    .frame(width: CGFloat(userProgress.xp) / 1000 * 258, height: 10)
                                                     .padding()
                                                     .zIndex(0.5)
                                                     .overlay(
                                                         LinearGradient(gradient: Gradient(colors: [.lightYellow, .darkYellow]), startPoint: .leading, endPoint: .trailing))
                                                     .mask(RoundedRectangle(cornerRadius: 25)
-                                                        .frame(width: 2070/170, height: 10))
+                                                        .frame(width: CGFloat(userProgress.xp) / 1000 * 258, height: 10))
                                                 
                                                 
                                                 

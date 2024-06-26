@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReviewPage3: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var userProgress = UserProgress.shared
     
     @State private var selectedImages: [UIImage] = []
     @State private var reviewExtra: String = ""
@@ -188,6 +189,9 @@ struct ReviewPage3: View {
                     }
                     .padding(.top, 20)
                     .padding(.bottom, 30)
+                    .onTapGesture {
+                        userProgress.xp += totalPoint
+                    }
                     
                     
                 }
