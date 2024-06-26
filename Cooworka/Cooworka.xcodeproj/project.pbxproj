@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		403507FE2C2ACB69001452C0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403507FD2C2ACB69001452C0 /* MainTabView.swift */; };
+		403508012C2B3723001452C0 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403508002C2B3723001452C0 /* WardrobeView.swift */; };
+		403508032C2B3991001452C0 /* SunglassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403508022C2B3991001452C0 /* SunglassesView.swift */; };
 		406D8A442C22957200A4B724 /* SignInApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D8A432C22957200A4B724 /* SignInApple.swift */; };
 		406D8A492C22974A00A4B724 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 406D8A482C22974A00A4B724 /* Nunito-Regular.ttf */; };
 		406D8A4B2C22975700A4B724 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 406D8A4A2C22975700A4B724 /* Nunito-Bold.ttf */; };
@@ -101,6 +103,8 @@
 /* Begin PBXFileReference section */
 		403507FC2C2ACB51001452C0 /* Cooworka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cooworka.entitlements; sourceTree = "<group>"; };
 		403507FD2C2ACB69001452C0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		403508002C2B3723001452C0 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
+		403508022C2B3991001452C0 /* SunglassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunglassesView.swift; sourceTree = "<group>"; };
 		406D8A432C22957200A4B724 /* SignInApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInApple.swift; sourceTree = "<group>"; };
 		406D8A482C22974A00A4B724 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		406D8A4A2C22975700A4B724 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -203,6 +207,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		403507FF2C2B3669001452C0 /* Wardrobe */ = {
+			isa = PBXGroup;
+			children = (
+				403508002C2B3723001452C0 /* WardrobeView.swift */,
+				403508022C2B3991001452C0 /* SunglassesView.swift */,
+			);
+			path = Wardrobe;
+			sourceTree = "<group>";
+		};
 		406D8A472C22972D00A4B724 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +508,7 @@
 				408B53E42C1A94D5003DE834 /* ContentView.swift */,
 				406D8A432C22957200A4B724 /* SignInApple.swift */,
 				63B96D852C23249300078480 /* ReviewPageInitial.swift */,
+				403507FF2C2B3669001452C0 /* Wardrobe */,
 				63E3B32A2C29D6A700CCF7ED /* LevelProfile */,
 				63E3B3212C29D18600CCF7ED /* Profile */,
 				63F876462C26A82100DFB001 /* Review */,
@@ -658,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403508032C2B3991001452C0 /* SunglassesView.swift in Sources */,
 				63819FC22C246CDE00826F04 /* QtyComponent.swift in Sources */,
 				408B53E52C1A94D5003DE834 /* ContentView.swift in Sources */,
 				63B5C7552C2520300056341A /* ReviewPage3.swift in Sources */,
@@ -692,6 +707,7 @@
 				63B5C7572C25211E0056341A /* KetersediaanParkirElement.swift in Sources */,
 				630C1EB42C23DFDE007A5CA7 /* YesOrNoRating.swift in Sources */,
 				63D288262C2A72DC00BCCEC7 /* ReviewCardView.swift in Sources */,
+				403508012C2B3723001452C0 /* WardrobeView.swift in Sources */,
 				63E3B3232C29D20000CCF7ED /* PhotoProfileComponent.swift in Sources */,
 				403507FE2C2ACB69001452C0 /* MainTabView.swift in Sources */,
 				63E3B3272C29D3A000CCF7ED /* ReviewHelpfulStat.swift in Sources */,

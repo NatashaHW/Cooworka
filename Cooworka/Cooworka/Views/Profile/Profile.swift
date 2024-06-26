@@ -10,6 +10,9 @@ import SwiftUI
 struct Profile: View {
     var action: () -> Void
     
+//    let cafe: ListCafe
+    let reviews: [ReviewCafe]
+    
     var body: some View {
         VStack{
             ZStack(alignment: .top){
@@ -29,18 +32,21 @@ struct Profile: View {
                         .frame(width: .infinity, height: 80)
                         .foregroundColor(.lightBlueForPopUp)
                     
-                    VStack{
+                    VStack(spacing: 0){
                         Image(systemName: "chevron.up")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 12)
                         
-                        Text("Scroll to back")
-                            .font(.system(size: 12))
+                        Image(systemName: "chevron.up")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 12)
                             
                     }
                     .offset(y: 25)
                     .foregroundColor(.grey500)
+                    .padding(.top, 28)
                         
                 }
                 .gesture(
@@ -82,25 +88,26 @@ struct Profile: View {
             }
             
             ScrollView{ //TODO: ganti sama component review
-                Rectangle()
-                    .frame(width: 370, height: 200)
-                
-                Rectangle()
-                    .frame(width: 370, height: 200)
-                
-                Rectangle()
-                    .frame(width: 370, height: 200)
-                
-                Rectangle()
-                    .frame(width: 370, height: 200)
+                ForEach(reviews.filter { $0.userName == "Natasha" }) { review in
+                    ReviewCard(
+                        userImage: review.userImage,
+                        userName: review.userName,
+                        userLevel: review.userLevel,
+                        reviewCount: review.reviewCount,
+                        reviewText: review.reviewText,
+                        reviewDate: review.reviewDate,
+                        rating: review.rating,
+                        likeCount: review.likeCount
+                    )
+                }
                 
             }
             
         }
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 #Preview {
-    Profile(action: {})
+    Profile(action: {}, reviews: exampleReviews)
 }
