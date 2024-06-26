@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct PopUpBelumdiTempat: View {
-    @Binding var isDismissed: Bool
+    @Binding var isActive: Bool
     
     var body: some View {
-        if !isDismissed {
+        if isActive {
             VStack{
                 Spacer()
                 
@@ -24,7 +24,7 @@ struct PopUpBelumdiTempat: View {
                             .zIndex(1)
                             .foregroundColor(.grey900)
                             .onTapGesture {
-                                isDismissed = true
+                                isActive = false
                             }
                             
                     
@@ -80,7 +80,7 @@ struct PopUpBelumdiTempat: View {
                 
             }
             .frame(maxWidth: .infinity)
-            .background(Color.black.opacity(0.4))
+            .background(Color.black.opacity(0.6))
             .edgesIgnoringSafeArea(.all)
 
         }
@@ -89,5 +89,5 @@ struct PopUpBelumdiTempat: View {
 }
 
 #Preview {
-    PopUpBelumdiTempat(isDismissed: .constant(false))
+    PopUpBelumdiTempat(isActive: .constant(false))
 }
