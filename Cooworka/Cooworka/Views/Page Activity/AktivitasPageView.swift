@@ -8,6 +8,7 @@ struct AktivitasPageView: View {
         UIScreen.main.bounds.width
     }
     
+    let reviews: [ReviewCafe]
     
     
     var body: some View {
@@ -21,7 +22,7 @@ struct AktivitasPageView: View {
                     
                     HStack {
                         
-                        NavigationLink(destination: AktivitasPageView()){
+                        NavigationLink(destination: AktivitasPageView(reviews: reviews)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -40,7 +41,7 @@ struct AktivitasPageView: View {
                             }
                         }
                         
-                        NavigationLink(destination: FavoritePageView()){
+                        NavigationLink(destination: FavoritePageView(reviews: reviews)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -132,7 +133,7 @@ struct AktivitasPageView: View {
                         }
                         
                         NavigationLink {
-                            AktivitasPageView()
+                            AktivitasPageView(reviews: reviews)
                         } label: {
                             ZStack {
                                 VStack (spacing: 5){
@@ -152,7 +153,7 @@ struct AktivitasPageView: View {
                         
                         
                         NavigationLink {
-                            LevelProfile()
+                            LevelProfile(reviews: reviews)
                         } label: {
                             ZStack {
                                 VStack (spacing: 5){
@@ -193,5 +194,5 @@ struct AktivitasPageView: View {
 }
 
 #Preview {
-    AktivitasPageView()
+    AktivitasPageView(reviews: exampleReviews)
 }

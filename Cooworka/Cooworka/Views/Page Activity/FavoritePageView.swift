@@ -7,6 +7,7 @@ struct FavoritePageView: View {
     private var screenWidth: CGFloat {
         UIScreen.main.bounds.width
     }
+    let reviews: [ReviewCafe]
     
     var body: some View {
         NavigationView {
@@ -18,7 +19,7 @@ struct FavoritePageView: View {
                         .font(.system(size: 26, weight: .bold))
                     
                     HStack {
-                        NavigationLink(destination: AktivitasPageView()){
+                        NavigationLink(destination: AktivitasPageView(reviews: reviews)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -31,7 +32,7 @@ struct FavoritePageView: View {
                             }
                         }
                         
-                        NavigationLink(destination: FavoritePageView()){
+                        NavigationLink(destination: FavoritePageView(reviews: reviews)){
                             ZStack {
                                 Rectangle()
                                     .frame(width: 168, height: 38)
@@ -133,7 +134,7 @@ struct FavoritePageView: View {
                         }
                         
                         NavigationLink {
-                            AktivitasPageView()
+                            AktivitasPageView(reviews: reviews)
                         } label: {
                             ZStack {
                                 VStack (spacing: 5){
@@ -153,7 +154,7 @@ struct FavoritePageView: View {
                         
                         
                         NavigationLink {
-                            LevelProfile()
+                            LevelProfile(reviews: reviews)
                         } label: {
                             ZStack {
                                 VStack (spacing: 5){
@@ -193,5 +194,5 @@ struct FavoritePageView: View {
 }
 
 #Preview {
-    FavoritePageView()
+    FavoritePageView(reviews: exampleReviews)
 }

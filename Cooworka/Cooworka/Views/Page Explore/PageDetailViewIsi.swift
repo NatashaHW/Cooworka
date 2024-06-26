@@ -22,13 +22,13 @@ struct PageDetailViewIsi: View {
         NavigationView {
             ZStack(alignment: .topLeading) {
                 if showMysteryChestPopup {
-                    PopUpSmall()
+                    PopUpSmall(isActive: $showMysteryChestPopup)
                         .transition(.opacity)
                         .zIndex(1)
                 }
                 
                 if showNotInCafePopup {
-                    PopUpBelumdiTempat(isDismissed: $showNotInCafePopup)
+                    PopUpBelumdiTempat(isActive: $showNotInCafePopup)
                         .transition(.opacity)
                         .zIndex(1)
                 }

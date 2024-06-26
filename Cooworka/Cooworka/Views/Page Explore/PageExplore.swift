@@ -198,7 +198,7 @@ struct PageExplore: View {
                                 }
                                 
                                 NavigationLink {
-                                    AktivitasPageView()
+                                    AktivitasPageView(reviews: reviews)
                                 } label: {
                                     ZStack {
                                         VStack (spacing: 5){
@@ -217,7 +217,7 @@ struct PageExplore: View {
                                 }
                                 
                                 NavigationLink {
-                                    LevelProfile()
+                                    LevelProfile(reviews: reviews)
                                 } label: {
                                     ZStack {
                                         VStack (spacing: 5){
