@@ -104,8 +104,79 @@ struct FavoritePageView: View {
                         }
                     }
                 }
+                
+                ZStack{
+                    Rectangle()
+                        .frame(width: .infinity, height: 83)
+                        .foregroundColor(.white)
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    
+                    HStack(spacing: 83){
+                        
+                        NavigationLink(destination: PageExplore(reviews: exampleReviews)){
+                            ZStack {
+                                
+                                VStack (spacing: 5){
+                                    Image("Eksplor")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30)
+                                    
+                                    Text("Eksplor")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.grey999)
+                                        .background(Color.clear)
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        NavigationLink {
+                            AktivitasPageView()
+                        } label: {
+                            ZStack {
+                                VStack (spacing: 5){
+                                    Image("AktivitasBiru")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30)
+                                    
+                                    Text("Aktivitas")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.primaryBase)
+                                        .background(Color.clear)
+                                }
+                                
+                            }
+                        }
+                        
+                        
+                        NavigationLink {
+                            LevelProfile()
+                        } label: {
+                            ZStack {
+                                VStack (spacing: 5){
+                                    Image("Profil")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30)
+                                    
+                                    Text("Profil")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.grey999)
+                                        .background(Color.clear)
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                    
+                }
+
             }
-            
+            .edgesIgnoringSafeArea(.bottom)
             .onAppear {
                 viewModel.requestLocationPermission()
             }

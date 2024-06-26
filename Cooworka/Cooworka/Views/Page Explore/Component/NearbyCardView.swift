@@ -5,11 +5,17 @@ struct NearbyCardView: View {
     let cafe: ListCafe
     let reviews: [ReviewCafe]
     
+    let activateMysteryPopUp: () -> Void
+    let activateBelumdiTempat: () -> Void
+    
     @ObservedObject var searchNearby: SearchNearby
+    
     
     var body: some View {
         NavigationLink(destination: PageDetailView(cafe: cafe, reviews: reviews, searchNearby: SearchNearby())) {
             ZStack(alignment: .leading) {
+               
+                
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
                     .shadow(color: .black.opacity(0.2), radius: 4)
@@ -103,11 +109,13 @@ struct NearbyCardView: View {
                                         // Logic untuk menampilkan pop-up MysteryChest jika dekat dengan kafe
                                         // Misalnya: showMysteryChestPopup()
 //                                        PopUpSmall()
+                                        activateMysteryPopUp()
                                         print("User is nearby the cafe")
                                     } else {
                                         // Logic untuk menampilkan pop-up NotInCafe jika tidak dekat dengan kafe
 //                                        PopUpBelumdiTempat()
                                         // Misalnya: showNotInCafePopup()
+                                        activateBelumdiTempat()
                                         print("User is not nearby the cafe")
                                     }
                                 }
@@ -185,8 +193,9 @@ struct NearbyCardView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = SearchNearby()
         
-        return NearbyCardView(cafe: exampleCafe, reviews: exampleReviews, searchNearby: viewModel)
+        return NearbyCardView(cafe: exampleCafe, reviews: exampleReviews, activateMysteryPopUp: {}, activateBelumdiTempat: {}, searchNearby: viewModel)
             .previewLayout(.fixed(width: 375, height: 180))
             .padding()
+        
     }
 }
