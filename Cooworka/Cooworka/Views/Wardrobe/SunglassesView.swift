@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SunglassesView: View {
-    @State private var selectedImage: String? = nil
+    @State private var selectedImage: String? = "NoSunglasses"
 
     let sunglasses = [
         "NoSunglasses",
@@ -11,8 +11,11 @@ struct SunglassesView: View {
     ]
 
     var body: some View {
+        
         VStack {
-            if let selectedImage = selectedImage {
+            Spacer()
+            
+            if let selectedImage = selectedImage, selectedImage != "NoSunglasses" {
                 Image(selectedImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -23,26 +26,102 @@ struct SunglassesView: View {
             
             ZStack {
                 Rectangle()
-                    .foregroundColor(.white)
+                    .foregroundColor(.red)
                     .frame(width: 393, height: 319)
                     .cornerRadius(32)
                 
-                
-                HStack {
-                    ForEach(sunglasses, id: \.self) { image in
-                        Button(action: {
-                            selectedImage = image
-                        }) {
-                            Image(image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxHeight: 50)
-                                .padding()
+                VStack(spacing: 30) {
+                        HStack(spacing: 10) {
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 80, height: 42)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(20)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color("PrimaryBase"), lineWidth: 4)
+                                    )
+                                Image("KacamataHeader")
+                                    .frame(maxHeight: 50)
+                                    .padding()
+                            }
+                            
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 80, height: 42)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(20)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color("Grey300"), lineWidth: 4)
+                                    )
+                                Image("TopiHeader")
+                                    .frame(maxHeight: 50)
+                                    .padding()
+                            }
+                            
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 80, height: 42)
+                                    .foregroundColor(Color("Grey200"))
+                                    .cornerRadius(20)
+                                Image(systemName: "lock.fill")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(Color("Grey500"))
+                                    .padding()
+                            }
+                            
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 80, height: 42)
+                                    .foregroundColor(Color("Grey200"))
+                                    .cornerRadius(20)
+                                Image(systemName: "lock.fill")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(Color("Grey500"))
+                                    .padding()
+                            }
+                        }
+                        
+                    
+                    HStack(spacing: 10) {
+                        ForEach(sunglasses, id: \.self) { image in
+                            Button(action: {
+                                selectedImage = image
+                            }) {
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 80, height: 80)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(12)
+                                        .shadow(color: selectedImage == image ? Color("PrimaryBase") : Color("Shadow"), radius: 5)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(selectedImage == image ? Color("PrimaryBase") : Color.clear, lineWidth: 4)
+                                        )
+                                    
+                                    if image == "NoSunglasses" {
+                                        Image(image)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(maxHeight: 30)
+                                            .padding()
+                                        
+                                    } else {
+                                        Image(image)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(maxHeight: 50)
+                                            .padding()
+                                    }
+                                }
+                                .frame(width: 80, height: 80)
+                            }
                         }
                     }
+                    .padding(.horizontal, 20)
                 }
             }
-            
         }
         .padding()
     }
