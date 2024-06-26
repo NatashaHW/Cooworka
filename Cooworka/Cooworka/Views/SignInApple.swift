@@ -82,7 +82,6 @@ struct SignInApple: View {
 //                    PageExplore(reviews: exampleReviews, firstName: firstName)
                     
                     //Already Signed in
-//                    MainTabView(selectedLabel: <#Binding<String?>#>)
                     PageExplore(reviews: exampleReviews)
                     
                     
