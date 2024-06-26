@@ -12,6 +12,7 @@ struct OpenChest: View {
     @State private var shouldShake = false
     
     private let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+    @Binding var totalPoint: Int
     
     @State private var isAppear = false
     @State private var scale: CGFloat = 0.1
@@ -126,7 +127,7 @@ struct OpenChest: View {
                 if isChestOpen{
                     HStack {
                         ZStack{
-                            Text("+200 XP")
+                            Text("+\(totalPoint) XP")
                                 .font(.subheadline)
                                 .zIndex(1)
                                 .foregroundColor(.buttonClaimChest)
@@ -175,5 +176,5 @@ struct OpenChest: View {
 }
 
 #Preview {
-    OpenChest(reviews: exampleReviews, cafe: exampleCafe )
+    OpenChest(totalPoint: .constant(120), reviews: exampleReviews, cafe: exampleCafe )
 }

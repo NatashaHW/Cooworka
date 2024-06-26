@@ -180,7 +180,7 @@ struct ReviewPage3: View {
                         .foregroundColor(.white)
                         .shadow(radius: 10)
                     
-                    NavigationLink(destination: OpenChest(reviews: reviews, cafe: cafe), isActive: $navigateToOpenChest) {
+                    NavigationLink(destination: OpenChest(totalPoint: $totalPoint, reviews: reviews, cafe: cafe), isActive: $navigateToOpenChest) {
                         EmptyView()
                     }
                     .hidden()
