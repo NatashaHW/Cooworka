@@ -14,8 +14,8 @@ struct Level: CloudKitRecord{
     let levelName: String
     let minimumXp: Int
     
-    init(levelID: CKRecord.ID? = nil, levelName: String, minimumXp: Int) {
-        self.levelID = levelID ?? CKRecord.ID(recordName: UUID().uuidString)
+    init(levelName: String, minimumXp: Int) {
+        self.levelID = CKRecord.ID(recordName: UUID().uuidString)
         self.recordID = levelID
         self.levelName = levelName
         self.minimumXp = minimumXp

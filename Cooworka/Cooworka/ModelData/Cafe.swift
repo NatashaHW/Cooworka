@@ -19,8 +19,8 @@ struct Cafe: CloudKitRecord{
     var serviceRating: Float
     var ambienceRating: Float
     
-    init(cafeID: CKRecord.ID? = nil, alamatCafe: String, namaCafe: String, jamBuka: String, jamTutup: String, tasteRating: Float, serviceRating: Float, ambienceRating: Float) {
-        self.cafeID = cafeID ?? CKRecord.ID(recordName: UUID().uuidString)
+    init(alamatCafe: String, namaCafe: String, jamBuka: String, jamTutup: String, tasteRating: Float, serviceRating: Float, ambienceRating: Float) {
+        self.cafeID = CKRecord.ID(recordName: UUID().uuidString)
         self.recordID = cafeID
         self.alamatCafe = alamatCafe
         self.namaCafe = namaCafe
@@ -57,7 +57,7 @@ struct Cafe: CloudKitRecord{
         }
     
     func toCKRecord(recordType: String) -> CKRecord {
-        let record = CKRecord(recordType: recordType)
+        let record = CKRecord(recordType: recordType, recordID: recordID!)
         record["cafeID"] = cafeID.recordName as CKRecordValue
         record["alamatCafe"] = alamatCafe as CKRecordValue
         record["namaCafe"] = namaCafe as CKRecordValue
